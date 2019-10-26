@@ -1,4 +1,8 @@
 var express = require('express');
+var session = require("express-session");
+
+var passport = require("./config/passport"); //here
+
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
