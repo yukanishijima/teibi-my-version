@@ -1,7 +1,14 @@
+<style>
+.img {width: 150px}
+</style>
+
 # Teibi: ```See you there.```
 
 ## Description:
 
+Teibi
+
+te ibi = see you there
 
 ## Make it work:
 
@@ -13,32 +20,39 @@
 
 ## WireFrame:
 
-Landing Page
-![Teibi](./static/landing.png)
+<p align="center">
+    <img src="./static/landing.png" alt="Landing Page" width="300px"><br>
+    Landing Page
+</p>
 
 <hr >
 
-Main App
-
-![Teibi](./static/app.png)
-
-<hr>
-
-Login
-
-![Teibi](./static/login.png)
+<p align="center">
+    <img src="./static/app.png" alt="Main App" width="300px"><br>
+    Main App
+</p>
 
 <hr>
 
-Signup
-
-![Teibi](./static/signup.png)
+<p align="center">
+    <img src="./static/login.png" alt="Login" width="300px"><br>
+    Login
+</p>
 
 <hr>
 
-List
+<p align="center">
+    <img src="./static/login.png" alt="Signup" width="300px"><br>
+    Signup
+</p>
 
-![Teibi](./static/list.png)
+<hr>
+
+<p align="center">
+    <img src="./static/list.png" alt="List" width="300px">
+    <br>
+    List
+</p>
 
 ### Technology:
 
