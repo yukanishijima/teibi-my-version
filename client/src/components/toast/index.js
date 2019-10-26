@@ -1,6 +1,6 @@
 import React from 'react';
 
-function toast() {
+function Toast() {
     return (
         <>
             <h2>Toast</h2>
@@ -8,4 +8,4 @@ function toast() {
     )
 }
 
-export default toast;
+export default Toast;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function infobutton() {
+function InfoButton() {
     return (
         <>
             <h2>Info Button</h2>
@@ -8,4 +8,4 @@ function infobutton() {
     )
 }
 
-export default infobutton;
+export default InfoButton;

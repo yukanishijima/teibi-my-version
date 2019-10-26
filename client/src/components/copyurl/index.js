@@ -1,6 +1,6 @@
 import React from 'react';
 
-function copyurl(){
+function CopyUrl(){
     return(
         <>
         <h2>Copy Url</h2>    
@@ -8,4 +8,4 @@ function copyurl(){
     )
 }
 
-export default copyurl;
+export default CopyUrl;

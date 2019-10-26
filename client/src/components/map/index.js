@@ -1,6 +1,6 @@
 import React from 'react';
 
-function tmap() {
+function Tmap() {
     return (
         <>
             <h2>Map</h2>
@@ -8,4 +8,4 @@ function tmap() {
     )
 }
 
-export default tmap;
+export default Tmap;
