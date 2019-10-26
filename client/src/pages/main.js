@@ -6,7 +6,7 @@ import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
 
 
-class main extends Component {
+class Main extends Component {
 
     render() {
         return (
@@ -22,4 +22,4 @@ class main extends Component {
     }
 }
 
-export default main;
+export default Main;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class help extends Component {
+class Help extends Component {
 
     render() {
         return (
@@ -11,4 +11,4 @@ class help extends Component {
     }
 }
 
-export default help;
+export default Help;
