@@ -22,6 +22,6 @@ app.use(passport.session());
 
 app.use(express.static("client/build"));
 
-app.use('/api', indexRouter);
+app.use('/api', apiRouter);
 
 module.exports = app;
