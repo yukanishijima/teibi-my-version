@@ -1,8 +1,10 @@
 import React from 'react';
 
-function chat(){
-    return(
-        <></>
+function chat() {
+    return (
+        <>
+            <h2>Chat</h2>
+        </>
     )
 }
 

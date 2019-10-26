@@ -4,7 +4,9 @@ class signin extends Component {
 
     render() {
         return (
-            <></>
+            <>
+                <h1>Sign in</h1>
+            </>
         )
     }
 }

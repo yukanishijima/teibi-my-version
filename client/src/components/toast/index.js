@@ -1,8 +1,10 @@
 import React from 'react';
 
-function toast(){
-    return(
-        <></>
+function toast() {
+    return (
+        <>
+            <h2>Toast</h2>
+        </>
     )
 }
 

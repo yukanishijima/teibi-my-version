@@ -1,8 +1,10 @@
 import React from 'react';
 
-function tmap(){
-    return(
-        <></>
+function tmap() {
+    return (
+        <>
+            <h2>Map</h2>
+        </>
     )
 }
 
