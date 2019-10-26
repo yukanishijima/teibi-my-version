@@ -25,7 +25,8 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "react-router-dom": "^5.1.2",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "use-position": "0.0.6"
   },
   "devDependencies": {
     "concurrently": "^5.0.0",

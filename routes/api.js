@@ -4,7 +4,7 @@ var router = express.Router();
 // load .env
 require("dotenv").config();
 
-const dbController = require("../controllers/dbController");
+const dbController = require("../controllers/dbControllers");
 
 // use mongoose
 var mongoose = require('mongoose');
@@ -17,3 +17,4 @@ router.route("/mid/:lat1/:long1/:lat2/:long2")
   .get(dbController.findMid)
 
 module.exports = router;
+
