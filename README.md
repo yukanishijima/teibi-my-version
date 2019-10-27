@@ -1,59 +1,81 @@
 <style>
-.img {width: 150px}
+.img {
+    width: 45vw;
+    -webkit-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
+    box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.image {
+    text-align: center;
+    font-weight:bold;
+}
 </style>
 
-# Teibi: ```See you there.```
+# Teibi: <q>```See you there.```</q>
 
-## Description:
+We want to help people find a meeting point where they can:
 
-Teibi
+- 🪂 hang out
+- 🤣 laugh
+- 😭 cry
+- 💖 love each other
+- 💔 break up
+- 🏫 learn
+- 🤞 try new things
 
-te ibi = see you there
+**Teibi** will calculate a midpoint between users and present a list of locations to meet.
+
+```Te ibi (latin)```
 
 ## Make it work:
 
-```npm run build```
+You can acces the website or install your own instance
+
+```clone```
 
 ```npm i```
 
 ```npm run install```
 
+```npm run build```
+
 ## WireFrame:
 
-<p align="center">
-    <img src="./static/landing.png" alt="Landing Page" width="300px"><br>
-    Landing Page
+<p class="image">
+    Landing Page<br>
+    <img src="./static/landing.png" alt="Landing Page" class="img">
 </p>
 
-<hr >
+---
 
-<p align="center">
-    <img src="./static/app.png" alt="Main App" width="300px"><br>
-    Main App
+<p class="image">
+    Main App<br>
+    <img src="./static/app.png" alt="Main App" class="img">
 </p>
 
-<hr>
+---
 
-<p align="center">
-    <img src="./static/login.png" alt="Login" width="300px"><br>
-    Login
+<p class="image">
+    Login<br>
+    <img src="./static/login.png" alt="Login" class="img">
 </p>
 
-<hr>
+---
 
-<p align="center">
-    <img src="./static/login.png" alt="Signup" width="300px"><br>
-    Signup
+<p class="image">
+    Signup<br>
+    <img src="./static/login.png" alt="Signup" class="img">
 </p>
 
-<hr>
+---
 
-<p align="center">
-    <img src="./static/list.png" alt="List" width="300px">
-    <br>
-    List
+<p class="image">
+    List<br>
+    <img src="./static/list.png" alt="List" class="img">
 </p>
 
+---
 ### Technology:
 
 MERN
