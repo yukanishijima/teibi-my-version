@@ -7,7 +7,16 @@ import Chat from '../components/chat';
 
 
 class Main extends Component {
+    state = {
+        id: ""
+    }
 
+    componentDidMount() {
+        this.setState({
+            id: this.props.match.params.id
+        })
+    }
+    
     render() {
         return (
             <>
