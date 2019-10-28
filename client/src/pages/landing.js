@@ -9,7 +9,6 @@ function Landing() {
       <div className="App">
         <Help />
         <RandomUrl />
-        <button>Continue to a map</button>
         <button>Sign in</button>
         <button>Sign up</button>
       </div>

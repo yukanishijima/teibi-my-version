@@ -16,11 +16,12 @@ class Main extends Component {
             id: this.props.match.params.id
         })
     }
-    
+
     render() {
         return (
             <>
                 <h1>Main</h1>
+                <sub>{this.props.match.params.id}</sub>
                 <Toast />
                 <Map />
                 <InfoButton />
