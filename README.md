@@ -28,57 +28,42 @@ You can acces the website or install your own instance
 
 ## WireFrame:
 
-<p style="text-align: center;
-    font-weight:bold;">
-    Landing Page<br>
-    <img src="./static/landing.png" alt="Landing Page" style="width: 45vw;
-    -webkit-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
-    -moz-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
-    box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);">
+<p align="center">
+    <b>Landing Page</b>
+    <br>
+    <img src="./static/landing.png" alt="Landing Page" width="350px">
 </p>
 
 ---
 
-<p style="text-align: center;
-    font-weight:bold;">
-    Main App<br>
-    <img src="./static/app.png" alt="Main App" style="width: 45vw;
-    -webkit-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
-    -moz-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
-    box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);">
+<p align="center">
+    <b>Main App</b>
+    <br>
+    <img src="./static/app.png" alt="Main App"  width="350px">
 </p>
 
 ---
 
-<p style="text-align: center;
-    font-weight:bold;">
-    Login<br>
-    <img src="./static/login.png" alt="Login" style="width: 45vw;
-    -webkit-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
-    -moz-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
-    box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);">
+<p align="center">
+    <b>Login</b>
+    <br>
+    <img src="./static/login.png" alt="Login"  width="350px">
 </p>
 
 ---
 
-<p style="text-align: center;
-    font-weight:bold;">
-    Signup<br>
-    <img src="./static/login.png" alt="Signup" style="width: 45vw;
-    -webkit-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
-    -moz-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
-    box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);">
+<p align="center">
+    <b>Signup</b>
+    <br>
+    <img src="./static/login.png" alt="Signup"  width="350px">
 </p>
 
 ---
 
-<p style="text-align: center;
-    font-weight:bold;">
-    List<br>
-    <img src="./static/list.png" alt="List" style="width: 45vw;
-    -webkit-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
-    -moz-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
-    box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);">
+<p align="center">
+    <b>List</b>
+    <br>
+    <img src="./static/list.png" alt="List"  width="350px">
 </p>
 
 ---
