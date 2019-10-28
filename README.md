@@ -83,6 +83,7 @@ Dependencies:
 - [morgan](https://github.com/expressjs/morgan): ~1.9.1
 - [react-router-dom](https://github.com/ReactTraining/react-router): ^5.1.2
 - [socket.io](https://socket.io/): ^2.3.0
+- [use-position]()
 
 devDependencies:
 - [concurrently](https://github.com/kimmobrunfeldt/concurrently): ^5.0.0

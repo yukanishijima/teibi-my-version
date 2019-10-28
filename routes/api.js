@@ -73,3 +73,4 @@ router.get("/mp/:lat1/:long1", function (req, res, next) {
 )
 
 module.exports = router;
+
