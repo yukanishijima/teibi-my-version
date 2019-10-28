@@ -13,7 +13,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route exact path="/Main" component={Main} />
+            <Route exact path="/main" component={Main} />
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signup" component={Signup} />
             <Route path="*" component={NoMatch} />
