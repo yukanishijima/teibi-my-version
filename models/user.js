@@ -1,4 +1,5 @@
 var bcrypt = require("bcryptjs");
+var passport = require("../config/passport");
 
 const mongoose = require("mongoose");
 
@@ -11,15 +12,15 @@ const userSchema = new Schema({
   date: { type: Date, default: Date.now }
 });
 
-const User = mongoose.model("User", userSchema);
+var User = mongoose.model("User", userSchema);
 
 User.prototype.validPassword = function(password) {
   return bcrypt.compareSync(password, this.password);
 };
 
-User.addHook("beforeCreate", function(user) {
-  user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-});
+// User.addHook("beforeCreate", function(user) {
+//   user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+// });
 
 module.exports = User;
 
