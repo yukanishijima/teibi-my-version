@@ -18,7 +18,7 @@ function randomID() {
 function RandomUrl() {
     return (
         <>
-            <Link to={"/Main/" + randomID()}>
+            <Link to={"/main/" + randomID()}>
                 Begin
         </Link><br />
         </>
