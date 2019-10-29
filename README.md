@@ -1,17 +1,3 @@
-<style>
-.img {
-    width: 45vw;
-    -webkit-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
-    -moz-box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
-    box-shadow:10px 10px 10px 0 rgba(0, 0, 0, 0.3);
-}
-
-.image {
-    text-align: center;
-    font-weight:bold;
-}
-</style>
-
 # Teibi: <q>```See you there.```</q>
 
 We want to help people find a meeting point where they can:
@@ -42,37 +28,42 @@ You can acces the website or install your own instance
 
 ## WireFrame:
 
-<p class="image">
-    Landing Page<br>
-    <img src="./static/landing.png" alt="Landing Page" class="img">
+<p align="center">
+    <b>Landing Page</b>
+    <br>
+    <img src="./static/landing.png" alt="Landing Page" width="350px">
 </p>
 
 ---
 
-<p class="image">
-    Main App<br>
-    <img src="./static/app.png" alt="Main App" class="img">
+<p align="center">
+    <b>Main App</b>
+    <br>
+    <img src="./static/app.png" alt="Main App"  width="350px">
 </p>
 
 ---
 
-<p class="image">
-    Login<br>
-    <img src="./static/login.png" alt="Login" class="img">
+<p align="center">
+    <b>Login</b>
+    <br>
+    <img src="./static/login.png" alt="Login"  width="350px">
 </p>
 
 ---
 
-<p class="image">
-    Signup<br>
-    <img src="./static/login.png" alt="Signup" class="img">
+<p align="center">
+    <b>Signup</b>
+    <br>
+    <img src="./static/login.png" alt="Signup"  width="350px">
 </p>
 
 ---
 
-<p class="image">
-    List<br>
-    <img src="./static/list.png" alt="List" class="img">
+<p align="center">
+    <b>List</b>
+    <br>
+    <img src="./static/list.png" alt="List"  width="350px">
 </p>
 
 ---

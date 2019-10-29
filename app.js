@@ -1,7 +1,10 @@
 var express = require('express');
 var session = require("express-session");
 
-var passport = require("./config/passport"); //here
+var passport = require("./config/passport");
+
+var mongoose = require("mongoose");
+var db = require("./models");
 
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -12,6 +15,8 @@ var ipRouter = require('./routes/ip');
 
 
 var app = express();
+
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/teibidb");
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -29,3 +34,4 @@ app.use('/api', ipRouter);
 
 
 module.exports = app;
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import Help from './help';
+import RandomUrl from '../components/randomurl';
 import '../App.css';
 
 function Landing() {
@@ -7,7 +8,7 @@ function Landing() {
     <>
       <div className="App">
         <Help />
-        <button>Continue to a map</button>
+        <RandomUrl />
         <button>Sign in</button>
         <button>Sign up</button>
       </div>

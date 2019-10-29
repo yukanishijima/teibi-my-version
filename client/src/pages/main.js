@@ -4,14 +4,27 @@ import Map from '../components/map';
 import InfoButton from '../components/infobutton';
 import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
+import { Link } from "react-router-dom";
 
 
 class Main extends Component {
+    state = {
+        id: ""
+    }
+
+    componentDidMount() {
+        this.setState({
+            id: this.props.match.params.id
+        })
+    }
 
     render() {
         return (
             <>
-                <h1>Main</h1>
+                <h1>
+                    <Link to="/">Main</Link>
+                </h1>
+                <sub id="urlid">{this.props.match.params.id}</sub>
                 <Toast />
                 <Map />
                 <InfoButton />
