@@ -70,7 +70,7 @@ router.get("/mp/:lat1/:long1", function (req, res, next) {
   client.search({
     latitude: nlat1,
     longitude: nlon1,
-    radius: 50
+    radius: 33
   }).then(response => {
     res.json(response.jsonBody);
     console.log(response.jsonBody);
