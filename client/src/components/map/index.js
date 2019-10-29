@@ -35,6 +35,7 @@ class Tmap extends Component {
     marker = L.marker(this.state.center).addTo(map);
 
     this.updateMarker();
+    this.getCenter();
   }
 
   updateMarker() {
@@ -57,6 +58,13 @@ class Tmap extends Component {
         console.log(this.state.center);
       });
     }.bind(this));
+  }
+
+  // when user clicks the marker, get lat and lng 
+  getCenter() {
+    marker.on("click", (e) => {
+      console.log(`${this.state.center}`);
+    });
   }
 
 
