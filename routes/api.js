@@ -88,4 +88,9 @@ router.get("/mp/:lat1/:long1", function(req, res) {
     });
 });
 
+router.get("/show", function(req, res) {
+  let ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+  res.send(ip);
+});
+
 module.exports = router;
