@@ -2,20 +2,19 @@ var express = require("express");
 var router = express.Router();
 // const axios = require('axios');
 
-// load .env
-require("dotenv").config();
-
 ("use strict");
 
 const yelp = require("yelp-fusion");
 const client = yelp.client(process.env.apikey);
 
-// const dbController = require("../controllers/dbControllers");
+const dbController = require("../controllers/dbControllers");
 
 // use mongoose
 var mongoose = require("mongoose");
 //Set up default mongoose connection
+// var mongoDB = `mongodb://localhost/teibidb`;
 var mongoDB = `mongodb://${process.env.user}:${process.env.password}@${process.env.host}/${process.env.db}`;
+// console.log(mongoDB);
 mongoose.connect(process.env.DATABASE_URL || mongoDB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -91,6 +90,10 @@ router.get("/mp/:lat1/:long1", function(req, res) {
 router.get("/show", function(req, res) {
   let ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
   res.send(ip);
+});
+
+router.post("/signup", function(req, res) {
+  dbController.create(req, res);
 });
 
 module.exports = router;
