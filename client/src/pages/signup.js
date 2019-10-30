@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 
+var bcrypt = require("bcryptjs");
+
 class SignUp extends Component {
     state = {
         username: "",
@@ -20,7 +22,7 @@ class SignUp extends Component {
         var userData = {
             username: this.state.username,
             email: this.state.email,
-            password: this.state.password
+            password: bcrypt.hashSync(this.state.password, bcrypt.genSaltSync(10), null)
         };
 
         API.saveUser(userData)
@@ -68,7 +70,7 @@ class SignUp extends Component {
                                         />
                                         <label htmlFor="password-input">Password:</label>
                                         <input
-                                            type="text"
+                                            type="password"
                                             className="form-control"
                                             id="password-input"
                                             name="password"
