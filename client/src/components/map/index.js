@@ -8,7 +8,7 @@ let marker = "";
 class Tmap extends Component {
 
   state = {
-    center: [43.6629, -79.3957]  // initial lat long
+    center: [this.props.match.params.lat, -79.3957]  // initial lat long
   }
 
   componentDidMount() {

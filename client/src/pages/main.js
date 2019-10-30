@@ -3,13 +3,16 @@ import Toast from '../components/toast';
 import Map from '../components/map';
 import InfoButton from '../components/infobutton';
 import CopyUrl from '../components/copyurl';
+import UserLocation from '../components/userlocation';
 import Chat from '../components/chat';
 import { Link } from "react-router-dom";
 
 
 class Main extends Component {
     state = {
-        id: ""
+        id: "",
+        lat:"",
+        long:""
     }
 
     componentDidMount() {
@@ -24,11 +27,11 @@ class Main extends Component {
                 <h1>
                     <Link to="/">Main</Link>
                 </h1>
-                <sub id="urlid">{this.props.match.params.id}</sub>
+                <UserLocation lat={this.state.lat}/>
                 <Toast />
-                <Map />
+                <Map lat={this.state.lat}/>
                 <InfoButton />
-                <CopyUrl />
+                <CopyUrl text={window.location.href}/>
                 <Chat />
             </>
         )
