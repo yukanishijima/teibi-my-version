@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Toast from '../toast';
 import L from 'leaflet';
 import './style.css'
 
@@ -8,7 +9,8 @@ let marker = "";
 class Tmap extends Component {
 
   state = {
-    center: [43.6629, -79.3957]  // initial lat long
+    center: [43.6629, -79.3957],  // initial lat long
+    status: ""
   }
 
   componentDidMount() {
@@ -68,9 +70,11 @@ class Tmap extends Component {
   }
 
 
+
   render() {
     return (
       <>
+        <Toast />
         <div id="map"></div>
       </>
     )

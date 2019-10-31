@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Toast from '../components/toast';
 import Map from '../components/map';
 import InfoButton from '../components/infobutton';
 import CopyUrl from '../components/copyurl';
@@ -8,31 +7,30 @@ import { Link } from "react-router-dom";
 
 
 class Main extends Component {
-    state = {
-        id: ""
-    }
+  state = {
+    id: ""
+  }
 
-    componentDidMount() {
-        this.setState({
-            id: this.props.match.params.id
-        })
-    }
+  componentDidMount() {
+    this.setState({
+      id: this.props.match.params.id
+    })
+  }
 
-    render() {
-        return (
-            <>
-                <h1>
-                    <Link to="/">Main</Link>
-                </h1>
-                <sub id="urlid">{this.props.match.params.id}</sub>
-                <Toast />
-                <Map />
-                <InfoButton />
-                <CopyUrl />
-                <Chat />
-            </>
-        )
-    }
+  render() {
+    return (
+      <>
+        <h1>
+          <Link to="/">Main</Link>
+        </h1>
+        <sub id="urlid">{this.props.match.params.id}</sub>
+        <Map />
+        <InfoButton />
+        <CopyUrl />
+        <Chat />
+      </>
+    )
+  }
 }
 
 export default Main;
