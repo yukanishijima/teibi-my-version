@@ -20,9 +20,10 @@ class SignIn extends Component {
             password: this.state.password
         };
 
-        API.loginUser({userData})
+        API.loginUser(userData)
             .then(res => {
                 console.log("successful login");
+                console.log(res.data);
 
             })
             .catch(err => {
@@ -35,7 +36,40 @@ class SignIn extends Component {
     render() {
         return (
             <>
-                <h1>Sign in</h1>
+                <div className="row">
+                    <div className="col-12">
+                        <div className="card">
+                            <h4 className="card-header">Sign In</h4>
+
+                            <div className="card-body">
+                                <form>
+                                    <div className="form-group">
+                                        <label htmlFor="username-input">Username:</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="username-input"
+                                            name="username"
+                                            // value=""
+                                            onChange={this.handleInputChange}
+                                        />
+                                        <label htmlFor="password-input">Password:</label>
+                                        <input
+                                            type="password"
+                                            className="form-control"
+                                            id="password-input"
+                                            name="password"
+                                            // value=""
+                                            onChange={this.handleInputChange}
+                                        />
+                                    </div>
+                                    <button type="submit" className="btn btn-primary" id="sign-in" onClick={this.handleFormSubmit}>Sign In</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </>
         )
     }
