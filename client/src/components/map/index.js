@@ -8,7 +8,7 @@ let marker = "";
 class Tmap extends Component {
 
   state = {
-    center: [this.props.match.params.lat, -79.3957]  // initial lat long
+    center: [43.65,79.38]  // initial lat long
   }
 
   componentDidMount() {
@@ -69,8 +69,11 @@ class Tmap extends Component {
 
 
   render() {
+    console.log("lat: "+ this.props.lat);
+    console.log("long: " + this.props.long);
     return (
       <>
+        {/* <div>lat:{this.props.lat} long:{this.props.long}</div> */}
         <div id="map"></div>
       </>
     )

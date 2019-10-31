@@ -1,16 +1,12 @@
 import React from 'react';
-import { usePosition } from 'use-position';
+import {usePosition} from 'use-position';
+import Map from '../map'
+
 const UserLocation = (props) => {
-    const { latitude, longitude, timestamp, accuracy, error } = usePosition(true);
+    const { latitude, longitude } = usePosition(true);
   
     return (
-      <div>
-        latitude: {latitude}<br/>
-        longitude: {longitude}<br/>
-        timestamp: {timestamp}<br/>
-        accuracy: {accuracy && `${accuracy}m`}<br/>
-        error: {error}
-      </div>
+      <Map lat={latitude} long={longitude}/>
     );
   };
   export default UserLocation;
