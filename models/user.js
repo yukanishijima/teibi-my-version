@@ -18,9 +18,4 @@ User.prototype.validPassword = function(password) {
   return bcrypt.compareSync(password, this.password);
 };
 
-// User.addHook("beforeCreate", function(user) {
-//   user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-// });
-
 module.exports = User;
-

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Toast from '../components/toast';
+import Map from '../components/map';
 import InfoButton from '../components/infobutton';
 import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
