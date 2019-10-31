@@ -25,7 +25,6 @@ class Main extends Component {
                 <h1>
                     <Link to="/">Main</Link>
                 </h1>
-                <Toast />
                 <UserLocation />
                 <InfoButton />
                 <CopyUrl text={window.location.href}/>
