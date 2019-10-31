@@ -2,6 +2,8 @@ var express = require("express");
 var router = express.Router();
 // const axios = require('axios');
 
+var passport = require("../config/passport");
+
 ("use strict");
 
 const yelp = require("yelp-fusion");
@@ -95,5 +97,13 @@ router.get("/show", function(req, res) {
 router.post("/signup", function(req, res) {
   dbController.create(req, res);
 });
+
+router.post("/signin", passport.authenticate("local"), function(req, res) {
+  res.json(req.user);
+});
+
+// app.post("/api/login", passport.authenticate("local"), function(req, res) {
+//   res.json(req.user);
+// });
 
 module.exports = router;
