@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import Toast from '../toast';
 import L from 'leaflet';
+import Locate from "leaflet.locatecontrol";
+
 import './style.css'
 
 let map = "";
 let marker = "";
-
+  
 class Tmap extends Component {
 
   state = {
@@ -30,15 +32,18 @@ class Tmap extends Component {
       ],
       zoomControl: false
     });
+    //Reference: https://medium.com/@annaian/adding-leaflet-and-leaflet-locatecontrol-to-react-component-c864262811e8
+    //find user location and update based on that
+    const lc = new Locate();
+    lc.addTo(map);
     //set zoom controller to bottom right
     L.control.zoom({ position: "bottomright" }).addTo(map);
-
     // add marker
     marker = L.marker(this.state.center).addTo(map);
-
     this.updateMarker();
     this.getCenter();
   }
+
 
   updateMarker() {
     // fix marker position to center for drag event

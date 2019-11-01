@@ -20,15 +20,15 @@
     "express-session": "^1.17.0",
     "if-env": "^1.0.4",
     "ip2location-nodejs": "^8.3.0",
+    "leaflet.locatecontrol": "^0.68.0",
     "materialize-css": "^1.0.0-rc.2",
     "mongoose": "^5.7.7",
     "morgan": "~1.9.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "react-router-dom": "^5.1.2",
-    "react-use": "^12.9.1",
+    "react-use": "^12.13.0",
     "socket.io": "^2.3.0",
-    "use-position": "0.0.6",
     "yelp-fusion": "^3.0.0"
   },
   "devDependencies": {
