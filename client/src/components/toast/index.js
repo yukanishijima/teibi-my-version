@@ -10,9 +10,11 @@ socket.on("connection test", msg => {
 });
 
 // catch status event from server and dispay to page
-socket.on("status", msg => {
+socket.on("joinRoom", msg => {
   console.log(msg);
 });
+
+
 
 
 
@@ -32,9 +34,12 @@ class Toast extends Component {
     let status;
     (navigator.onLine) ? status = "online" : status = "offline";
 
-    // emit status event to server
-    socket.emit("status", status);
+    let room = window.location.href;
+    room = status + room.substring(room.lastIndexOf("/") + 1);
 
+    // emit status event to server
+    // socket.emit("status", status);
+    socket.emit("joinRoom", room);
   }
 
 

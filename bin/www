@@ -22,39 +22,46 @@ app.set('port', port);
 var server = http.createServer(app);
 
 
+/**
+ * socket.io set up
+ */
 
-
-
-
-// socket.io set up
 const socketIO = require('socket.io');
 const io = socketIO(server);
 
 // socket namespace + room
-
-let room = 1;
-
 io.of("/").on("connection", socket => {
   console.log('user connected');
+  let room;
 
   // once connected, emit test event to client
   socket.emit("connection test", "user connected");
 
-  // catch status event from clent and emit back to specific client
-  socket.on("status", status => {
-    // if a room exists & there're more than 1 user in that room, increment room number by 1
-    if (io.nsps['/'].adapter.rooms["room-" + room] && io.nsps['/'].adapter.rooms["room-" + room].length > 1) {
-      room++;
-    }
-
-    // subscribe socket to a given room
-    socket.join("room-" + room);
-
-    // emit status event to client in that room
-    socket.emit("status", `${status} - room ${room}`);
-    // socket.to("room-" + room).emit("status", `${msg} inside room ${room}`);
-
+  // catch status event from client and emit back to client inside that room
+  socket.on("joinRoom", selectedRoom => {
+    room = selectedRoom;
+    socket.join("joinRoom-" + room);
+    socket.emit("joinRoom", room);
+    console.log(io.nsps['/'].adapter.rooms["room-" + room].length);
+    console.log(room);
   })
+
+  // if a room exists & there're more than 1 user in that room, increment room number by 1
+  // if (io.nsps['/'].adapter.rooms["room-" + room] && io.nsps['/'].adapter.rooms["room-" + room].length > 1) {
+  //   room++;
+  // }
+
+  // subscribe socket to a given room
+  // socket.join("room-" + room);
+
+  // emit status event to client in that room
+  // socket.emit("status", `${status} - room ${room}`);
+  // socket.to("room-" + room).emit("status", `${msg} inside room ${room}`);
+
+  // console.log(io.nsps['/'].adapter.rooms["room-" + room].length);
+  // console.log(room);
+
+  // })
 
 
   socket.on('disconnect', () => {
