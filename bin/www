@@ -39,8 +39,17 @@ io.of("/").on("connection", socket => {
   // catch status event from client and emit back to client inside that room
   socket.on("joinRoom", userInfo => {
     console.log(userInfo);
+
+    // if (io.nsps['/'].adapter.rooms["room-" + userInfo.room] && io.nsps['/'].adapter.rooms["room-" + userInfo.room].length === 1) {
+    //   // assign user as user 1
+    //   userInfo.user = "user1";
+    //   console.log(userInfo);
+    // }
+    // console.log(userInfo);
+
     // join the room
     socket.join("room " + userInfo.room);
+
     // emit joinRoom event back to clients inside that room only1
     socket.emit("joinRoom", userInfo);
 

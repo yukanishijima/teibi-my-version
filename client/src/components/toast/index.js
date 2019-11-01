@@ -9,11 +9,6 @@ socket.on("connection test", msg => {
   console.log(msg);
 });
 
-// catch status event from server and display to page
-socket.on("joinRoom", msg => {
-  console.log(msg);
-});
-
 
 
 class Toast extends Component {
@@ -45,6 +40,12 @@ class Toast extends Component {
 
     // emit joinRoom event to server 
     socket.emit("joinRoom", userInfo);
+
+    // catch status event from server and display to page
+    socket.on("joinRoom", userInfo => {
+      console.log(userInfo);
+      this.setState({ userOneStatus: userInfo.status });
+    });
   }
 
 
