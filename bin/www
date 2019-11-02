@@ -30,38 +30,25 @@ const socketIO = require('socket.io');
 const io = socketIO(server);
 
 // socket namespace + room
-io.of("/").on("connection", socket => {
+io.on("connection", socket => {
   console.log('user connected');
 
   // once connected, emit test event to client
   socket.emit("connection test", "user connected");
 
-  // catch status event from client and emit back to client inside that room
+  // catch event from client and emit back to client inside that room
   socket.on("joinRoom", userInfo => {
-    console.log(userInfo);
-
-    // if (io.nsps['/'].adapter.rooms["room-" + userInfo.room] && io.nsps['/'].adapter.rooms["room-" + userInfo.room].length === 1) {
-    //   // assign user as user 1
-    //   userInfo.user = "user1";
-    //   console.log(userInfo);
-    // }
-    // console.log(userInfo);
-
     // join the room
     socket.join("room " + userInfo.room);
 
     // emit joinRoom event back to clients inside that room only1
-    socket.emit("joinRoom", userInfo);
+    io.nsps['/'].to("room " + userInfo.room).emit("joinRoom", userInfo);
 
+    console.log(io.nsps['/'].adapter.rooms["room " + userInfo.room]);
     console.log(`${io.nsps['/'].adapter.rooms["room " + userInfo.room].length} clients are inside room ${userInfo.room}`);
-
   })
 
-  // FUTURE DEV: use below to limit the number of clients in one room!
-  // if a room exists & there're more than 1 user in that room, change the room name
-  // if (io.nsps['/'].adapter.rooms["room-" + room] && io.nsps['/'].adapter.rooms["room-" + room].length > 1) {
-  //   //change the room name here
-  // }
+
 
   socket.on('disconnect', () => {
     console.log('user disconnected')
