@@ -5,12 +5,10 @@ var session = require("express-session");
 
 var passport = require("./config/passport");
 
-var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var apiRouter = require("./routes/api");
-// var ipRouter = require('./routes/ip');
 
 var app = express();
 
@@ -28,6 +26,5 @@ app.use(passport.session());
 app.use(express.static("client/build"));
 
 app.use("/api", apiRouter);
-// app.use('/api', ipRouter);
 
 module.exports = app;
