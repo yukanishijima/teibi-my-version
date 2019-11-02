@@ -102,8 +102,15 @@ router.post("/signin", passport.authenticate("local"), function(req, res) {
   res.json(req.user);
 });
 
-// app.post("/api/login", passport.authenticate("local"), function(req, res) {
-//   res.json(req.user);
-// });
+router.get("/user_data", function(req, res) {
+  if (!req.user) {
+    res.json({});
+  } else {
+    res.json({
+      username: req.user.username,
+      // id: req.user.id
+    });
+  }
+});
 
 module.exports = router;
