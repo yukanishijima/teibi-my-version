@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import io from "socket.io-client";
 
 // initialize socket
-const socket = io();
+const socket = io("/");
+let userId = "";
+
+
+// let userId = "";
 
 // catch connection test event from server and display on page
 socket.on("connection test", msg => {
   console.log(msg);
+  console.log(socket.id);
+  userId = socket.id;
 });
-
 
 
 class Toast extends Component {
@@ -20,13 +25,11 @@ class Toast extends Component {
   componentDidMount() {
     // listen when there's a change in online/offline status
     window.addEventListener('online', this.updateOnlineStatus());
+    this.initSocket();
   }
 
   // check online or offline
   updateOnlineStatus() {
-    // check if user is online
-    let status;
-    (navigator.onLine) ? status = "online" : status = "offline";
 
     // get the last 9 digits from url (XXXX-XXXX)
     let room = window.location.href;
@@ -34,17 +37,27 @@ class Toast extends Component {
 
     // create object to store user information
     const userInfo = {
-      status: status,
+      userId: userId,
       room: room
     }
 
     // emit joinRoom event to server 
     socket.emit("joinRoom", userInfo);
+  }
 
-    // catch status event from server and display to page
+  initSocket() {
+    // catch joinRoom event from server and display to page
     socket.on("joinRoom", userInfo => {
+      console.log("user joined");
       console.log(userInfo);
-      this.setState({ userOneStatus: userInfo.status });
+      console.log(`userId: ${userInfo.userId}`);
+
+      if (userInfo.userId === userId) {
+        this.setState({ userOneStatus: "online" });
+      } else {
+        this.setState({ userOneStatus: "online" });
+        this.setState({ userTwoStatus: "online" });
+      }
     });
   }
 
@@ -53,8 +66,7 @@ class Toast extends Component {
   render() {
     return (
       <>
-        <div>
-          <h2>Toast</h2>
+        <div id="userStatus">
           <h3>User 1 - <span id="userOne">{this.state.userOneStatus}</span></h3>
           <h3>User 2 - <span id="userTwo">{this.state.userTwoStatus}</span></h3>
         </div>
