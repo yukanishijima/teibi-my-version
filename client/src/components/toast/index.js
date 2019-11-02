@@ -3,16 +3,11 @@ import io from "socket.io-client";
 
 // initialize socket
 const socket = io("/");
-let userId = "";
-
-
-// let userId = "";
 
 // catch connection test event from server and display on page
 socket.on("connection test", msg => {
+  console.log("connection test")
   console.log(msg);
-  console.log(socket.id);
-  userId = socket.id;
 });
 
 
@@ -36,8 +31,7 @@ class Toast extends Component {
     room = room.substring(room.lastIndexOf("/") + 1);
 
     // create object to store user information
-    const userInfo = {
-      userId: userId,
+    let userInfo = {
       room: room
     }
 
@@ -48,16 +42,12 @@ class Toast extends Component {
   initSocket() {
     // catch joinRoom event from server and display to page
     socket.on("joinRoom", userInfo => {
-      console.log("user joined");
-      console.log(userInfo);
-      console.log(`userId: ${userInfo.userId}`);
+      // console.log("user joined");
+      // console.log(userInfo);
+      // console.log(`userId: ${userInfo.userId}`);
+      // console.log(socket.id);
 
-      if (userInfo.userId === userId) {
-        this.setState({ userOneStatus: "online" });
-      } else {
-        this.setState({ userOneStatus: "online" });
-        this.setState({ userTwoStatus: "online" });
-      }
+      socket.emit("sendInfo", userInfo);
     });
   }
 

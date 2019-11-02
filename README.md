@@ -2,7 +2,7 @@
 
 We want to help people find a meeting point where they can:
 
-- 🪂 hang out
+- 🏖 hang out
 - 🤣 laugh
 - 😭 cry
 - 💖 love each other
@@ -13,6 +13,30 @@ We want to help people find a meeting point where they can:
 **Teibi** will calculate a midpoint between users and present a list of locations to meet.
 
 ```Te ibi (latin)```
+
+## Instructions:
+
+- open the url
+    - select begin
+    - a new ID will be provided (XXXX-XXXX)
+- copy url
+    - use the share link
+    - use the share functionality on your browser
+    - copy / paste the url
+- share link
+- select your starting point
+    - wait for other user
+- once second user selects their location a mid point will be calculated
+- a list of places will be presented
+- pick one
+- see you there
+- see you next time
+
+----
+# Development
+----
+
+Work done for this application
 
 ## Make it work:
 
@@ -25,6 +49,8 @@ You can acces the website or install your own instance
 ```npm run install```
 
 ```npm run build```
+
+```npm start```
 
 ## WireFrame:
 

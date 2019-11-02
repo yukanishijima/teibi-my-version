@@ -9,5 +9,9 @@ export default {
         return axios.post("/api/signin", userData);
     },
 
+    checkLogin: function() {
+        return axios.get("/api/user_data");
+    }
+
 };
 
