@@ -48,8 +48,9 @@ io.on("connection", socket => {
 
     console.log(`${io.nsps['/'].adapter.rooms["room " + userInfo.room].length} clients are inside room ${userInfo.room}`);
 
-    users[socket.id] = "online";
+    users[socket.id] = "Selecting...";
   })
+
 
   socket.on("sendInfo", userInfo => {
     console.log(userInfo);
@@ -62,12 +63,18 @@ io.on("connection", socket => {
         "userName": "randomNameFunction" + Date.now(),
         "lat": 0,
         "lon": 0,
-        "status": "Online"
+        "status": "Selecting..."
       };
     }
     console.log(rooms);
+
+    io.nsps['/'].to("room " + userInfo.room).emit("initialInfo", rooms);
   });
 
+
+  socket.on("change", data => {
+    io.nsps['/'].to("room " + userInfo.room).emit("change", data);
+  });
 
 
   socket.on('disconnect', () => {

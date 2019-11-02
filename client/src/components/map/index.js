@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Toast from '../toast';
+import UserStatus from '../userStatus';
 import L from 'leaflet';
 import './style.css'
 
@@ -72,11 +72,11 @@ class Tmap extends Component {
 
 
   render() {
-    console.log("lat: "+ this.props.lat);
+    console.log("lat: " + this.props.lat);
     console.log("long: " + this.props.long);
     return (
       <>
-        <Toast />
+        <UserStatus />
         <div id="map"></div>
       </>
     )

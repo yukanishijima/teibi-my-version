@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Toast from '../components/toast';
-import Map from '../components/map';
 import InfoButton from '../components/infobutton';
 import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
@@ -10,8 +8,8 @@ import UserLocation from '../components/userlocation'
 class Main extends Component {
     state = {
         id: "",
-        lat:"",
-        long:""
+        lat: "",
+        long: ""
     }
 
     componentDidMount() {
@@ -27,7 +25,7 @@ class Main extends Component {
                 </h1>
                 <UserLocation />
                 <InfoButton />
-                <CopyUrl text={window.location.href}/>
+                <CopyUrl text={window.location.href} />
                 <Chat />
             </>
         )
