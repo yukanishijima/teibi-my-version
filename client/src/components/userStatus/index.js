@@ -11,7 +11,7 @@ socket.on("connection test", msg => {
 });
 
 
-class Toast extends Component {
+class userStatus extends Component {
   state = {
     userOneStatus: "offline",
     userTwoStatus: "offline"
@@ -25,7 +25,6 @@ class Toast extends Component {
 
   // check online or offline
   updateOnlineStatus() {
-
     // get the last 9 digits from url (XXXX-XXXX)
     let room = window.location.href;
     room = room.substring(room.lastIndexOf("/") + 1);
@@ -34,7 +33,6 @@ class Toast extends Component {
     let userInfo = {
       room: room
     }
-
     // emit joinRoom event to server 
     socket.emit("joinRoom", userInfo);
   }
@@ -43,12 +41,18 @@ class Toast extends Component {
     // catch joinRoom event from server and display to page
     socket.on("joinRoom", userInfo => {
       // console.log("user joined");
-      // console.log(userInfo);
-      // console.log(`userId: ${userInfo.userId}`);
-      // console.log(socket.id);
-
       socket.emit("sendInfo", userInfo);
     });
+
+    socket.on("initialInfo", data => {
+      console.log(data);
+    });
+
+
+    socket.on("change", data => {
+
+    });
+
   }
 
 
@@ -65,4 +69,4 @@ class Toast extends Component {
   }
 }
 
-export default Toast;
+export default userStatus;
