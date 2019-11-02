@@ -28,6 +28,8 @@ var server = http.createServer(app);
 
 const socketIO = require('socket.io');
 const io = socketIO(server);
+let users = {};
+let rooms = {};
 
 // socket namespace + room
 io.on("connection", socket => {
@@ -44,9 +46,27 @@ io.on("connection", socket => {
     // emit joinRoom event back to clients inside that room only1
     io.nsps['/'].to("room " + userInfo.room).emit("joinRoom", userInfo);
 
-    console.log(io.nsps['/'].adapter.rooms["room " + userInfo.room]);
     console.log(`${io.nsps['/'].adapter.rooms["room " + userInfo.room].length} clients are inside room ${userInfo.room}`);
+
+    users[socket.id] = "online";
   })
+
+  socket.on("sendInfo", userInfo => {
+    console.log(userInfo);
+
+    if (typeof rooms[userInfo.room] === "undefined") {
+      rooms[userInfo.room] = [];
+    }
+    if (typeof rooms[userInfo.room][socket.id] === "undefined") {
+      rooms[userInfo.room][socket.id] = {
+        "userName": "randomNameFunction" + Date.now(),
+        "lat": 0,
+        "lon": 0,
+        "status": "Online"
+      };
+    }
+    console.log(rooms);
+  });
 
 
 
