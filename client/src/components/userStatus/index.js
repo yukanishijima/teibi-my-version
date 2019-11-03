@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import io from "socket.io-client";
-import { set } from 'mongoose';
+// import { set } from 'mongoose';
 
 // initialize socket
 const socket = io("/");
