@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import Map from '../components/map';
+=======
+>>>>>>> yuka
 import InfoButton from '../components/infobutton';
 import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
@@ -25,7 +28,7 @@ class Main extends Component {
                 </h1>
                 <Map />
                 <InfoButton />
-                <CopyUrl text={window.location.href}/>
+                <CopyUrl text={window.location.href} />
                 <Chat />
             </>
         )
