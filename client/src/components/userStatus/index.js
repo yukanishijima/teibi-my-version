@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import io from "socket.io-client";
+import { set } from 'mongoose';
 
 // initialize socket
 const socket = io("/");
+let room;
 
 // catch connection test event from server and display on page
 socket.on("connection test", msg => {
-  console.log("connection test")
   console.log(msg);
 });
 
@@ -23,13 +24,12 @@ class userStatus extends Component {
     this.initSocket();
   }
 
-  // check online or offline
   updateOnlineStatus() {
     // get the last 9 digits from url (XXXX-XXXX)
-    let room = window.location.href;
+    room = window.location.href;
     room = room.substring(room.lastIndexOf("/") + 1);
 
-    // create object to store user information
+    // store room name
     let userInfo = {
       room: room
     }
@@ -39,15 +39,11 @@ class userStatus extends Component {
 
   initSocket() {
     // catch joinRoom event from server and display to page
-    socket.on("joinRoom", userInfo => {
-      // console.log("user joined");
-      socket.emit("sendInfo", userInfo);
+    socket.on("joinRoom", rooms => {
+      console.log(socket.id);
+      console.log(rooms[room]);
+      console.log(rooms);
     });
-
-    socket.on("initialInfo", data => {
-      console.log(data);
-    });
-
 
     socket.on("change", data => {
 
