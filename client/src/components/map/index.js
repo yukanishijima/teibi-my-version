@@ -34,7 +34,7 @@ class Tmap extends Component {
     });
     //Reference: https://medium.com/@annaian/adding-leaflet-and-leaflet-locatecontrol-to-react-component-c864262811e8
     //find user location and update based on that
-    const lc = new Locate({position: 'bottomright', keepCurrentZoomLevel: true});
+    const lc = new Locate({position: 'bottomright', keepCurrentZoomLevel: true, flyTo:'setView'});
     lc.addTo(map);  
     //set zoom controller to bottom right
     L.control.zoom({ position: "bottomright" }).addTo(map);
