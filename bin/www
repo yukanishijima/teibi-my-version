@@ -45,18 +45,15 @@ io.on("connection", socket => {
 
     // pupolate rooms object
     if (typeof rooms[userInfo.room] === "undefined") {
-      rooms[userInfo.room] = [];
+      rooms[userInfo.room] = {};
     }
     if (typeof rooms[userInfo.room][socket.id] === "undefined") {
-      Obj = {
-        [socket.id]: {
-          userName: "randomNameFunction" + Date.now(),
-          lat: 0,
-          lon: 0,
-          status: "Selecting..."
-        }
+      rooms[userInfo.room][socket.id] = {
+        userName: "randomNameFunction" + Date.now(),
+        lat: 0,
+        lon: 0,
+        status: "Selecting..."
       };
-      rooms[userInfo.room].push(Obj);
     }
 
     // send rooms object to client
@@ -77,7 +74,7 @@ io.on("connection", socket => {
   });
 
   socket.on("disconnect", () => {
-    console.log("user disconnected");
+    delete rooms[room][socket.id];
   });
 });
 
