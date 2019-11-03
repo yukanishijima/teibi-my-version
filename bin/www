@@ -4,16 +4,16 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('teibi:server');
-var http = require('http');
+var app = require("../app");
+var debug = require("debug")("teibi:server");
+var http = require("http");
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3001');
-app.set('port', port);
+var port = normalizePort(process.env.PORT || "3001");
+app.set("port", port);
 
 /**
  * Create HTTP server.
@@ -21,77 +21,73 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
-
 /**
  * socket.io set up
  */
 
-const socketIO = require('socket.io');
+const socketIO = require("socket.io");
 const io = socketIO(server);
-let users = {};
 let rooms = {};
+let room = "";
 
-// socket namespace + room
 io.on("connection", socket => {
-  console.log('user connected');
+  console.log("user connected");
 
   // once connected, emit test event to client
   socket.emit("connection test", "user connected");
 
   // catch event from client and emit back to client inside that room
   socket.on("joinRoom", userInfo => {
+    room = userInfo.room;
+
     // join the room
     socket.join("room " + userInfo.room);
 
-    // emit joinRoom event back to clients inside that room only1
-    io.nsps['/'].to("room " + userInfo.room).emit("joinRoom", userInfo);
-
-    console.log(`${io.nsps['/'].adapter.rooms["room " + userInfo.room].length} clients are inside room ${userInfo.room}`);
-
-    users[socket.id] = "Selecting...";
-  })
-
-
-  socket.on("sendInfo", userInfo => {
-    console.log(userInfo);
-
+    // pupolate rooms object
     if (typeof rooms[userInfo.room] === "undefined") {
       rooms[userInfo.room] = [];
     }
     if (typeof rooms[userInfo.room][socket.id] === "undefined") {
-      rooms[userInfo.room][socket.id] = {
-        "userName": "randomNameFunction" + Date.now(),
-        "lat": 0,
-        "lon": 0,
-        "status": "Selecting..."
+      Obj = {
+        [socket.id]: {
+          userName: "randomNameFunction" + Date.now(),
+          lat: 0,
+          lon: 0,
+          status: "Selecting..."
+        }
       };
+      rooms[userInfo.room].push(Obj);
     }
+
+    // send rooms object to client
+    io.nsps["/"].to("room " + userInfo.room).emit("joinRoom", rooms);
+
     console.log(rooms);
-
-    io.nsps['/'].to("room " + userInfo.room).emit("initialInfo", rooms);
+    console.log(
+      `${io.nsps["/"].adapter.rooms["room " + userInfo.room].length} clients are inside room ${userInfo.room}`
+    );
   });
-
 
   socket.on("change", data => {
-    io.nsps['/'].to("room " + userInfo.room).emit("change", data);
+    io.nsps["/"].to("room " + userInfo.room).emit("change", data);
   });
 
+  socket.on("disconnecting", () => {
+    console.log("disconnecting");
+  });
 
-  socket.on('disconnect', () => {
-    console.log('user disconnected')
-  })
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
 });
-
-
-
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+server.on("error", onError);
+server.on("listening", onListening);
 
 /**
  * Normalize a port into a number, string, or false.
@@ -118,22 +114,20 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-  if (error.syscall !== 'listen') {
+  if (error.syscall !== "listen") {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
       process.exit(1);
       break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
       process.exit(1);
       break;
     default:
@@ -147,8 +141,6 @@ function onError(error) {
 
 function onListening() {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+  debug("Listening on " + bind);
 }
