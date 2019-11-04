@@ -14,7 +14,7 @@ socket.on("connection test", msg => {
 
 class userStatus extends Component {
   state = {
-    status: ""
+    status: []
   }
 
   componentDidMount() {
@@ -46,6 +46,7 @@ class userStatus extends Component {
         status: this.convertToArray(rooms[room])
       }, () => {
         console.log(this.state.status);
+        console.log(Array.isArray(this.state.status));
       });
     });
 
