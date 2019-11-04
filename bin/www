@@ -49,7 +49,7 @@ io.on("connection", socket => {
     }
     if (typeof rooms[userInfo.room][socket.id] === "undefined") {
       rooms[userInfo.room][socket.id] = {
-        userName: "randomNameFunction" + Date.now(),
+        userName: "randomNameFunc" + Date.now(),
         lat: 0,
         lon: 0,
         status: "Selecting..."
@@ -71,10 +71,12 @@ io.on("connection", socket => {
 
   socket.on("disconnecting", () => {
     console.log("disconnecting");
+    delete rooms[room][socket.id];
+    io.nsps["/"].to("room " + room).emit("disconnecting", rooms);
   });
 
   socket.on("disconnect", () => {
-    delete rooms[room][socket.id];
+    console.log("disconnected");
   });
 });
 
