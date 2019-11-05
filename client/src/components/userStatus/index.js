@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 // initialize socket
 import { socket } from "../socket";
 
+//getlist
+import  GetList  from "./getList"
+
 let room;
 
 // catch connection test event from server and display on console
@@ -49,11 +52,13 @@ class userStatus extends Component {
 
     // catch selected event from server and update state 
     socket.on("selected", rooms => {
-      console.log(rooms);
+      // console.log(rooms);
       this.setState({
         status: this.convertToArray(rooms[room])
       }, () => {
-        console.log(this.state.status);
+
+       
+
       });
     });
 
@@ -83,6 +88,7 @@ class userStatus extends Component {
   render() {
     return (
       <>
+        {GetList(this.state.status)}
         <div id="userStatus">
           {this.state.status.map(el => (
             <h3 key={el.userId}>{el.userName}<span id={el.userId}> - {el.status}</span></h3>
