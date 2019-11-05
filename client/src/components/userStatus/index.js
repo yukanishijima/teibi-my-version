@@ -6,7 +6,7 @@ import io from "socket.io-client";
 const socket = io("/");
 let room;
 
-// catch connection test event from server and display on page
+// catch connection test event from server and display on console
 socket.on("connection test", msg => {
   console.log(msg);
 });
@@ -14,8 +14,7 @@ socket.on("connection test", msg => {
 
 class userStatus extends Component {
   state = {
-    userOneStatus: "offline",
-    userTwoStatus: "offline"
+    status: []
   }
 
   componentDidMount() {
@@ -38,17 +37,41 @@ class userStatus extends Component {
   }
 
   initSocket() {
-    // catch joinRoom event from server and display to page
+    // catch joinRoom event from server and update state
     socket.on("joinRoom", rooms => {
       console.log(socket.id);
       console.log(rooms[room]);
-      console.log(rooms);
+
+      this.setState({
+        status: this.convertToArray(rooms[room])
+      }, () => {
+        console.log(this.state.status);
+        console.log(Array.isArray(this.state.status));
+      });
     });
 
+    // to add event listener when marker is clicked!
     socket.on("change", data => {
 
     });
 
+    // catch disconnecting event from server and update state
+    socket.on("disconnecting", rooms => {
+      this.setState({
+        status: this.convertToArray(rooms[room])
+      })
+    })
+  }
+
+
+  convertToArray(obj) {
+    let array = [];
+    for (var p in obj) {
+      let newObj = obj[p];
+      newObj["userId"] = p;
+      array.push(newObj);
+    }
+    return array;
   }
 
 
@@ -57,12 +80,14 @@ class userStatus extends Component {
     return (
       <>
         <div id="userStatus">
-          <h3>User 1 - <span id="userOne">{this.state.userOneStatus}</span></h3>
-          <h3>User 2 - <span id="userTwo">{this.state.userTwoStatus}</span></h3>
+          {this.state.status.map(el => (
+            <h3 key={el.userId}>{el.userName}<span id={el.userId}> - {el.status}</span></h3>
+          ))}
         </div>
       </>
     )
   }
+
 }
 
 export default userStatus;
