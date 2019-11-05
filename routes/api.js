@@ -107,10 +107,15 @@ router.get("/user_data", function(req, res) {
     res.json({});
   } else {
     res.json({
-      username: req.user.username,
+      username: req.user.username
       // id: req.user.id
     });
   }
+});
+
+/* GET users listing. */
+router.get("/user", function(req, res) {
+  res.send("respond with a resource");
 });
 
 module.exports = router;

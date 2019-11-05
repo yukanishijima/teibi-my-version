@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import Map from '../components/map';
-=======
->>>>>>> yuka
 import InfoButton from '../components/infobutton';
 import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
 import { Link } from "react-router-dom";
-import ListLocations from "../components/list"
+// import ListLocations from "../components/list"
 
 class Main extends Component {
     state = {
