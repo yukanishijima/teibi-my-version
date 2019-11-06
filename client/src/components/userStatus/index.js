@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
-import io from "socket.io-client";
+import ListLocations from "../list";
 
 // initialize socket
-const socket = io("/");
+import { socket } from "../socket";
 
-// catch connection test event from server and display on page
+//getlist
+import  GetList  from "./getList"
+
+let room;
+
+// catch connection test event from server and display on console
 socket.on("connection test", msg => {
-  console.log("connection test")
   console.log(msg);
 });
 
 
 class userStatus extends Component {
   state = {
-    userOneStatus: "offline",
-    userTwoStatus: "offline"
+    status: [],
+    apiResult: ""
   }
 
   componentDidMount() {
@@ -23,13 +27,12 @@ class userStatus extends Component {
     this.initSocket();
   }
 
-  // check online or offline
   updateOnlineStatus() {
     // get the last 9 digits from url (XXXX-XXXX)
-    let room = window.location.href;
+    room = window.location.href;
     room = room.substring(room.lastIndexOf("/") + 1);
 
-    // create object to store user information
+    // store room name
     let userInfo = {
       room: room
     }
@@ -38,21 +41,53 @@ class userStatus extends Component {
   }
 
   initSocket() {
-    // catch joinRoom event from server and display to page
-    socket.on("joinRoom", userInfo => {
-      // console.log("user joined");
-      socket.emit("sendInfo", userInfo);
+    // catch joinRoom event from server and update state
+    socket.on("joinRoom", rooms => {
+      console.log(socket.id);
+
+      this.setState({
+        status: this.convertToArray(rooms[room])
+      }, () => {
+        console.log(this.state.status);
+      });
     });
 
-    socket.on("initialInfo", data => {
-      console.log(data);
+    // catch selected event from server and update state 
+    socket.on("selected",  async rooms => {
+      // console.log(rooms);
+      this.setState({
+        status: this.convertToArray(rooms[room])
+      });
+
+      // const retrievedList =  GetList(this.state.status);
+      // console.log("retrievedList")
+      // console.log(GetList(this.state.status))
+      const retrievedList = await GetList(this.state.status);
+      console.log(retrievedList);
+      this.setState({
+        apiResult: retrievedList
+      });
     });
 
-
-    socket.on("change", data => {
-
+    // catch disconnecting event from server and update state
+    socket.on("disconnecting", rooms => {
+      this.setState({
+        status: this.convertToArray(rooms[room])
+      }, () => {
+        console.log(this.state.status);
+      });
     });
+  }
 
+
+  convertToArray(obj) {
+    let array = [];
+    for (var p in obj) {
+      let newObj = obj[p];
+      newObj["userId"] = p;
+      array.push(newObj);
+    }
+    return array;
   }
 
 
@@ -61,12 +96,15 @@ class userStatus extends Component {
     return (
       <>
         <div id="userStatus">
-          <h3>User 1 - <span id="userOne">{this.state.userOneStatus}</span></h3>
-          <h3>User 2 - <span id="userTwo">{this.state.userTwoStatus}</span></h3>
+          {this.state.status.map(el => (
+            <h3 key={el.userId}>{el.userName}<span id={el.userId}> - {el.status}</span></h3>
+          ))}
         </div>
+        <ListLocations data={this.state.apiResult}/>
       </>
     )
   }
+
 }
 
 export default userStatus;
