@@ -14,7 +14,8 @@ let marker = "";
 class Map extends Component {
 
   state = {
-    center: [43.6629, -79.3957],  // initial lat long
+    center: [43.6629, -79.3957],
+    c2:[]  // initial lat long
   }
 
   componentDidMount() {
@@ -54,7 +55,7 @@ class Map extends Component {
         center: map.getCenter()
       }, () => {
         marker.setLatLng(this.state.center);
-        console.log(this.state.center);
+        // console.log(this.state.center);
       });
     }.bind(this));
 
@@ -64,7 +65,7 @@ class Map extends Component {
         center: map.getCenter()
       }, () => {
         marker.setLatLng(this.state.center);
-        console.log(this.state.center);
+        // console.log(this.state.center);
       });
     }.bind(this));
   }
@@ -73,12 +74,14 @@ class Map extends Component {
   getCenter() {
     marker.on("click", (e) => {
       console.log("selected");
+      console.log( this.state.center)
       let updatedUserInfo = {
         userId: socket.id,
-        lat: this.state.center[0],
-        lon: this.state.center[1],
+        lat: this.state.center.lat,
+        lon: this.state.center.lng,
         status: "Selected!"
       }
+      console.log(updatedUserInfo)
       // send updated info to server
       socket.emit("selected", updatedUserInfo);
     });

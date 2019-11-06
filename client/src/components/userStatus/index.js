@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import ListLocations from "../list";
 
 // initialize socket
 import { socket } from "../socket";
+
+//getlist
+import  GetList  from "./getList"
 
 let room;
 
@@ -13,7 +17,8 @@ socket.on("connection test", msg => {
 
 class userStatus extends Component {
   state = {
-    status: []
+    status: [],
+    apiResult: ""
   }
 
   componentDidMount() {
@@ -48,12 +53,19 @@ class userStatus extends Component {
     });
 
     // catch selected event from server and update state 
-    socket.on("selected", rooms => {
-      console.log(rooms);
+    socket.on("selected",  async rooms => {
+      // console.log(rooms);
       this.setState({
         status: this.convertToArray(rooms[room])
-      }, () => {
-        console.log(this.state.status);
+      });
+
+      // const retrievedList =  GetList(this.state.status);
+      // console.log("retrievedList")
+      // console.log(GetList(this.state.status))
+      const retrievedList = await GetList(this.state.status);
+      console.log(retrievedList);
+      this.setState({
+        apiResult: retrievedList
       });
     });
 
@@ -88,6 +100,7 @@ class userStatus extends Component {
             <h3 key={el.userId}>{el.userName}<span id={el.userId}> - {el.status}</span></h3>
           ))}
         </div>
+        <ListLocations data={this.state.apiResult}/>
       </>
     )
   }

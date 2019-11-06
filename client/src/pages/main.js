@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 class Main extends Component {
     state = {
-        id: "",
+        id: ""
     }
 
     componentDidMount() {
