@@ -23,8 +23,8 @@ class SignIn extends Component {
         API.loginUser(userData)
             .then(res => {
                 console.log("successful login");
-                // window.location.replace("/");
                 console.log(res.data);
+                window.location.replace("/");
                 // console.log(res.data.username);
 
             })

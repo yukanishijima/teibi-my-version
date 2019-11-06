@@ -28,6 +28,7 @@ class SignUp extends Component {
         API.saveUser(userData)
             .then(res => {
                 console.log("user saved");
+                window.location.replace("/signin");
             })
             .catch(err => {
                 console.log(err)

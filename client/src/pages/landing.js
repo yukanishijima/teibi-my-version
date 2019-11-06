@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 // import API from "../utils/API";
 import Help from './help';
 import RandomUrl from '../components/randomurl';
@@ -27,8 +28,12 @@ class Landing extends Component {
         <div className="App">
           <Help />
           <RandomUrl />
-          <button>Sign in</button>
-          <button>Sign up</button>
+          <Link to="/signin">
+            <button>Sign in</button>
+          </Link>
+          <Link to="/signup">
+            <button>Sign up</button>
+          </Link>
         </div>
       </>
     )
