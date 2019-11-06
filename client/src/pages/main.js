@@ -4,6 +4,8 @@ import InfoButton from '../components/infobutton';
 import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
 import { Link } from "react-router-dom";
+// import {  positions } from '@material-ui/system';
+
 // import ListLocations from "../components/list"
 
 class Main extends Component {
@@ -21,11 +23,11 @@ class Main extends Component {
         return (
             <>
                 <h1>
-                    <Link to="/">Main</Link>
+                    <Link to="/">Teibi </Link>
                 </h1>
                 <Map />
-                <InfoButton />
-                <CopyUrl text={window.location.href} />
+                <InfoButton elevation={4}/>
+                <CopyUrl elevation={4} text={window.location.href} />
                 <Chat />
             </>
         )

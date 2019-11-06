@@ -11,6 +11,7 @@
     "build": "cd client && npm run build"
   },
   "dependencies": {
+    "@material-ui/core": "^4.6.0",
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.4",
@@ -21,7 +22,6 @@
     "if-env": "^1.0.4",
     "ip2location-nodejs": "^8.3.0",
     "leaflet.locatecontrol": "^0.68.0",
-    "materialize-css": "^1.0.0-rc.2",
     "mongoose": "^5.7.7",
     "morgan": "~1.9.1",
     "passport": "^0.4.0",

@@ -29,6 +29,7 @@ const socketIO = require("socket.io");
 const io = socketIO(server);
 let rooms = {};
 let room = "";
+let username = "";
 
 io.on("connection", socket => {
   console.log("user connected");
@@ -41,51 +42,58 @@ io.on("connection", socket => {
     room = userInfo.room;
 
     // join the room
-    socket.join("room " + userInfo.room);
+    socket.join("room " + room);
 
     // pupolate rooms object
-    if (typeof rooms[userInfo.room] === "undefined") {
-      rooms[userInfo.room] = {};
+    if (typeof rooms[room] === "undefined") {
+      rooms[room] = {};
     }
-    if (typeof rooms[userInfo.room][socket.id] === "undefined") {
-      rooms[userInfo.room][socket.id] = {
+    if (typeof rooms[room][socket.id] === "undefined") {
+      rooms[room][socket.id] = {
         userName: "randomNameFunc" + Date.now(),
         lat: 0,
         lon: 0,
         status: "Selecting..."
-      };
+      }; 
     }
 
+
     // send rooms object to client
-    io.nsps["/"].to("room " + userInfo.room).emit("joinRoom", rooms);
+    io.nsps["/"].to("room " + room).emit("joinRoom", rooms);
 
     console.log(rooms);
     console.log(
-      `${io.nsps["/"].adapter.rooms["room " + userInfo.room].length} clients are inside room ${userInfo.room}`
+      `${io.nsps["/"].adapter.rooms["room " + room].length} clients are inside room ${userInfo.room}`
     );
+
+    io.nsps["/"].to("room " + room).emit("username", rooms[room][socket.id].userName);
   });
 
-  socket.on("change", data => {
-    io.nsps["/"].to("room " + userInfo.room).emit("change", data);
-  });
-  socket.on("typing", function(msg) {
-    console.log("typing", msg);
-    io.emit("typing", { message: msg.message, username: msg.username });
+  socket.on("selected", updatedUserInfo => {
+    console.log(updatedUserInfo);
+    rooms[room][socket.id].lat = updatedUserInfo.lat;
+    rooms[room][socket.id].lon = updatedUserInfo.lon;
+    rooms[room][socket.id].status = updatedUserInfo.status;
+    io.nsps["/"].to("room " + room).emit("selected", rooms);
   });
 
-  socket.on("new_message", function(msg) {
-    console.log("new message", msg);
-    io.emit("chat message", { message: msg.message, username: msg.username });
+  socket.on("message", function(data) {
+    console.log("message", data);
+    console.log(`${rooms[room][socket.id].userName}`);
+    socket.emit("message", {
+      message: data.message,
+      username: rooms[room][socket.id].userName
+    });
   });
 
   socket.on("disconnecting", () => {
     console.log("disconnecting");
-    delete rooms[room][socket.id];
-    io.nsps["/"].to("room " + room).emit("disconnecting", rooms);
   });
 
   socket.on("disconnect", () => {
     console.log("disconnected");
+    delete rooms[room][socket.id];
+    io.nsps["/"].to("room " + room).emit("disconnecting", rooms);
   });
 });
 

@@ -2,17 +2,19 @@ import React, { Component } from 'react'
 import UserStatus from '../userStatus';
 import L from 'leaflet';
 import Locate from "leaflet.locatecontrol";
-
+// import Paper from '@material-ui/core/Paper';
 import './style.css'
+
+// initialize socket
+import { socket } from "../socket";
 
 let map = "";
 let marker = "";
-  
-class Tmap extends Component {
+
+class Map extends Component {
 
   state = {
     center: [43.6629, -79.3957],  // initial lat long
-    status: ""
   }
 
   componentDidMount() {
@@ -67,25 +69,30 @@ class Tmap extends Component {
     }.bind(this));
   }
 
-  // when user clicks the marker, get lat and lng 
+  // when user clicks the marker, get lat and lng  
   getCenter() {
     marker.on("click", (e) => {
-      console.log(`${this.state.center}`);
+      console.log("selected");
+      let updatedUserInfo = {
+        userId: socket.id,
+        lat: this.state.center[0],
+        lon: this.state.center[1],
+        status: "Selected!"
+      }
+      // send updated info to server
+      socket.emit("selected", updatedUserInfo);
     });
   }
 
 
-
   render() {
-    console.log("lat: " + this.props.lat);
-    console.log("long: " + this.props.long);
     return (
       <>
         <UserStatus />
         <div id="map"></div>
       </>
     )
-  };
+  }
 }
 
-export default Tmap;
+export default Map;

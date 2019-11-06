@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import io from "socket.io-client";
-// import { set } from 'mongoose';
 
 // initialize socket
-const socket = io("/");
+import { socket } from "../socket";
+
 let room;
 
 // catch connection test event from server and display on console
@@ -40,27 +39,32 @@ class userStatus extends Component {
     // catch joinRoom event from server and update state
     socket.on("joinRoom", rooms => {
       console.log(socket.id);
-      console.log(rooms[room]);
 
       this.setState({
         status: this.convertToArray(rooms[room])
       }, () => {
         console.log(this.state.status);
-        console.log(Array.isArray(this.state.status));
       });
     });
 
-    // to add event listener when marker is clicked!
-    socket.on("change", data => {
-
+    // catch selected event from server and update state 
+    socket.on("selected", rooms => {
+      console.log(rooms);
+      this.setState({
+        status: this.convertToArray(rooms[room])
+      }, () => {
+        console.log(this.state.status);
+      });
     });
 
     // catch disconnecting event from server and update state
     socket.on("disconnecting", rooms => {
       this.setState({
         status: this.convertToArray(rooms[room])
-      })
-    })
+      }, () => {
+        console.log(this.state.status);
+      });
+    });
   }
 
 
