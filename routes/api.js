@@ -47,7 +47,7 @@ router.get("/mid/:lat1/:long1/:lat2/:long2", function(req, res) {
   let nlat2 = req.params.lat2;
   let nlon2 = req.params.long2;
 
-  console.log(nlat1, nlon1, nlat2, nlon2);
+  // console.log(nlat1, nlon1, nlat2, nlon2);
   let dLon = degreesToRadians(nlon2 - nlon1);
 
   let lat1 = degreesToRadians(nlat1);
@@ -78,11 +78,11 @@ router.get("/mp/:lat1/:long1", function(req, res) {
     .search({
       latitude: nlat1,
       longitude: nlon1,
-      radius: 33
+      radius: 500
     })
     .then(response => {
       res.json(response.jsonBody);
-      console.log(response.jsonBody);
+      // console.log(response.jsonBody);
     })
     .catch(e => {
       console.log(e);
@@ -107,7 +107,7 @@ router.get("/user_data", function(req, res) {
     res.json({});
   } else {
     res.json({
-      username: req.user.username,
+      username: req.user.username
       // id: req.user.id
     });
   }
