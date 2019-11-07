@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-// const axios = require('axios');
+var axios = require("axios");
 
 var passport = require("../config/passport");
 
@@ -104,7 +104,16 @@ router.post("/signin", passport.authenticate("local"), function(req, res) {
 
 router.get("/user_data", function(req, res) {
   if (!req.user) {
-    res.json({});
+    axios.get("https://dog.ceo/api/breeds/list").then(breeds => {
+      let breedsList = breeds.data.message;
+      let randomIndex = Math.floor(Math.random() * breedsList.length);
+
+      res.json({
+        // username: "randomAnimal"
+        username: `anonymous ${breedsList[randomIndex]}`
+      });
+      // res.json({});
+    });
   } else {
     res.json({
       username: req.user.username

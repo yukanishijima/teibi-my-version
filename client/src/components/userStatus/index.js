@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ListLocations from "../list";
+import API from "../../utils/API";
 
 // initialize socket
 import { socket } from "../socket";
@@ -8,6 +9,7 @@ import { socket } from "../socket";
 import  GetList  from "./getList"
 
 let room;
+let user;
 
 // catch connection test event from server and display on console
 socket.on("connection test", msg => {
@@ -32,12 +34,28 @@ class userStatus extends Component {
     room = window.location.href;
     room = room.substring(room.lastIndexOf("/") + 1);
 
+    API.checkLogin().then(res => {
+      // console.log(res.data);
+      // console.log(res.data.username + "im here");
+      // this.setState({user: res.data.username});
+      user = res.data.username;
+
+      let userInfo = {
+        room: room,
+        username: user
+      }
+
+      socket.emit("joinRoom", userInfo);
+      }
+    );
+
     // store room name
-    let userInfo = {
-      room: room
-    }
+    // let userInfo = {
+    //   room: room,
+    //   username: user
+    // }
     // emit joinRoom event to server 
-    socket.emit("joinRoom", userInfo);
+    // socket.emit("joinRoom", userInfo);
   }
 
   initSocket() {
