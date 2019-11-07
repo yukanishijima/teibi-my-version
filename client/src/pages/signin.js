@@ -30,6 +30,7 @@ class SignIn extends Component {
             })
             .catch(err => {
                 console.log(err)
+                alert("Please ensure your username and password are valid.");
 
             });
 
