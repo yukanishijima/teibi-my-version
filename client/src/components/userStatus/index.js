@@ -6,7 +6,7 @@ import API from "../../utils/API";
 import { socket } from "../socket";
 
 //getlist
-import  GetList  from "./getList"
+import GetList from "./getList"
 
 let room;
 let user;
@@ -46,16 +46,7 @@ class userStatus extends Component {
       }
 
       socket.emit("joinRoom", userInfo);
-      }
-    );
-
-    // store room name
-    // let userInfo = {
-    //   room: room,
-    //   username: user
-    // }
-    // emit joinRoom event to server 
-    // socket.emit("joinRoom", userInfo);
+    });
   }
 
   initSocket() {
@@ -71,10 +62,12 @@ class userStatus extends Component {
     });
 
     // catch selected event from server and update state 
-    socket.on("selected",  async rooms => {
+    socket.on("selected", async rooms => {
       // console.log(rooms);
       this.setState({
         status: this.convertToArray(rooms[room])
+      }, () => {
+        console.log(this.state.status);
       });
 
       // const retrievedList =  GetList(this.state.status);
@@ -118,7 +111,7 @@ class userStatus extends Component {
             <h3 key={el.userId}>{el.userName}<span id={el.userId}> - {el.status}</span></h3>
           ))}
         </div>
-        <ListLocations data={this.state.apiResult}/>
+        <ListLocations data={this.state.apiResult} />
       </>
     )
   }
