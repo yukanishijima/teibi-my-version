@@ -35,8 +35,8 @@ class Map extends Component {
     });
     //Reference: https://medium.com/@annaian/adding-leaflet-and-leaflet-locatecontrol-to-react-component-c864262811e8
     //find user location and update based on that
-    const lc = new Locate({position: 'bottomright', keepCurrentZoomLevel: true});
-    lc.addTo(map);  
+    const lc = new Locate({ position: 'bottomright', keepCurrentZoomLevel: true });
+    lc.addTo(map);
     //set zoom controller to bottom right
     L.control.zoom({ position: "bottomright" }).addTo(map);
     // add marker
@@ -72,14 +72,17 @@ class Map extends Component {
   getCenter() {
     marker.on("click", (e) => {
       console.log("selected");
-      console.log( this.state.center)
+      console.log(this.state.center)
+      this.setState({
+        center: map.getCenter()
+      });
       let updatedUserInfo = {
         userId: socket.id,
         lat: this.state.center.lat,
         lon: this.state.center.lng,
         status: "Selected!"
       }
-      console.log(updatedUserInfo)
+      // console.log(updatedUserInfo)
       // send updated info to server
       socket.emit("selected", updatedUserInfo);
     });
