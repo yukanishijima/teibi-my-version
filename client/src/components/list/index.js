@@ -1,7 +1,7 @@
 import React from 'react';
 
 function ListLocations({data}) {
-    return (
+    return data.length > 0 ? (
         <ul id="locationList">
             {data.businesses.map(e => {
                 return (
@@ -11,7 +11,7 @@ function ListLocations({data}) {
                 )
             })}
         </ul>
-    ) : <></>
+    ) : <></>;
 }
 
 export default ListLocations;
