@@ -1,13 +1,12 @@
 import React from 'react';
-import SignIn from "../sign/in"
+// import SignIn from "../sign/in";
+// import SignUp from "../sign/up";
 
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
-// import DialogTitle from '@material-ui/core/DialogTitle';
-
 
 export default function InfoButton() {
   const [open, setOpen] = React.useState(false);
@@ -19,6 +18,10 @@ export default function InfoButton() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  let urlClean = window.location.pathname.split('/')[2]
+  let finalUrlSignIn = "/signin/?" + urlClean;
+  let finalUrlSignUp = "/signup/?" + urlClean;
 
 
   return (
@@ -32,22 +35,20 @@ export default function InfoButton() {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        {/* <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle> */}
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
 
             <DialogActions>
-              <SignIn url={window.location.pathname} />
-
-              <Button onClick={handleClose} color="primary" autoFocus>
-                Agree
-              </Button>
+              <iframe src={finalUrlSignIn}>
+              </iframe>
+              {/* <iframe src={finalUrlSignUp}>
+              </iframe> */}
             </DialogActions>
 
           </DialogContentText>
         </DialogContent>
 
       </Dialog>
-    </div>
+    </div >
   );
 }
