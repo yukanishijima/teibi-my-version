@@ -1,41 +1,23 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-// import API from "../utils/API";
-import Help from './help';
-import RandomUrl from '../components/randomurl';
-import { socket } from "../components/socket";
+import { Redirect } from "react-router-dom";
 
-// function Landing() {
 class Landing extends Component {
-  // state = {
-  //   user: "guest1",
-    
-  // };
 
-  // componentDidMount() {
-  //   API.checkLogin().then(res => {
-  //     console.log(res.data);
-  //     console.log(res.data.username);
-  //     this.setState({user: res.data.username});
-  //     }
-  //   );
-
-  // };
+  randomID() {
+    let idText = ""
+    for (let i = 0; i < 8; i++) {
+      if (i === 4) {
+        idText += "-"
+      }
+      idText += String.fromCharCode(65 + Math.floor(Math.random() * 26))
+    }
+    return idText
+  }
 
   render() {
     return (
       <>
-        {/* <p>{this.state.user}</p> */}
-        <div className="App">
-          <Help />
-          <RandomUrl />
-          <Link to="/signin">
-            <button>Sign in</button>
-          </Link>
-          <Link to="/signup">
-            <button>Sign up</button>
-          </Link>
-        </div>
+        <Redirect to={"/main/" + this.randomID()} />
       </>
     )
   }

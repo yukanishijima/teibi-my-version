@@ -27,7 +27,7 @@ class Main extends Component {
                 <Map />
                 <InfoButton/>
                 <CopyUrl text={window.location.href} />
-                <SignIn url={window.location.pathname } />
+                <SignIn url={window.location.pathname} />
                 <Chat />
             </>
         )
