@@ -5,6 +5,8 @@ import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
 // import SignIn from "../components/sign/in"
 
+import 'normalize.css';
+
 class Main extends Component {
     state = {
         id: ""
