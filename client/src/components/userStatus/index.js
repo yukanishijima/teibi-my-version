@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import Box from '@material-ui/core/Box';
 import ListLocations from "../list";
 import API from "../../utils/API";
+import './style.css'
 
 // initialize socket
 import { socket } from "../socket";
@@ -100,17 +102,14 @@ class userStatus extends Component {
     }
     return array;
   }
-
-
-
   render() {
     return (
       <>
-        <div id="userStatus">
+        <Box component="div" id="userStatus">
           {this.state.status.map(el => (
             <h3 key={el.userId}>{el.userName}<span id={el.userId}> - {el.status}</span></h3>
           ))}
-        </div>
+        </Box>
         <ListLocations data={this.state.apiResult} />
       </>
     )
