@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import ListLocations from "../list";
+import API from "../../utils/API";
 
 // initialize socket
 import { socket } from "../socket";
 
 //getlist
-import  GetList  from "./getList"
+import GetList from "./getList"
 
 let room;
+let user;
 
 // catch connection test event from server and display on console
 socket.on("connection test", msg => {
@@ -32,12 +34,19 @@ class userStatus extends Component {
     room = window.location.href;
     room = room.substring(room.lastIndexOf("/") + 1);
 
-    // store room name
-    let userInfo = {
-      room: room
-    }
-    // emit joinRoom event to server 
-    socket.emit("joinRoom", userInfo);
+    API.checkLogin().then(res => {
+      // console.log(res.data);
+      // console.log(res.data.username + "im here");
+      // this.setState({user: res.data.username});
+      user = res.data.username;
+
+      let userInfo = {
+        room: room,
+        username: user
+      }
+
+      socket.emit("joinRoom", userInfo);
+    });
   }
 
   initSocket() {
@@ -53,10 +62,12 @@ class userStatus extends Component {
     });
 
     // catch selected event from server and update state 
-    socket.on("selected",  async rooms => {
+    socket.on("selected", async rooms => {
       // console.log(rooms);
       this.setState({
         status: this.convertToArray(rooms[room])
+      }, () => {
+        console.log(this.state.status);
       });
 
       // const retrievedList =  GetList(this.state.status);
@@ -100,7 +111,7 @@ class userStatus extends Component {
             <h3 key={el.userId}>{el.userName}<span id={el.userId}> - {el.status}</span></h3>
           ))}
         </div>
-        <ListLocations data={this.state.apiResult}/>
+        <ListLocations data={this.state.apiResult} />
       </>
     )
   }

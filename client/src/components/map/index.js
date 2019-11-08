@@ -14,8 +14,7 @@ let marker = "";
 class Map extends Component {
 
   state = {
-    center: [43.6629, -79.3957],
-    c2:[]  // initial lat long
+    center: [43.666667, -79.416667]
   }
 
   componentDidMount() {
@@ -74,14 +73,17 @@ class Map extends Component {
   getCenter() {
     marker.on("click", (e) => {
       console.log("selected");
-      console.log( this.state.center)
+      console.log(this.state.center)
+      this.setState({
+        center: map.getCenter()
+      });
       let updatedUserInfo = {
         userId: socket.id,
         lat: this.state.center.lat,
         lon: this.state.center.lng,
         status: "Selected!"
       }
-      console.log(updatedUserInfo)
+      // console.log(updatedUserInfo)
       // send updated info to server
       socket.emit("selected", updatedUserInfo);
     });
