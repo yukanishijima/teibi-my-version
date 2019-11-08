@@ -29,6 +29,7 @@ class SignUp extends Component {
             .then(res => {
                 console.log("user saved");
                 window.location.replace("/signin");
+                // "/main/"+ this.props.location.search.replace("?","")
             })
             .catch(err => {
                 console.log(err)
