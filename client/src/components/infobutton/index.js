@@ -39,10 +39,12 @@ export default function InfoButton() {
           <DialogContentText id="alert-dialog-description">
 
             <DialogActions>
-              <iframe src={finalUrlSignIn}>
+              <iframe id="signIn" title="Sign In" frameBorder="0" src={finalUrlSignIn}>
               </iframe>
-              {/* <iframe src={finalUrlSignUp}>
-              </iframe> */}
+              </DialogActions>
+              <DialogActions>
+              <iframe id="signOut" title="Sign Out"  frameBorder="0" src={finalUrlSignUp}>
+              </iframe>
             </DialogActions>
 
           </DialogContentText>
