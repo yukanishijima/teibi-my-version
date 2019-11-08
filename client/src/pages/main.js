@@ -3,9 +3,7 @@ import Map from '../components/map';
 import InfoButton from '../components/infobutton';
 import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
-import { Link } from "react-router-dom";
-//import ListLocations from "../components/list"
-import SignIn from "../components/sign/in"
+// import SignIn from "../components/sign/in"
 
 class Main extends Component {
     state = {
@@ -21,13 +19,10 @@ class Main extends Component {
     render() {
         return (
             <>
-                <h1>
-                    <Link to="/">Teibi </Link>
-                </h1>
                 <Map />
-                <InfoButton/>
+                <InfoButton />
                 <CopyUrl text={window.location.href} />
-                <SignIn url={window.location.pathname} />
+                {/* <SignIn url={window.location.pathname} /> */}
                 <Chat />
             </>
         )

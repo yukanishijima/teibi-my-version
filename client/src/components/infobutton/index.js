@@ -1,11 +1,54 @@
 import React from 'react';
+// import SignIn from "../sign/in";
+// import SignUp from "../sign/up";
 
-function InfoButton() {
-    return (
-        <>
-            <h2>Info Button</h2>
-        </>
-    )
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+
+export default function InfoButton() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  let urlClean = window.location.pathname.split('/')[2]
+  let finalUrlSignIn = "/signin/?" + urlClean;
+  let finalUrlSignUp = "/signup/?" + urlClean;
+
+
+  return (
+    <div>
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Menu
+        </Button>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+
+            <DialogActions>
+              <iframe src={finalUrlSignIn}>
+              </iframe>
+              {/* <iframe src={finalUrlSignUp}>
+              </iframe> */}
+            </DialogActions>
+
+          </DialogContentText>
+        </DialogContent>
+
+      </Dialog>
+    </div >
+  );
 }
-
-export default InfoButton;
