@@ -12,7 +12,7 @@ class SignIn extends Component {
 
     handleInputChange = event => {
         const { name, value } = event.target;
-        this.setState({[name]: value});
+        this.setState({ [name]: value });
     };
 
     handleFormSubmit = event => {
@@ -27,7 +27,7 @@ class SignIn extends Component {
             .then(res => {
                 console.log("successful login");
                 console.log(res.data);
-                window.location.replace("/main/"+ this.props.location.search.replace("?",""));
+                window.top.location.replace("/main/" + this.props.location.search.replace("?", ""));
                 // console.log(res.data.username);
 
             })
