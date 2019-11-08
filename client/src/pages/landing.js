@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 // import API from "../utils/API";
 import Help from './help';
 import RandomUrl from '../components/randomurl';
+import { socket } from "../components/socket";
 
 // function Landing() {
 class Landing extends Component {
