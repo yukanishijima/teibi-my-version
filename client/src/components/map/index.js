@@ -13,8 +13,7 @@ let marker = "";
 class Map extends Component {
 
   state = {
-    center: [43.6629, -79.3957],
-    c2: []  // initial lat long
+    center: [43.666667, -79.416667]
   }
 
   componentDidMount() {

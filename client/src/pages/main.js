@@ -4,6 +4,8 @@ import InfoButton from '../components/infobutton';
 import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
 import { Link } from "react-router-dom";
+import ListLocations from "../components/list"
+import SignIn from "../components/sign/in"
 
 class Main extends Component {
     state = {
@@ -25,6 +27,7 @@ class Main extends Component {
                 <Map />
                 <InfoButton />
                 <CopyUrl text={window.location.href} />
+                <SignIn url={window.location.pathname} />
                 <Chat />
             </>
         )

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
 
+// initialize socket
+import { socket } from "../components/socket";
+
 class SignIn extends Component {
     state = {
         username: "",
@@ -24,7 +27,7 @@ class SignIn extends Component {
             .then(res => {
                 console.log("successful login");
                 console.log(res.data);
-                window.location.replace("/");
+                window.location.replace("/main/"+ this.props.location.search.replace("?",""));
                 // console.log(res.data.username);
 
             })
@@ -37,6 +40,7 @@ class SignIn extends Component {
     };
 
     render() {
+
         return (
             <>
                 <div className="row">
