@@ -9,8 +9,8 @@ import './style.css';
 
 const CopyLink = (props) => {
     const [ setText] = React.useState('');
-    const [state, copyToClipboard] = useCopyToClipboard();
-    console.log(props);
+    const [copyToClipboard] = useCopyToClipboard();
+    // console.log(props);
     function notify (){ 
       toast.warn("Your Link is copied. Share it!",{
         position: "bottom-center",
@@ -23,7 +23,7 @@ const CopyLink = (props) => {
         <input type="hidden" value={props.text} onChange={e => setText(e.target.value)} />
         <ToastContainer />
         <Button id="copyButton" position="bottom" variant="contained" color="primary" type="button" onClick={() => {copyToClipboard(props.text); notify()}}><i className="fas fa-copy"> share Link</i></Button>
-        {console.log("Copied" + state.value)}
+        {/* {console.log("Copied" + state.value)} */}
 
         {/* {state.error
           ? <p>Unable to copy value: {state.error.message}</p>    

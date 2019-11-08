@@ -43,9 +43,9 @@ class Chat extends Component {
 	};
 	//displaying the chat history
 	renderChat() {
-		console.log('chat is rendered');
+		// console.log('chat is rendered');
     const { chat } = this.state;
-    console.log(this.state.chat)
+    // console.log(this.state.chat)
     //emit is not working for other person
 		return chat.map(({ username, msg }, i) => (
 			<div key={i}>
