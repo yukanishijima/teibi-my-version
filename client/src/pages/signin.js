@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
 
-// initialize socket
-import { socket } from "../components/socket";
 
 class SignIn extends Component {
     state = {

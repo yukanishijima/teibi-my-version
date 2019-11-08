@@ -14,9 +14,9 @@ let room;
 let user;
 
 // catch connection test event from server and display on console
-socket.on("connection test", msg => {
-  console.log(msg);
-});
+// socket.on("connection test", msg => {
+//   // console.log(msg);
+// });
 
 
 class userStatus extends Component {
@@ -54,12 +54,12 @@ class userStatus extends Component {
   initSocket() {
     // catch joinRoom event from server and update state
     socket.on("joinRoom", rooms => {
-      console.log(socket.id);
+      // console.log(socket.id);
 
       this.setState({
         status: this.convertToArray(rooms[room])
       }, () => {
-        console.log(this.state.status);
+        // console.log(this.state.status);
       });
     });
 
@@ -69,14 +69,14 @@ class userStatus extends Component {
       this.setState({
         status: this.convertToArray(rooms[room])
       }, () => {
-        console.log(this.state.status);
+        // console.log(this.state.status);
       });
 
       // const retrievedList =  GetList(this.state.status);
       // console.log("retrievedList")
       // console.log(GetList(this.state.status))
       const retrievedList = await GetList(this.state.status);
-      console.log(retrievedList);
+      // console.log(retrievedList);
       this.setState({
         apiResult: retrievedList
       });
@@ -87,7 +87,7 @@ class userStatus extends Component {
       this.setState({
         status: this.convertToArray(rooms[room])
       }, () => {
-        console.log(this.state.status);
+        // console.log(this.state.status);
       });
     });
   }

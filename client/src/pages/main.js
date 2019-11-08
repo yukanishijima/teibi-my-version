@@ -7,6 +7,8 @@ import UserStatus from '../components/userStatus';
 
 // import SignIn from "../components/sign/in"
 
+import 'normalize.css';
+
 class Main extends Component {
     state = {
         id: ""
