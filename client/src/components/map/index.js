@@ -71,12 +71,15 @@ class Map extends Component {
 
   // when user clicks the marker, get lat and lng  
   getCenter() {
+    this.setState({
+      center: map.getCenter()
+    });
     marker.on("click", (e) => {
-      console.log("selected");
-      console.log(this.state.center)
-      this.setState({
-        center: map.getCenter()
-      });
+      // console.log("selected");
+      // console.log(this.state.center)
+      // this.setState({
+      //   center: map.getCenter()
+      // });
       let updatedUserInfo = {
         userId: socket.id,
         lat: this.state.center.lat,

@@ -30,61 +30,69 @@ var server = http.createServer(app);
 const socketIO = require('socket.io');
 const io = socketIO(server);
 let rooms = {};
-let room = "";
+let room = '';
+let username = '';
 
-io.on("connection", socket => {
-  console.log("user connected");
+io.on('connection', (socket) => {
+	console.log('user connected');
+	// once connected, emit test event to client
+	socket.emit('connection test', 'user connected');
 
-  // once connected, emit test event to client
-  socket.emit("connection test", "user connected");
+	// catch event from client and emit back to client inside that room
+	socket.on('joinRoom', (userInfo) => {
+		room = userInfo.room;
 
-  // catch event from client and emit back to client inside that room
-  socket.on("joinRoom", userInfo => {
-    room = userInfo.room;
+		// join the room
+		socket.join('room ' + room);
 
-    // join the room
-    socket.join("room " + room);
+		// pupolate rooms object
+		if (typeof rooms[room] === 'undefined') {
+			rooms[room] = {};
+		}
+		if (typeof rooms[room][socket.id] === 'undefined') {
+			rooms[room][socket.id] = {
+				userName: 'randomNameFunc' + Date.now(),
+				lat: 0,
+				lon: 0,
+				status: 'Selecting...'
+			};
+		}
+		// send rooms object to client
+		io.nsps['/'].to('room ' + room).emit('joinRoom', rooms);
 
-    // pupolate rooms object
-    if (typeof rooms[room] === "undefined") {
-      rooms[room] = {};
-    }
-    if (typeof rooms[room][socket.id] === "undefined") {
-      rooms[room][socket.id] = {
-        // userName: "randomNameFunc" + Date.now(),
-        userName: userInfo.username,
-        lat: 0,
-        lon: 0,
-        status: "Selecting..."
-      };
-    }
+		console.log(rooms);
+		console.log(`${io.nsps['/'].adapter.rooms['room ' + room].length} clients are inside room ${userInfo.room}`);
 
-    // send rooms object to client
-    io.nsps["/"].to("room " + room).emit("joinRoom", rooms);
+		io.nsps['/'].to('room ' + room).emit('username', rooms[room][socket.id].userName);
+		io.nsps['/'].to('room ' + room).emit('room', userInfo.room);
+});
 
-    console.log(rooms);
-    console.log(
-      `${io.nsps["/"].adapter.rooms["room " + room].length} clients are inside room ${userInfo.room}`
-    );
-  });
+	socket.on('selected', (updatedUserInfo) => {
+		console.log(updatedUserInfo);
+		rooms[room][socket.id].lat = updatedUserInfo.lat;
+		rooms[room][socket.id].lon = updatedUserInfo.lon;
+		rooms[room][socket.id].status = updatedUserInfo.status;
+		io.nsps['/'].to('room ' + room).emit('selected', rooms);
+	});
 
-  socket.on("selected", updatedUserInfo => {
-    console.log(updatedUserInfo);
-    rooms[room][socket.id].lat = updatedUserInfo.lat;
-    rooms[room][socket.id].lon = updatedUserInfo.lon;
-    rooms[room][socket.id].status = updatedUserInfo.status;
-    io.nsps["/"].to("room " + room).emit("selected", rooms);
-  });
+	socket.on('chat message', function(data) {
+		console.log('msg', data);
+		console.log(`${rooms[room][socket.id].userName}`);
+		io.emit('chat message', {
+			username: rooms[room][socket.id].userName,
+			msg: data
+		});
+	});
 
-  socket.on("disconnecting", () => {
-    console.log("disconnecting");
-  });
+	socket.on('disconnecting', () => {
+		console.log('disconnecting');
+	});
 
-  socket.on("disconnect", () => {
-    console.log("disconnected");
-    delete rooms[room][socket.id];
-    io.nsps["/"].to("room " + room).emit("disconnecting", rooms);
-  });
+	socket.on('disconnect', () => {
+		console.log('disconnected');
+		delete rooms[room][socket.id];
+		io.nsps['/'].to('room ' + room).emit('disconnecting', rooms);
+	});
 });
 
 /**
