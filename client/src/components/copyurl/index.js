@@ -3,6 +3,9 @@ import { useCopyToClipboard } from "react-use";
 import { ToastContainer, toast } from "react-toastify";
 import Button from '@material-ui/core/Button';
 import "react-toastify/dist/ReactToastify.css";
+import './style.css';
+//import {  positions } from '@material-ui/system';
+
 
 const CopyLink = (props) => {
     const [ setText] = React.useState('');
@@ -19,7 +22,7 @@ const CopyLink = (props) => {
       <div>
         <input type="hidden" value={props.text} onChange={e => setText(e.target.value)} />
         <ToastContainer />
-        <Button id="copyButton" variant="contained" color="primary" type="button" onClick={() => {copyToClipboard(props.text); notify()}}><i className="fas fa-copy"> share Link</i></Button>
+        <Button id="copyButton" position="bottom" variant="contained" color="primary" type="button" onClick={() => {copyToClipboard(props.text); notify()}}><i className="fas fa-copy"> share Link</i></Button>
         {console.log("Copied" + state.value)}
 
         {/* {state.error

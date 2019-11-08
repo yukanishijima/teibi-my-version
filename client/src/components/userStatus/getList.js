@@ -1,5 +1,5 @@
-import React from 'react';
-import ListLocations from "../list";
+//import React from 'react';
+//import ListLocations from "../list";
 import axios from "axios"
 
 async function GetList(users) {
@@ -9,8 +9,8 @@ async function GetList(users) {
             usersSelected += 1
         }
     }
-    let infoBack
-    let temp = <></>
+    //let infoBack
+    //let temp = <></>
     if (usersSelected === 2) {
         let latlng = `${users[0].lat}/${users[0].lon}/${users[1].lat}/${users[1].lon}`
         // console.log(latlng);

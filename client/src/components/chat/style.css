@@ -1,8 +1,11 @@
 .chatApp {
     display: flex;
-    height: 100vh;
+    /* height: 100vh; */
     justify-content: center;
     align-items: center;
+    position: absolute;
+    bottom: 0px;
+    right: 0px
   }
   
   .userName {
