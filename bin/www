@@ -34,65 +34,66 @@ let room = '';
 let username = '';
 
 io.on('connection', (socket) => {
-	console.log('user connected');
-	// once connected, emit test event to client
-	socket.emit('connection test', 'user connected');
+  console.log('user connected');
+  // once connected, emit test event to client
+  socket.emit('connection test', 'user connected');
 
-	// catch event from client and emit back to client inside that room
-	socket.on('joinRoom', (userInfo) => {
-		room = userInfo.room;
+  // catch event from client and emit back to client inside that room
+  socket.on('joinRoom', (userInfo) => {
+    room = userInfo.room;
 
-		// join the room
-		socket.join('room ' + room);
+    // join the room
+    socket.join('room ' + room);
 
-		// pupolate rooms object
-		if (typeof rooms[room] === 'undefined') {
-			rooms[room] = {};
-		}
-		if (typeof rooms[room][socket.id] === 'undefined') {
-			rooms[room][socket.id] = {
-				userName: 'randomNameFunc' + Date.now(),
-				lat: 0,
-				lon: 0,
-				status: 'Selecting...'
-			};
-		}
-		// send rooms object to client
-		io.nsps['/'].to('room ' + room).emit('joinRoom', rooms);
+    // pupolate rooms object
+    if (typeof rooms[room] === 'undefined') {
+      rooms[room] = {};
+    }
+    if (typeof rooms[room][socket.id] === 'undefined') {
+      rooms[room][socket.id] = {
+        // userName: 'randomNameFunc' + Date.now(),
+        userName: userInfo.username,
+        lat: 0,
+        lon: 0,
+        status: 'Selecting...'
+      };
+    }
+    // send rooms object to client
+    io.nsps['/'].to('room ' + room).emit('joinRoom', rooms);
 
-		console.log(rooms);
-		console.log(`${io.nsps['/'].adapter.rooms['room ' + room].length} clients are inside room ${userInfo.room}`);
+    console.log(rooms);
+    console.log(`${io.nsps['/'].adapter.rooms['room ' + room].length} clients are inside room ${userInfo.room}`);
 
-		io.nsps['/'].to('room ' + room).emit('username', rooms[room][socket.id].userName);
-		io.nsps['/'].to('room ' + room).emit('room', userInfo.room);
-});
+    io.nsps['/'].to('room ' + room).emit('username', rooms[room][socket.id].userName);
+    io.nsps['/'].to('room ' + room).emit('room', userInfo.room);
+  });
 
-	socket.on('selected', (updatedUserInfo) => {
-		console.log(updatedUserInfo);
-		rooms[room][socket.id].lat = updatedUserInfo.lat;
-		rooms[room][socket.id].lon = updatedUserInfo.lon;
-		rooms[room][socket.id].status = updatedUserInfo.status;
-		io.nsps['/'].to('room ' + room).emit('selected', rooms);
-	});
+  socket.on('selected', (updatedUserInfo) => {
+    console.log(updatedUserInfo);
+    rooms[room][socket.id].lat = updatedUserInfo.lat;
+    rooms[room][socket.id].lon = updatedUserInfo.lon;
+    rooms[room][socket.id].status = updatedUserInfo.status;
+    io.nsps['/'].to('room ' + room).emit('selected', rooms);
+  });
 
-	socket.on('chat message', function(data) {
-		console.log('msg', data);
-		console.log(`${rooms[room][socket.id].userName}`);
-		io.emit('chat message', {
-			username: rooms[room][socket.id].userName,
-			msg: data
-		});
-	});
+  socket.on('chat message', function (data) {
+    console.log('msg', data);
+    console.log(`${rooms[room][socket.id].userName}`);
+    io.emit('chat message', {
+      username: rooms[room][socket.id].userName,
+      msg: data
+    });
+  });
 
-	socket.on('disconnecting', () => {
-		console.log('disconnecting');
-	});
+  socket.on('disconnecting', () => {
+    console.log('disconnecting');
+  });
 
-	socket.on('disconnect', () => {
-		console.log('disconnected');
-		delete rooms[room][socket.id];
-		io.nsps['/'].to('room ' + room).emit('disconnecting', rooms);
-	});
+  socket.on('disconnect', () => {
+    console.log('disconnected');
+    delete rooms[room][socket.id];
+    io.nsps['/'].to('room ' + room).emit('disconnecting', rooms);
+  });
 });
 
 /**
@@ -108,19 +109,19 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-	var port = parseInt(val, 10);
+  var port = parseInt(val, 10);
 
-	if (isNaN(port)) {
-		// named pipe
-		return val;
-	}
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
 
-	if (port >= 0) {
-		// port number
-		return port;
-	}
+  if (port >= 0) {
+    // port number
+    return port;
+  }
 
-	return false;
+  return false;
 }
 
 /**
@@ -128,25 +129,25 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-	if (error.syscall !== 'listen') {
-		throw error;
-	}
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
 
-	var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
-	// handle specific listen errors with friendly messages
-	switch (error.code) {
-		case 'EACCES':
-			console.error(bind + ' requires elevated privileges');
-			process.exit(1);
-			break;
-		case 'EADDRINUSE':
-			console.error(bind + ' is already in use');
-			process.exit(1);
-			break;
-		default:
-			throw error;
-	}
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+  case 'EACCES':
+    console.error(bind + ' requires elevated privileges');
+    process.exit(1);
+    break;
+  case 'EADDRINUSE':
+    console.error(bind + ' is already in use');
+    process.exit(1);
+    break;
+  default:
+    throw error;
+  }
 }
 
 /**
@@ -154,7 +155,7 @@ function onError(error) {
  */
 
 function onListening() {
-	var addr = server.address();
-	var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-	debug('Listening on ' + bind);
+  var addr = server.address();
+  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+  debug('Listening on ' + bind);
 }
