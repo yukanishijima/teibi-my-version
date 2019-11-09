@@ -33,22 +33,21 @@ class SignUp extends Component {
         API.saveUser(userData)
             .then(res => {
                 console.log("user saved");
-                window.location.replace("/signin");
-                // "/main/"+ this.props.location.search.replace("?","")
-                alert("Successful sign up!");
                 // window.location.replace("/signin");
+                // window.top.location.replace("/main/" + this.props.location.search.replace("?", ""));
+                alert("Successful sign up!");
 
                 API.loginUser(loginData)
                     .then(res => {
                         console.log("successful login");
                         console.log(res.data);
-                        window.location.replace("/");
+                        // window.location.replace("/");
+                        window.top.location.replace("/main/" + this.props.location.search.replace("?", ""));
                         // console.log(res.data.username);
 
                     })
                     .catch(err => {
                         console.log(err)
-                        // alert("Please ensure your username and password are valid.");
 
                     });
                     
@@ -82,6 +81,7 @@ class SignUp extends Component {
                                             name="username"
                                             // value=""
                                             onChange={this.handleInputChange}
+                                            autoComplete="false"
                                         />
                                         <label htmlFor="email-input">Email:</label>
                                         <input
@@ -91,6 +91,7 @@ class SignUp extends Component {
                                             name="email"
                                             // value=""
                                             onChange={this.handleInputChange}
+                                            autoComplete="false"
                                         />
                                         <label htmlFor="password-input">Password:</label>
                                         <input
@@ -100,6 +101,7 @@ class SignUp extends Component {
                                             name="password"
                                             // value=""
                                             onChange={this.handleInputChange}
+                                            autoComplete="false"
                                         />
                                     </div>
                                     <button type="submit" className="btn btn-primary" id="sign-up" onClick={this.handleFormSubmit}>Submit</button>

@@ -1,4 +1,5 @@
 import React from 'react';
+import API from "../../utils/API";
 // import SignIn from "../sign/in";
 // import SignUp from "../sign/up";
 
@@ -26,6 +27,22 @@ export default function InfoButton() {
   const handleDisplay = () => {
     // add code here
   }
+  const handleLogOut = () => {
+    API.checkLogin().then(res => {
+      console.log(res.data.loggedIn);
+
+      if (res.data.loggedIn) {
+        API.logoutUser().then(res => {
+          alert("You have successfully logged out.");
+          window.location.replace("/");
+        });
+      } else {
+        alert("You're not logged in.");
+      };
+
+    });
+
+  };
 
   let urlClean = window.location.pathname.split('/')[2]
   let finalUrlSignIn = "/signin/?" + urlClean;
@@ -60,6 +77,9 @@ export default function InfoButton() {
             <iframe id="signUp" className="signUp hide" title="Sign Up" frameBorder="0" src={finalUrlSignUp}>
             </iframe>
             {/* </DialogActions> */}
+            <DialogActions>
+              <Button variant="outlined" color="primary" onClick={handleLogOut}>Log Out</Button>
+            </DialogActions>
 
           </DialogContentText>
         </DialogContent>

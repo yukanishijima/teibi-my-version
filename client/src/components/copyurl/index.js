@@ -9,8 +9,9 @@ import './style.css';
 
 const CopyLink = (props) => {
     const [ setText] = React.useState('');
-    const [copyToClipboard] = useCopyToClipboard();
+    const [state, copyToClipboard] = useCopyToClipboard();
     // console.log(props);
+    
     function notify (){ 
       toast.warn("Your Link is copied. Share it!",{
         position: "bottom-center",
