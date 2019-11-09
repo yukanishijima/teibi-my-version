@@ -110,11 +110,41 @@ Dependencies:
 - [react-router-dom](https://github.com/ReactTraining/react-router): ^5.1.2
 - [socket.io](https://socket.io/): ^2.3.0
 - [use-position]()
-
+"dependencies": {
+    "@material-ui/core": "^4.6.0",
+    "@material-ui/icons": "^4.5.1",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "express-session": "^1.17.0",
+    "if-env": "^1.0.4",
+    "leaflet.locatecontrol": "^0.68.0",
+    "mongoose": "^5.7.7",
+    "morgan": "~1.9.1",
+    "normalize.css": "^8.0.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "react-router-dom": "^5.1.2",
+    "react-toastify": "^5.4.0",
+    "react-use": "^12.13.0",
+    "socket.io": "^2.3.0",
+    "yelp-fusion": "^3.0.0"
+  },
 devDependencies:
 - [concurrently](https://github.com/kimmobrunfeldt/concurrently): ^5.0.0
 - [nodemon](https://github.com/remy/nodemon): ^1.19.4"
 
+
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.18.2"
+  }
 
 ### Staff:
 
