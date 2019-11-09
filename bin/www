@@ -90,10 +90,18 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     console.log('disconnected');
-    delete rooms[room][socket.id];
+    if(typeof rooms[room] !== "undefined"){
+      delete rooms[room][socket.id];
+      // insert if countis 0 erase room
+    }
     io.nsps['/'].to('room ' + room).emit('disconnecting', rooms);
+    socket.leave('room ' + room);
   });
-});
+// });
+},{transports:['polling'], upgrade: true}, {'force new connection': false});
+// ^ https://mashhurs.wordpress.com/2016/09/30/polling-vs-websocket-transport/
+// https://stackoverflow.com/questions/41381444/websocket-connection-failed-error-during-websocket-handshake-unexpected-respon
+
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -136,16 +144,16 @@ function onError(error) {
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-  case 'EACCES':
-    console.error(bind + ' requires elevated privileges');
-    process.exit(1);
-    break;
-  case 'EADDRINUSE':
-    console.error(bind + ' is already in use');
-    process.exit(1);
-    break;
-  default:
-    throw error;
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
   }
 }
 
