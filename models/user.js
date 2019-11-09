@@ -1,5 +1,5 @@
 var bcrypt = require("bcryptjs");
-var passport = require("../config/passport");
+// var passport = require("../config/passport");
 
 const mongoose = require("mongoose");
 
