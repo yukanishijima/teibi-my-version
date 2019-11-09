@@ -90,10 +90,17 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     console.log('disconnected');
-    delete rooms[room][socket.id];
+    if(typeof rooms[room] !== "undefined"){
+      delete rooms[room][socket.id];
+      // insert if countis 0 erase room
+    }
     io.nsps['/'].to('room ' + room).emit('disconnecting', rooms);
   });
-});
+// });
+},{transports:['polling'], upgrade: true}, {'force new connection': false});
+// ^ https://mashhurs.wordpress.com/2016/09/30/polling-vs-websocket-transport/
+// https://stackoverflow.com/questions/41381444/websocket-connection-failed-error-during-websocket-handshake-unexpected-respon
+
 
 /**
  * Listen on provided port, on all network interfaces.

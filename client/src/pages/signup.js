@@ -81,6 +81,7 @@ class SignUp extends Component {
                                             name="username"
                                             // value=""
                                             onChange={this.handleInputChange}
+                                            autoComplete="false"
                                         />
                                         <label htmlFor="email-input">Email:</label>
                                         <input
@@ -90,6 +91,7 @@ class SignUp extends Component {
                                             name="email"
                                             // value=""
                                             onChange={this.handleInputChange}
+                                            autoComplete="false"
                                         />
                                         <label htmlFor="password-input">Password:</label>
                                         <input
@@ -99,6 +101,7 @@ class SignUp extends Component {
                                             name="password"
                                             // value=""
                                             onChange={this.handleInputChange}
+                                            autoComplete="false"
                                         />
                                     </div>
                                     <button type="submit" className="btn btn-primary" id="sign-up" onClick={this.handleFormSubmit}>Submit</button>

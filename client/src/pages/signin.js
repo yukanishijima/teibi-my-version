@@ -57,6 +57,7 @@ class SignIn extends Component {
                                             name="username"
                                             // value=""
                                             onChange={this.handleInputChange}
+                                            autoComplete="false"
                                         />
                                         <label htmlFor="password-input">Password:</label>
                                         <input
@@ -66,6 +67,7 @@ class SignIn extends Component {
                                             name="password"
                                             // value=""
                                             onChange={this.handleInputChange}
+                                            autoComplete="false"
                                         />
                                     </div>
                                     <button type="submit" className="btn btn-primary" id="sign-in" onClick={this.handleFormSubmit}>Sign In</button>
