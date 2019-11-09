@@ -86,13 +86,13 @@ io.on('connection', (socket) => {
 
   socket.on('disconnecting', () => {
     console.log('disconnecting');
-    delete rooms[room][socket.id];
-    io.nsps['/'].to('room ' + room).emit('disconnecting', rooms);
-    socket.leave('room ' + room);
   });
 
   socket.on('disconnect', () => {
     console.log('disconnected');
+    delete rooms[room][socket.id];
+    io.nsps['/'].to('room ' + room).emit('disconnecting', rooms);
+    socket.leave('room ' + room);
   });
 });
 

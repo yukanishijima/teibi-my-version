@@ -1,0 +1,35 @@
+.hide {
+  display: none;
+}
+
+.signIn, .signUp {
+  width: 100%;
+}
+
+.userName, .password {
+  display: flex;
+  text-align: center;
+  margin: 0 auto 15px;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px 0;
+  width: 80%;
+
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.userName:focus::placeholder, .password:focus::placeholder {
+  color: transparent;
+}
+
+.btn-signIn {
+  display: flex;
+  margin: 25px auto 0px;
+  justify-content: center;
+  background: none;
+  border-radius: 20px;
+  padding: 8px;
+  width: 80%;
+
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
