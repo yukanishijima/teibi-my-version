@@ -53,7 +53,7 @@ function ListLocations({ data }) {
                                             className={classes.inline}
                                             color="textPrimary"
                                         >
-                                            {e.name}
+                                            {e.location.address1} | <a href={"tel:"+e.phone}>☎ {e.phone}</a>
                                         </Typography>
                                     </React.Fragment>
                                 }
