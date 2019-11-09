@@ -1,18 +1,13 @@
 import React from "react";
-// import { Col, Row, Container } from "../components/Grid";
-// import Jumbotron from "../components/Jumbotron";
-
+import "./nomatch.css";
 function NoMatch() {
   return (
-    <>
-      <h1>404 Page Not Found</h1>
-      <h1>
-        <span role="img" aria-label="Face With Rolling Eyes Emoji">
-          🙄
-        </span>
-      </h1>
-    </>
+      <div className="page-container">
+        <h1 className="title">404</h1>
+        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <img src={require("./broken.gif")} alt="I am broken" className="img-responsive bg" />
+        </div>
+      </div>
   );
 }
-
 export default NoMatch;
