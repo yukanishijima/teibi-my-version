@@ -1,13 +1,21 @@
 import React from "react";
+import 'normalize.css';
 import "./nomatch.css";
+import {Link} from "react-router-dom"
+
 function NoMatch() {
   return (
-      <div className="page-container">
-        <h1 className="title">404</h1>
-        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <img src={require("./broken.gif")} alt="I am broken" className="img-responsive bg" />
+    <div className="page-container">
+      <p className="title">
+        404 <br />
+      woops<br />
+      <Link to="/">back</Link>
+      </p>
+      <div className="errorImage">
+        <div className="gradient">
         </div>
       </div>
+    </div>
   );
 }
 export default NoMatch;
