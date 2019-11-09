@@ -33,22 +33,21 @@ class SignUp extends Component {
         API.saveUser(userData)
             .then(res => {
                 console.log("user saved");
-                window.location.replace("/signin");
-                // "/main/"+ this.props.location.search.replace("?","")
-                alert("Successful sign up!");
                 // window.location.replace("/signin");
+                // window.top.location.replace("/main/" + this.props.location.search.replace("?", ""));
+                alert("Successful sign up!");
 
                 API.loginUser(loginData)
                     .then(res => {
                         console.log("successful login");
                         console.log(res.data);
-                        window.location.replace("/");
+                        // window.location.replace("/");
+                        window.top.location.replace("/main/" + this.props.location.search.replace("?", ""));
                         // console.log(res.data.username);
 
                     })
                     .catch(err => {
                         console.log(err)
-                        // alert("Please ensure your username and password are valid.");
 
                     });
                     
