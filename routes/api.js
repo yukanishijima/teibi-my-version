@@ -110,16 +110,23 @@ router.get("/user_data", function(req, res) {
 
       res.json({
         // username: "randomAnimal"
-        username: `anonymous ${breedsList[randomIndex]}`
+        username: `anonymous ${breedsList[randomIndex]}`,
+        loggedIn: false
       });
       // res.json({});
     });
   } else {
     res.json({
-      username: req.user.username
+      username: req.user.username,
+      loggedIn: true
       // id: req.user.id
     });
   }
+});
+
+router.get("/logout", function(req, res) {
+  req.logout();
+  res.send("log out successful");
 });
 
 /* GET users listing. */
