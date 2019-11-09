@@ -4,7 +4,7 @@
 }
 
 .errorImage {
-    background-image: url("broken.gif");
+    background-image: url("/images/broken.gif");
     background-size: contain;
     background-repeat: no-repeat;
     min-width: 50vw;
