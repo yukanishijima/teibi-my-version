@@ -2,6 +2,8 @@ var express = require("express");
 var router = express.Router();
 var axios = require("axios");
 
+var animalNames = require("./animals.json");
+
 var passport = require("../config/passport");
 
 ("use strict");
@@ -78,7 +80,7 @@ router.get("/mp/:lat1/:long1", function(req, res) {
     .search({
       latitude: nlat1,
       longitude: nlon1,
-      radius: 33
+      radius: 222
     })
     .then(response => {
       res.json(response.jsonBody);
@@ -104,16 +106,23 @@ router.post("/signin", passport.authenticate("local"), function(req, res) {
 
 router.get("/user_data", function(req, res) {
   if (!req.user) {
-    axios.get("https://dog.ceo/api/breeds/list").then(breeds => {
-      let breedsList = breeds.data.message;
-      let randomIndex = Math.floor(Math.random() * breedsList.length);
+    // axios.get("https://dog.ceo/api/breeds/list").then(breeds => {
+    //   let breedsList = breeds.data.message;
+    //   let randomIndex = Math.floor(Math.random() * breedsList.length);
 
-      res.json({
-        // username: "randomAnimal"
-        username: `anonymous ${breedsList[randomIndex]}`,
-        loggedIn: false
-      });
-      // res.json({});
+    //   res.json({
+    //     // username: "randomAnimal"
+    //     username: `(a) ${breedsList[randomIndex]}`,
+    //     loggedIn: false
+    //   });
+    //   // res.json({});
+    // });
+
+    let randomIndex = Math.floor(Math.random() * animalNames.length) + 1;
+
+    res.json({
+      username: `(a) ${animalNames[randomIndex].name}`,
+      loggedIn: false
     });
   } else {
     res.json({

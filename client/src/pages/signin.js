@@ -42,11 +42,11 @@ class SignIn extends Component {
     return (
       <>
         <form>
+
           <div className="form-group">
-            {/* <label htmlFor="username-input">Username:</label> */}
+
             <input
               type="text"
-              // className="form-control"
               className="userName"
               id="username-input"
               name="username"
@@ -55,20 +55,22 @@ class SignIn extends Component {
               placeholder="Your Name"
               autoComplete="false"
             />
-            {/* <label htmlFor="password-input">Password:</label> */}
+
             <input
               type="password"
               // className="form-control"
               className="password"
               id="password-input"
               name="password"
-              // value=""
               onChange={this.handleInputChange}
               placeholder="Password"
               autoComplete="false"
             />
+
           </div>
+
           <button type="submit" className="btn-signIn" id="sign-in" onClick={this.handleFormSubmit}>Sign In</button>
+
         </form>
       </>
     )

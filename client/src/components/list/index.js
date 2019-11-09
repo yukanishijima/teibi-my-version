@@ -12,11 +12,13 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles(theme => ({
     root: {
         width: '100%',
-        maxWidth: 360,
+        maxWidth: '50vw',
+        minWidth: '50vw',
         backgroundColor: theme.palette.background.paper,
         position: 'relative',
         overflow: 'auto',
-        maxHeight: '100vh',
+        maxHeight: '50vh',
+        minHeight: '50vh'
     },
     inline: {
         display: 'inline',
