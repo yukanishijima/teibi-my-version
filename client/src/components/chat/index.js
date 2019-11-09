@@ -48,8 +48,7 @@ class Chat extends Component {
 		this.setState({ msg: e.target.value });
 	};
 	onMessageSubmit = () => {
-		socket.emit('chat message', this.state.msg);
-		
+		socket.emit('chat message', this.state.msg);	
 	};
 	//displaying the chat history
 	renderChat() {
@@ -61,6 +60,12 @@ class Chat extends Component {
 				<div className="msg">{msg}</div>	
 			</div>
 		));
+  }
+  //handle enter click for message
+  handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+        this.onMessageSubmit();
+    }
   }
   //scroll feature and make close button functional
 	render() {
@@ -75,15 +80,20 @@ class Chat extends Component {
 				</ChatBubble>
 				<div className="chatBox" style={{ display: this.state.chatting ? 'block' : 'none' }}>
 					<span className="CloseBtn" onClick={()=> this.setState({chatting:false})}>X</span>
-					<div>Chat Room: {this.state.room}</div>
-					<div>{this.renderChat()}</div>
-					<div className="textInputBox">
+					<span>{this.renderChat()}</span>
+					<span className="textInputBox">
 						<span>Message </span>
-						<Input name="msg" onChange={(e) => this.onTextChange(e)} value={this.state.msg} />
+            <Input
+              placeholder="Say Hey!!!" 
+              name="msg" 
+              onChange={(e) => this.onTextChange(e)}
+              value={this.state.msg}
+              onKeyDown={this.handleKeyPress}
+            />
 						<Send onClick={this.onMessageSubmit}></Send>
-						</div>
-					</div>
+					</span>
 				</div>
+		  </div>
 		);
 	}
 }

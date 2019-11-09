@@ -2,13 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: 25px;
+    bottom: 15px;
     left: 0px;
     position: absolute;
-    overflow: auto;
-    max-height: 50vh;
-    max-width: 70vw;
-    background-color: #ffffffb9;
+   
     /* min-height: 50vh; */
 
 
@@ -21,17 +18,16 @@
   }
   
   .chatBox {
-    /* min-height: 150vh; */
-    width: 300px;
-    border: 1px solid white;
+    width: 50vw;
+    max-height: 50vh;
+    min-height: 20vh;
+    max-width: 70vw;
+    border: 1px solid rgb(1, 143, 43);
     display: flex;
     justify-content: center;
-    bottom: 10px;
-    /* overflow: 'auto'; */
-    /* max-height: 50vh;
-    max-width: 70vw; */
-    /* opacity:0.3 */
-
+    bottom: 0px;
+    overflow: auto;
+    background-color: #ffffffb9;
   }
 
   .CloseBtn{
@@ -50,6 +46,10 @@
     bottom:0;
     background:#fff;
     justify-content: center;
+    max-width: 70vw;
+    width: 50vw;
+
+    
   }
   .chat{
     list-style-type: none;
@@ -63,11 +63,11 @@
     color:#fff;
     background:green; /* default background for browsers without gradient support */
     /* css3 */
-    /* background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
+    background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
     background:-moz-linear-gradient(#2e88c4, #075698);
     background:-o-linear-gradient(#2e88c4, #075698);
     background:linear-gradient(#2e88c4, #075698);
-    border-radius:10px;  */
+    border-radius:10px; 
   } 
   .chat-other{
     list-style-type: none;
@@ -79,11 +79,11 @@
     justify-content: center;
     background:blue; /* default background for browsers without gradient support */
     /* css3 */
-    /* background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
-    background:-moz-linear-gradient(#2e88c4, #075698);
-    background:-o-linear-gradient(#2e88c4, #075698);
-    background:linear-gradient(#2e88c4, #075698);
-    border-radius:10px;  */
+    background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
+    background:-moz-linear-gradient(#2ec460f6, #07691c);
+    background:-o-linear-gradient(#2ec460f6, #07691c);
+    background:linear-gradient(#2ec460f6, #07691c);
+    border-radius:10px; 
   } 
   .msg {
   display: flex ;
@@ -104,6 +104,9 @@
       border-radius: 50%;
      	margin: 10;
     	color: '#fff';
-      background-color:greenyellow;
-      
+      background-color:greenyellow;  
+  }
+  .MuiSvgIcon-root{
+    display: flex;
+    float: right;
   }
