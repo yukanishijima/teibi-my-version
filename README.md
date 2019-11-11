@@ -1,4 +1,4 @@
-# Teibi: <q>```See you there.```</q><sub>(latin)</sub>
+# 🔗[Teibi](https://teibi.ca): <q>```See you there.```</q><sub>(latin)</sub>
 
 We want to help people find a meeting point where they can:
 
@@ -12,7 +12,11 @@ We want to help people find a meeting point where they can:
 
 **Teibi** will calculate a midpoint between users and present a list of locations to meet.
 
-
+- [Instructions](#Instructions)
+- [Development](#Development)
+- [Wireframe](#Wireframe)
+- [Technology](#Technology)
+- [Staff](#Staff)
 
 ## Instructions:
 
