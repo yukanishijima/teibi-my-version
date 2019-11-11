@@ -52,6 +52,7 @@ io.on('connection', (socket) => {
       rooms[room][socket.id] = {
         // userName: 'randomNameFunc' + Date.now(),
         userName: userInfo.username,
+        loggedIn: userInfo.loggedIn,
         lat: 0,
         lon: 0,
         status: 'Selecting...'

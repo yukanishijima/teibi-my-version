@@ -118,10 +118,10 @@ router.get("/user_data", function(req, res) {
     //   // res.json({});
     // });
 
-    let randomIndex = Math.floor(Math.random() * animalNames.length) + 1;
+    let randomIndex = Math.floor(Math.random() * animalNames.length);
 
     res.json({
-      username: `(a) ${animalNames[randomIndex].name}`,
+      username: `${animalNames[randomIndex].name}`,
       loggedIn: false
     });
   } else {

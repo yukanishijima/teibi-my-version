@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Box from '@material-ui/core/Box';
+import Tooltip from "@material-ui/core/Tooltip";
+import IconButton from '@material-ui/core/IconButton';
 import ListLocations from "../list";
 import API from "../../utils/API";
 import './style.css'
@@ -12,6 +14,7 @@ import GetList from "./getList"
 
 let room;
 let user;
+let loggedIn;
 
 // catch connection test event from server and display on console
 // socket.on("connection test", msg => {
@@ -41,10 +44,12 @@ class userStatus extends Component {
       // console.log(res.data.username + "im here");
       // this.setState({user: res.data.username});
       user = res.data.username;
+      loggedIn = res.data.loggedIn;
 
       let userInfo = {
         room: room,
-        username: user
+        username: user,
+        loggedIn: loggedIn
       }
 
       socket.emit("joinRoom", userInfo);
@@ -107,7 +112,14 @@ class userStatus extends Component {
       <>
         <Box component="div" id="userStatus">
           {this.state.status.map(el => (
-            <h3 key={el.userId}>{el.userName}<span id={el.userId}> - {el.status}</span></h3>
+            <h3 key={el.userId}>
+              <Tooltip title={!el.loggedIn ? "Anonymous" : "Verified"}>
+                <IconButton>
+                  <i class={!el.loggedIn ? "fas fa-user" : "fas fa-user-check"}></i>
+                </IconButton>
+              </Tooltip>
+              {el.userName}<span id={el.userId}> - {el.status}</span>
+            </h3>
           ))}
         </Box>
         <ListLocations data={this.state.apiResult} />
