@@ -6,10 +6,13 @@ import SignUp from './pages/signup';
 import SignIn from './pages/signin';
 import NoMatch from './pages/nomatch';
 
+import { ThemeProvider } from '@material-ui/core/styles';
+import { myTheme } from './utils/myTheme';
+
 function App() {
   return (
     <>
-      <div className="App">
+      <ThemeProvider theme={myTheme}>
         <Router>
           <Switch>
             <Route exact path="/" component={Landing} />
@@ -19,7 +22,7 @@ function App() {
             <Route path="*" component={NoMatch} />
           </Switch>
         </Router>
-      </div>
+      </ThemeProvider>
     </>
   );
 }

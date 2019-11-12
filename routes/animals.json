@@ -1,82 +1,82 @@
 [
     {
         "id": 1,
-        "name": "bird"
+        "name": "Bird"
     },
     {
         "id": 2,
-        "name": "turtle"
+        "name": "Turtle"
     },
     {
         "id": 3,
-        "name": "otter"
+        "name": "Otter"
     },
     {
         "id": 4,
-        "name": "chameleon"
+        "name": "Chameleon"
     },
     {
         "id": 5,
-        "name": "owl"
+        "name": "Owl"
     },
     {
         "id": 6,
-        "name": "bear"
+        "name": "Bear"
     },
     {
         "id": 7,
-        "name": "kangaroo"
+        "name": "Kangaroo"
     },
     {
         "id": 8,
-        "name": "giraffe"
+        "name": "Giraffe"
     },
     {
         "id": 9,
-        "name": "cat"
+        "name": "Cat"
     },
     {
         "id": 10,
-        "name": "koala"
+        "name": "Koala"
     },
     {
         "id": 11,
-        "name": "hamster"
+        "name": "Hamster"
     },
     {
         "id": 12,
-        "name": "rabbit"
+        "name": "Rabbit"
     },
     {
         "id": 13,
-        "name": "horse"
+        "name": "Horse"
     },
     {
         "id": 14,
-        "name": "fish"
+        "name": "Fish"
     },
     {
         "id": 15,
-        "name": "wolf"
+        "name": "Wolf"
     },
     {
         "id": 16,
-        "name": "eagle"
+        "name": "Eagle"
     },
     {
         "id": 17,
-        "name": "goat"
+        "name": "Goat"
     },
     {
         "id": 18,
-        "name": "gorilla"
+        "name": "Gorilla"
     },
     {
         "id": 19,
-        "name": "panda"
+        "name": "Panda"
     },
     {
         "id": 20,
-        "name": "wallaby"
+        "name": "Wallaby"
     }
 ]
