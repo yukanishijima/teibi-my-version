@@ -19,8 +19,7 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.background.paper,
         position: 'relative',
         overflow: 'auto',
-        maxHeight: '50vh',
-        minHeight: '50vh'
+        maxHeight: '50vh'
     },
     inline: {
         display: 'inline',
