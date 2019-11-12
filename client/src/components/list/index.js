@@ -28,15 +28,6 @@ const useStyles = makeStyles(theme => ({
 function ListLocations({ data }) {
     const classes = useStyles();
     return data.length > 0 ? (
-        // <ul id="locationList">
-        //     {data.map(e => {
-        //         return (
-        //             <li key={e.name}>
-        //             <img src={e.image_url} width="50" alt={e.name}></img>{e.name}
-        //             </li>
-        //         )
-        //     })}
-        // </ul>
         <div id="locationList">
             <List className={classes.root}>
                 {data.map(e => {
@@ -63,11 +54,8 @@ function ListLocations({ data }) {
                         </ListItem>
                     )
                 })}
-
                 <Divider variant="inset" component="li" />
-
             </List>
-
         </div>
     ) : <></>;
 }
