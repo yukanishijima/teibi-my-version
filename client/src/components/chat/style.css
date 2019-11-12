@@ -1,14 +1,12 @@
 .chatApp {
+    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: 15px;
+    bottom: 0px;
     left: 0px;
     position: absolute;
-   
-    /* min-height: 50vh; */
-
-
+    width:50vw
   }
   
   .userName {
@@ -18,22 +16,24 @@
   }
   
   .chatBox {
+    position: absolute;
+    bottom: 5vh;
     width: 50vw;
-    max-height: 50vh;
-    min-height: 20vh;
-    max-width: 70vw;
-    border: 1px solid rgb(1, 143, 43);
+    height: 45vh;
+    border: 1px solid #005f56;
     display: flex;
     justify-content: center;
-    bottom: 0px;
-    overflow: auto;
     background-color: #ffffffb9;
   }
 
   .CloseBtn{
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
     float:right;
+    position: sticky;
     padding:2px 5px;
-    background:#ccc;
+    background:#005f56;
   }
   .CloseBtn:hover {
     float:right;
@@ -44,69 +44,93 @@
   .textInputBox{
     position: fixed;
     bottom:0;
+    left: 0;
     background:#fff;
     justify-content: center;
-    max-width: 70vw;
-    width: 50vw;
-
-    
+    height:5vh;
+    width: 50vw; 
+    border: 1px solid #005f56;
   }
   .chat{
     list-style-type: none;
-    /* position: absolute; */
     position:relative;
+    width: 30vw;
     align-items: center;
     justify-content: flex-start;
     display:flex;
-    padding:10px;
-    margin:20px;
+    float: left;
+    padding:5px;
+    margin:5px;  
     color:#fff;
-    background:green; /* default background for browsers without gradient support */
-    /* css3 */
-    background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
-    background:-moz-linear-gradient(#2e88c4, #075698);
-    background:-o-linear-gradient(#2e88c4, #075698);
-    background:linear-gradient(#2e88c4, #075698);
+    background:rgba(50, 52, 165, 0.945); 
     border-radius:10px; 
+    max-height: 45vh;
   } 
   .chat-other{
     list-style-type: none;
-    position: absolute;
     position:relative;
-    padding:10px;
-    margin:20px;
+    width: 30vw;
+    align-items: center;
+    justify-content: flex-start;
+    display:flex;
+    float: right;
+    padding:5px;
+    margin:5px;
     color:#fff;
-    justify-content: center;
-    background:blue; /* default background for browsers without gradient support */
-    /* css3 */
-    background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
-    background:-moz-linear-gradient(#2ec460f6, #07691c);
-    background:-o-linear-gradient(#2ec460f6, #07691c);
-    background:linear-gradient(#2ec460f6, #07691c);
+    background:#005f56;
     border-radius:10px; 
+    max-height: 45vh;
   } 
   .msg {
-  display: flex ;
-  flex:1;
-  flex-wrap: wrap;  
-  justify-content: flex-end;
-  margin-left: 10px;
-    
+    display: flex ;
+    flex:1;
+    flex-wrap: wrap;  
+    justify-content: flex-end;
+    margin-left: 10px;  
   }
-  .orangeAvatar {
-      display: flex;
-      flex-shrink: 0;
-      justify-content: center;
-      align-items: center;
-      vertical-align: middle;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-     	margin: 10;
-    	color: '#fff';
-      background-color:greenyellow;  
+  .msgBox{
+    width: 45vw;
   }
+ 
   .MuiSvgIcon-root{
     display: flex;
     float: right;
+    align-content: center;
   }
+
+  .MuiInputBase-input {
+    width: 40vw;
+  }
+  
+  .fa-copy {
+    font-size: 1.4em;
+  }
+  #chatB{
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+    border-radius: 50%;
+    min-width: 45px;
+    width: 45px;
+    min-height: 45px;
+  }
+  #send{
+    position: absolute;
+    bottom: 0;
+    left: 42vw;
+    border-radius: 50%;
+    min-width: 40px;
+    width: 35px;
+    min-height: 35px;
+  }
+
+  .chatScroll{
+    position: absolute;
+    bottom: 0;
+   /* Check how to Keep "overflow div" scrolled to bottom unless user scrolls up */
+    overflow: auto;
+    max-height: 45vh;
+  }
+
+  /* media queries here */
+  
