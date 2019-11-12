@@ -108,7 +108,7 @@ class userStatus extends Component {
     return (
       <>
         <DisplayBox status={this.state.status} />
-        <Box component="div" id="userStatus">
+        {/* <Box component="div" id="userStatus">
           {this.state.status.map(el => (
             <h3 key={el.userId}>
               <Tooltip title={!el.loggedIn ? "Anonymous" : "Verified"}>
@@ -119,7 +119,7 @@ class userStatus extends Component {
               {el.userName}<span id={el.userId}> - {el.status}</span>
             </h3>
           ))}
-        </Box>
+        </Box> */}
         <ListLocations data={this.state.apiResult} />
       </>
     )
