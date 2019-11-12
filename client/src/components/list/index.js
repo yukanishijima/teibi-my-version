@@ -52,9 +52,7 @@ function ListLocations({ data, displayClass }) {
                                 <ListItemText
                                     primary={<>
                                         {e.name + " | "}
-                                        <Link to={{
-                                            pathname: "tel:" + e.phone
-                                        }}>{e.phone}</Link>
+                                        <a href={"tel:" + e.phone}>{e.phone}</a>
                                     </>}
                                     secondary={
                                         <React.Fragment>
