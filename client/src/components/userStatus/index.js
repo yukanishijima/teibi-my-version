@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Box from '@material-ui/core/Box';
+import Tooltip from "@material-ui/core/Tooltip";
+import IconButton from '@material-ui/core/IconButton';
 import ListLocations from "../list";
 import DisplayBox from "./displayBox";
 import API from "../../utils/API";
@@ -105,6 +108,18 @@ class userStatus extends Component {
     return (
       <>
         <DisplayBox status={this.state.status} />
+        <Box component="div" id="userStatus">
+          {this.state.status.map(el => (
+            <h3 key={el.userId}>
+              <Tooltip title={!el.loggedIn ? "Anonymous" : "Verified"}>
+                <IconButton>
+                  <i class={!el.loggedIn ? "fas fa-user" : "fas fa-user-check"}></i>
+                </IconButton>
+              </Tooltip>
+              {el.userName}<span id={el.userId}> - {el.status}</span>
+            </h3>
+          ))}
+        </Box>
         <ListLocations data={this.state.apiResult} />
       </>
     )
