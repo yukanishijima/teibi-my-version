@@ -2,6 +2,8 @@
     position: absolute;
     z-index: 1000;
     list-style: none;
+    top: 0;
+    left: 0;
 }
 
 #locationList > li {
