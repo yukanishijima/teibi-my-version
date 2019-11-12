@@ -6,6 +6,15 @@
     left: 0;
 }
 
+.displayList {
+    display: block;
+}
+
+.hideList {
+    display: none;
+}
+
+
 #locationList > li {
     background-color:  white;
     float:left;

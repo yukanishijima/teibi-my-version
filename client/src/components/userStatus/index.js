@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Box from '@material-ui/core/Box';
-import Tooltip from "@material-ui/core/Tooltip";
-import IconButton from '@material-ui/core/IconButton';
 import ListLocations from "../list";
 import DisplayBox from "./displayBox";
 import API from "../../utils/API";
@@ -21,7 +18,8 @@ let loggedIn;
 class userStatus extends Component {
   state = {
     status: [],
-    apiResult: ""
+    apiResult: "",
+    displayList: "hideList"
   }
 
   componentDidMount() {
@@ -67,10 +65,21 @@ class userStatus extends Component {
     // catch selected event from server and update state 
     socket.on("selected", async rooms => {
       // console.log(rooms);
+      let selectedIcon = 0;
+      let roomArray = this.convertToArray(rooms[room]);
       this.setState({
-        status: this.convertToArray(rooms[room])
+        status: roomArray
       }, () => {
-        // console.log(this.state.status);
+        roomArray.forEach(e => {
+          if(e.status === "Selected!"){
+            selectedIcon++;
+          }
+        });
+        if(selectedIcon === 2){
+          this.setState({
+            displayList: "displayList"
+          });
+        }
       });
 
       // const retrievedList =  GetList(this.state.status);
@@ -108,19 +117,7 @@ class userStatus extends Component {
     return (
       <>
         <DisplayBox status={this.state.status} />
-        {/* <Box component="div" id="userStatus">
-          {this.state.status.map(el => (
-            <h3 key={el.userId}>
-              <Tooltip title={!el.loggedIn ? "Anonymous" : "Verified"}>
-                <IconButton>
-                  <i class={!el.loggedIn ? "fas fa-user" : "fas fa-user-check"}></i>
-                </IconButton>
-              </Tooltip>
-              {el.userName}<span id={el.userId}> - {el.status}</span>
-            </h3>
-          ))}
-        </Box> */}
-        <ListLocations data={this.state.apiResult} />
+        <ListLocations data={this.state.apiResult} displayClass={this.state.displayList}/>
       </>
     )
   }
