@@ -14,7 +14,9 @@ let marker = "";
 class Map extends Component {
 
   state = {
-    center: [43.666667, -79.416667]
+    // Toronto City Hall
+    // 100 Queen St W, Toronto, ON M5H 2N2
+    center: [43.6534399,-79.3840901]
   }
 
   componentDidMount() {
