@@ -77,8 +77,8 @@ io.on('connection', (socket) => {
   });
 
   socket.on('chat message', function (data) {
-    console.log('msg', data);
-    console.log(`${rooms[room][socket.id].userName}`);
+    // console.log('msg', data);
+    // console.log(`${rooms[room][socket.id].userName}`);
     io.emit('chat message', {
       username: rooms[room][socket.id].userName,
       msg: data
@@ -160,16 +160,16 @@ function onError(error) {
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
+  case 'EACCES':
+    console.error(bind + ' requires elevated privileges');
+    process.exit(1);
+    break;
+  case 'EADDRINUSE':
+    console.error(bind + ' is already in use');
+    process.exit(1);
+    break;
+  default:
+    throw error;
   }
 }
 
