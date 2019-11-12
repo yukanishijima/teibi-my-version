@@ -31,7 +31,7 @@ mongoose.connect(process.env.DATABASE_URL || mongoDB, {
 // Find a mid-point from 2 sets of latitude and longitude
 // then request a list of buisness names in that lat long
 
-router.get("/mid/:lat1/:long1/:lat2/:long2", function (req, res) {
+router.get("/mid/:lat1/:long1/:lat2/:long2", function(req, res) {
   function degreesToRadians(degrees) {
     var pi = Math.PI;
     return degrees * (pi / 180);
@@ -72,39 +72,50 @@ router.get("/mid/:lat1/:long1/:lat2/:long2", function (req, res) {
   router.handle(req, res);
 });
 
-router.get("/mp/:lat1/:long1", function (req, res) {
+router.get("/mp/:lat1/:long1", function(req, res) {
   let nlat1 = req.params.lat1;
   let nlon1 = req.params.long1;
 
-  client
-    .search({
-      latitude: nlat1,
-      longitude: nlon1,
-      radius: 222
-    })
-    .then(response => {
-      res.json(response.jsonBody);
-      // console.log(response.jsonBody);
-    })
-    .catch(e => {
-      console.log(e);
-    });
+  let radius = 25;
+
+  function getLocations() {
+    client
+      .search({
+        latitude: nlat1,
+        longitude: nlon1,
+        radius: radius
+      })
+      .then(response => {
+        let dataResult = response.jsonBody;
+        // console.log("Radius: " + radius + " Total: " + dataResult.total);
+        if (dataResult.total > 0) {
+          res.json(dataResult);
+        } else {
+          radius += 30;
+          getLocations();
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+  getLocations();
 });
 
-router.get("/show", function (req, res) {
+router.get("/show", function(req, res) {
   let ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
   res.send(ip);
 });
 
-router.post("/signup", function (req, res) {
+router.post("/signup", function(req, res) {
   dbController.create(req, res);
 });
 
-router.post("/signin", passport.authenticate("local"), function (req, res) {
+router.post("/signin", passport.authenticate("local"), function(req, res) {
   res.json(req.user);
 });
 
-router.get("/user_data", function (req, res) {
+router.get("/user_data", function(req, res) {
   if (!req.user) {
     // axios.get("https://dog.ceo/api/breeds/list").then(breeds => {
     //   let breedsList = breeds.data.message;
@@ -133,13 +144,13 @@ router.get("/user_data", function (req, res) {
   }
 });
 
-router.get("/logout", function (req, res) {
+router.get("/logout", function(req, res) {
   req.logout();
   res.send("log out successful");
 });
 
 /* GET users listing. */
-router.get("/user", function (req, res) {
+router.get("/user", function(req, res) {
   res.send("respond with a resource");
 });
 
