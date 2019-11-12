@@ -103,40 +103,44 @@ apikey=xxxx
 ---
 ### Technology:
 
-MERN
+### MERN
 
 Dependencies:
 
-- [@material-ui/core](https://github.com/mui-org/material-ui): ^4.6.0"
-- [@material-ui/icons](https://github.com/mui-org/material-ui): ^4.5.1"
-- [axios](https://github.com/axios/axios): ^0.19.0
-- [bcryptjs](https://github.com/dcodeIO/bcrypt.js): ^2.4.3"
-- [cookie-parser](https://github.com/expressjs/cookie-parser): ~1.4.4
-- [debug](https://github.com/visionmedia/debug): ~2.6.9
-- [dotenv](https://github.com/motdotla/dotenv): ^8.2.0
-- [express](https://expressjs.com): ~4.16.1
-- [express-session](https://github.com/expressjs/session): ^1.17.0"
-- [if-env](https://github.com/ericclemmons/if-env): ^1.0.4
-- [leaflet.locatecontrol](https://github.com/domoritz/leaflet-locatecontrol): ^0.68.0"
-- [mongoose](https://mongoosejs.com): ^5.7.7
-- [morgan](https://github.com/expressjs/morgan): ~1.9.1
-- [normalize.css](https://github.com/necolas/normalize.css): ^8.0.1"
-- [passport](https://github.com/jaredhanson/passport): ^0.4.0"
-- [passport-local](https://github.com/jaredhanson/passport-local): ^1.0.0"
-- [react-router-dom](https://github.com/ReactTraining/react-router): ^5.1.2
-- [react-toastify](https://github.com/fkhadra/react-toastify)^5.4.0"
-- [react-use](https://github.com/streamich/react-use)^12.13.0"
-- [socket.io](https://socket.io/): ^2.3.0
-- [yelp-fusion](https://github.com/tonybadguy/yelp-fusion)^3.0.0"
+Name | Version
+-----|-------
+[@material-ui/core](https://github.com/mui-org/material-ui)|![@material-ui/core](https://img.shields.io/npm/v/@material-ui/core?style=plastic)
+[@material-ui/icons](https://github.com/mui-org/material-ui)|![@material-ui/icons](https://img.shields.io/npm/v/@material-ui/icons?style=plastic)
+[axios](https://github.com/axios/axios)|![axios](https://img.shields.io/npm/v/axios?style=plastic)
+[bcryptjs](https://github.com/dcodeIO/bcrypt.js)|![bcryptjs](https://img.shields.io/npm/v/bcryptjs?style=plastic)
+[cookie-parser](https://github.com/expressjs/cookie-parser)|![cookie-parser](https://img.shields.io/npm/v/cookie-parser?style=plastic)
+[debug](https://github.com/visionmedia/debug)|![debug](https://img.shields.io/npm/v/debug?style=plastic)
+[dotenv](https://github.com/motdotla/dotenv)|![dotenv](https://img.shields.io/npm/v/dotenv?style=plastic)
+[express](https://expressjs.com)|![express](https://img.shields.io/npm/v/express?style=plastic)
+[express-session](https://github.com/expressjs/session)|![express-session](https://img.shields.io/npm/v/express-session?style=plastic)
+[if-env](https://github.com/ericclemmons/if-env)|![if-env](https://img.shields.io/npm/v/if-env?style=plastic)
+[leaflet.locatecontrol](https://github.com/domoritz/leaflet-locatecontrol)|![leaflet.locatecontrol](https://img.shields.io/npm/v/leaflet.locatecontrol?style=plastic)
+[mongoose](https://mongoosejs.com)|![mongoose](https://img.shields.io/npm/v/mongoose?style=plastic)
+[morgan](https://github.com/expressjs/morgan)|![morgan](https://img.shields.io/npm/v/morgan?style=plastic)
+[normalize.css](https://github.com/necolas/normalize.css)|![normalize.css](https://img.shields.io/npm/v/normalize.css?style=plastic)
+[passport](https://github.com/jaredhanson/passport)|![passport](https://img.shields.io/npm/v/passport?style=plastic)
+[passport-local](https://github.com/jaredhanson/passport-local)|![passport-local](https://img.shields.io/npm/v/passport-local?style=plastic)
+[react-router-dom](https://github.com/ReactTraining/react-router)|![react-router-dom](https://img.shields.io/npm/v/react-router-dom?style=plastic)
+[react-toastify](https://github.com/fkhadra/react-toastify)|![react-toastify](https://img.shields.io/npm/v/react-toastify?style=plastic)
+[react-use](https://github.com/streamich/react-use)|![react-use](https://img.shields.io/npm/v/react-use?style=plastic)
+[socket.io](https://socket.io/)|![socket.io](https://img.shields.io/npm/v/socket.io?style=plastic)
+[yelp-fusion](https://github.com/tonybadguy/yelp-fusion)|![yelp-fusion](https://img.shields.io/npm/v/yelp-fusion?style=plastic)
 
 devDependencies:
 
-- [concurrently](https://github.com/kimmobrunfeldt/concurrently): ^5.0.0
-- [eslint](https://github.com/eslint/eslint): ^6.6.0"
-- [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier): ^6.5.0"
-- [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier): ^3.1.1"
-- [nodemon](https://github.com/remy/nodemon): ^1.19.4"
-- [prettier](https://github.com/prettier/prettier): ^1.18.2"
+Name | Version
+-----|-------
+[concurrently](https://github.com/kimmobrunfeldt/concurrently)|![concurrently](https://img.shields.io/npm/v/concurrently?style=plastic)
+[eslint](https://github.com/eslint/eslint)|![eslint](https://img.shields.io/npm/v/eslint?style=plastic)
+[eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)|![eslint-config-prettier](https://img.shields.io/npm/v/eslint-config-prettier?style=plastic)
+[eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)|![eslint-plugin-prettier](https://img.shields.io/npm/v/eslint-plugin-prettier?style=plastic)
+[nodemon](https://github.com/remy/nodemon)|![nodemon](https://img.shields.io/npm/v/nodemon?style=plastic)
+[prettier](https://github.com/prettier/prettier)|![prettier](https://img.shields.io/npm/v/prettier?style=plastic)
 
 
 ### Staff:
