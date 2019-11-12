@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "name": "wallaby"
+        "name": "Wallaby"
     },
     {
         "id": 1,
@@ -78,10 +78,6 @@
     {
         "id": 19,
         "name": "Panda"
-    },
-    {
-        "id": 20,
-        "name": "Wallaby"
     }
     
 ]
