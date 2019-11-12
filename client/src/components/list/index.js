@@ -46,7 +46,7 @@ function ListLocations({ data }) {
                                 <Avatar alt={e.name} src={e.image_url} />
                             </ListItemAvatar>
                             <ListItemText
-                                primary={e.name}
+                                primary={`${e.name} | <a href={"tel:"+e.phone}>${e.phone}</a>`}
                                 secondary={
                                     <React.Fragment>
                                         <Typography
@@ -55,7 +55,7 @@ function ListLocations({ data }) {
                                             className={classes.inline}
                                             color="textPrimary"
                                         >
-                                            {e.location.address1} | <a href={"tel:"+e.phone}>☎ {e.phone}</a>
+                                            {e.location.address1}
                                         </Typography>
                                     </React.Fragment>
                                 }
