@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
+import Button from '@material-ui/core/Button';
+// import Typography from '@material-ui/core/Typography';
+import { myTheme } from '../utils/myTheme';
 
 
 class SignIn extends Component {
@@ -32,44 +35,57 @@ class SignIn extends Component {
       .catch(err => {
         console.log(err)
         alert("Please ensure your username and password are valid.");
-
       });
-
   };
+
+  handleLogOut = () => {
+    API.checkLogin().then(res => {
+      console.log(res.data.loggedIn);
+
+      if (res.data.loggedIn) {
+        API.logoutUser().then(res => {
+          alert("You have successfully logged out.");
+          window.location.replace("/");
+        });
+      } else {
+        alert("You're not logged in.");
+      };
+    });
+  };
+
 
   render() {
 
     return (
       <>
         <form>
+          <input
+            type="text"
+            // id="username-input"
+            name="username"
+            onChange={this.handleInputChange}
+            autoComplete="false"
+            placeholder="Your Name"
+            className="userName"
+            style={myTheme.palette.input}
+          />
 
-          <div className="form-group">
+          <input
+            type="password"
+            // id="password-input"
+            name="password"
+            onChange={this.handleInputChange}
+            autoComplete="false"
+            placeholder="Password"
+            className="password"
+            style={myTheme.palette.input}
+          />
 
-            <input
-              type="text"
-              className="userName"
-              id="username-input"
-              name="username"
-              // value=""
-              onChange={this.handleInputChange}
-              placeholder="Your Name"
-              autoComplete="false"
-            />
+          <Button style={myTheme.palette.buttonThree} type="submit" id="submit" onClick={this.handleFormSubmit}>SIGN IN</Button>
 
-            <input
-              type="password"
-              // className="form-control"
-              className="password"
-              id="password-input"
-              name="password"
-              onChange={this.handleInputChange}
-              placeholder="Password"
-              autoComplete="false"
-            />
+          {/* <Typography color="primary" variant="body2" component="p" align="center" style={{ margin: "-15px auto 15px" }}>forgot password</Typography> */}
 
-          </div>
-
-          <button type="submit" className="btn-signIn" id="sign-in" onClick={this.handleFormSubmit}>Sign In</button>
+          <Button variant="outlined" style={myTheme.palette.buttonTwo} onClick={this.handleLogOut} id="logout">Log Out</Button>
 
         </form>
       </>
