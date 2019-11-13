@@ -67,7 +67,8 @@ class Chat extends Component {
   };
   
 	onMessageSubmit = () => {
-		socket.emit('chat message', this.state.msg);	
+    socket.emit('chat message', this.state.msg);	
+    // scrollChat();
   };
 
   userNameInitials() {
@@ -110,7 +111,7 @@ class Chat extends Component {
 				<div className="chatBox" style={{ display: this.state.chatting ? 'block' : 'none' }}>
 					<span className="CloseBtn" onClick={()=> this.setState({chatting:false})}>X</span>
           <div className="chatScroll" >{this.renderChat()}</div>
-					<span className="textInputBox">
+					<div className="textInputBox">
             <Input
               className="msgBox"
               placeholder="Say Hey!!!" 
@@ -127,7 +128,7 @@ class Chat extends Component {
             >
               <i class="fa fa-paper-plane"></i>
             </Button>
-					</span>
+					</div>
 				</div>
         </ThemeProvider>
 		  </div>
