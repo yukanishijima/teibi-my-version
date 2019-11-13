@@ -49,28 +49,31 @@ class SignUp extends Component {
 
           })
           .catch(err => {
-            console.log(err)
+            console.log(err);
+
           });
       })
       .catch(err => {
-        console.log(err)
+        console.log(err);
+        alert("Unsucessful sign up, please try another username and email.");
+
       });
   };
 
-  handleLogOut = () => {
-    API.checkLogin().then(res => {
-      console.log(res.data.loggedIn);
+  // handleLogOut = () => {
+  //   API.checkLogin().then(res => {
+  //     console.log(res.data.loggedIn);
 
-      if (res.data.loggedIn) {
-        API.logoutUser().then(res => {
-          alert("You have successfully logged out.");
-          window.top.location.replace("/");
-        });
-      } else {
-        alert("You're not logged in.");
-      };
-    });
-  };
+  //     if (res.data.loggedIn) {
+  //       API.logoutUser().then(res => {
+  //         alert("You have successfully logged out.");
+  //         window.top.location.replace("/");
+  //       });
+  //     } else {
+  //       alert("You're not logged in.");
+  //     };
+  //   });
+  // };
 
   render() {
     return (
@@ -115,7 +118,7 @@ class SignUp extends Component {
 
           <Button style={myTheme.palette.buttonThree} type="submit" id="submit" onClick={this.handleFormSubmit}>SUBMIT</Button>
 
-          <Button variant="outlined" style={myTheme.palette.buttonTwo} onClick={this.handleLogOut} id="logout">Log Out</Button>
+          {/* <Button variant="outlined" style={myTheme.palette.buttonTwo} onClick={this.handleLogOut} id="logout">Log Out</Button> */}
 
         </form>
       </>
