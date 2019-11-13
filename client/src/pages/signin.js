@@ -38,20 +38,20 @@ class SignIn extends Component {
       });
   };
 
-  handleLogOut = () => {
-    API.checkLogin().then(res => {
-      console.log(res.data.loggedIn);
+  // handleLogOut = () => {
+  //   API.checkLogin().then(res => {
+  //     console.log(res.data.loggedIn);
 
-      if (res.data.loggedIn) {
-        API.logoutUser().then(res => {
-          alert("You have successfully logged out.");
-          window.location.replace("/");
-        });
-      } else {
-        alert("You're not logged in.");
-      };
-    });
-  };
+  //     if (res.data.loggedIn) {
+  //       API.logoutUser().then(res => {
+  //         alert("You have successfully logged out.");
+  //         window.top.location.replace("/");
+  //       });
+  //     } else {
+  //       alert("You're not logged in.");
+  //     };
+  //   });
+  // };
 
 
   render() {
@@ -85,7 +85,7 @@ class SignIn extends Component {
 
           {/* <Typography color="primary" variant="body2" component="p" align="center" style={{ margin: "-15px auto 15px" }}>forgot password</Typography> */}
 
-          <Button variant="outlined" style={myTheme.palette.buttonTwo} onClick={this.handleLogOut} id="logout">Log Out</Button>
+          {/* <Button variant="outlined" style={myTheme.palette.buttonTwo} onClick={this.handleLogOut} id="logout">Log Out</Button> */}
 
         </form>
       </>
