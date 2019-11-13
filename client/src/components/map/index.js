@@ -14,7 +14,9 @@ let marker = "";
 class Map extends Component {
 
   state = {
-    center: [43.666667, -79.416667]
+    // Toronto City Hall
+    // 100 Queen St W, Toronto, ON M5H 2N2
+    center: [43.6534399,-79.3840901]
   }
 
   componentDidMount() {
@@ -36,8 +38,8 @@ class Map extends Component {
     });
     //Reference: https://medium.com/@annaian/adding-leaflet-and-leaflet-locatecontrol-to-react-component-c864262811e8
     //find user location and update based on that
-    const lc = new Locate({position: 'bottomright', keepCurrentZoomLevel: true, flyTo:'setView'});
-    lc.addTo(map);  
+    const lc = new Locate({ position: 'bottomright', keepCurrentZoomLevel: true, flyTo: 'setView' });
+    lc.addTo(map);
     //set zoom controller to bottom right
     L.control.zoom({ position: "bottomright" }).addTo(map);
     // add marker
@@ -96,7 +98,7 @@ class Map extends Component {
   render() {
     return (
       <>
-        <UserStatus elevation={4}/>
+        <UserStatus elevation={4} />
         <div id="map"></div>
       </>
     )

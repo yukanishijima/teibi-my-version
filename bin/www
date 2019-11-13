@@ -52,6 +52,7 @@ io.on('connection', (socket) => {
       rooms[room][socket.id] = {
         // userName: 'randomNameFunc' + Date.now(),
         userName: userInfo.username,
+        loggedIn: userInfo.loggedIn,
         lat: 0,
         lon: 0,
         status: 'Selecting...'
@@ -76,8 +77,8 @@ io.on('connection', (socket) => {
   });
 
   socket.on('chat message', function (data) {
-    console.log('msg', data);
-    console.log(`${rooms[room][socket.id].userName}`);
+    // console.log('msg', data);
+    // console.log(`${rooms[room][socket.id].userName}`);
     io.emit('chat message', {
       username: rooms[room][socket.id].userName,
       msg: data
@@ -90,7 +91,7 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     console.log('disconnected');
-    if(typeof rooms[room] !== "undefined"){
+    if (typeof rooms[room] !== "undefined") {
       delete rooms[room][socket.id];
       // insert if countis 0 erase room
     }
@@ -101,9 +102,9 @@ io.on('connection', (socket) => {
   socket.on('reconnect_attempt', () => {
     socket.io.opts.transports = ['polling', 'websocket'];
   });
-// });
-},{
-  transports:['polling', 'websocket'],
+  // });
+}, {
+  transports: ['polling', 'websocket'],
   upgrade: true,
   forceNew: false,
   reconnectionAttempts: Infinity,

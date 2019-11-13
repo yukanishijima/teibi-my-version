@@ -8,6 +8,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { Link } from "react-router-dom"
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -17,59 +19,67 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.background.paper,
         position: 'relative',
         overflow: 'auto',
-        maxHeight: '50vh',
-        minHeight: '50vh'
+        maxHeight: '50vh'
     },
     inline: {
         display: 'inline',
     },
+    root2: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        maxWidth: '50vw',
+        minWidth: '50vw',
+        minHeight: '50vh',
+        backgroundColor:  "rgba(255, 255, 255, 0.473)"
+      },
 }));
 
-function ListLocations({ data }) {
+function ListLocations({ data, displayClass }) {
     const classes = useStyles();
     return data.length > 0 ? (
-        // <ul id="locationList">
-        //     {data.map(e => {
-        //         return (
-        //             <li key={e.name}>
-        //             <img src={e.image_url} width="50" alt={e.name}></img>{e.name}
-        //             </li>
-        //         )
-        //     })}
-        // </ul>
         <div id="locationList">
             <List className={classes.root}>
-                {data.map(e => {
+                {data.map((e, k) => {
                     return (
-                        <ListItem key={e.name} alignItems="flex-start">
-                            <ListItemAvatar>
-                                <Avatar alt={e.name} src={e.image_url} />
-                            </ListItemAvatar>
-                            <ListItemText
-                                primary={e.name}
-                                secondary={
-                                    <React.Fragment>
-                                        <Typography
-                                            component="span"
-                                            variant="body2"
-                                            className={classes.inline}
-                                            color="textPrimary"
-                                        >
-                                            {e.location.address1} | <a href={"tel:"+e.phone}>☎ {e.phone}</a>
-                                        </Typography>
-                                    </React.Fragment>
-                                }
-                            />
-                        </ListItem>
+                        <>
+                            <ListItem key={e.name} alignItems="flex-start">
+                                <ListItemAvatar>
+                                    <Avatar alt={e.name} src={e.image_url} />
+                                </ListItemAvatar>
+                                <ListItemText
+                                    primary={<>
+                                        {e.name + " | "}
+                                        <a href={"tel:" + e.phone}>{e.phone}</a>
+                                    </>}
+                                    secondary={
+                                        <React.Fragment>
+                                            <>
+                                                <Typography
+                                                    component="span"
+                                                    variant="body2"
+                                                    className={classes.inline}
+                                                    color="textPrimary"
+                                                >
+                                                    {e.location.address1}
+                                                </Typography>
+                                            </>
+                                        </React.Fragment>
+                                    }
+                                />
+                            </ListItem>
+                            < Divider variant="inset" component="li" />
+                        </>
                     )
                 })}
-
-                <Divider variant="inset" component="li" />
-
             </List>
-
         </div>
-    ) : <></>;
+    ) : <div id="locationList" className={displayClass}>
+            <List className={classes.root2}>
+                <CircularProgress />
+            </List>
+        </div>;
 }
 
 export default ListLocations;

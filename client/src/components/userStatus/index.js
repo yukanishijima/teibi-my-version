@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Box from '@material-ui/core/Box';
 import ListLocations from "../list";
+import DisplayBox from "./displayBox";
 import API from "../../utils/API";
 import './style.css'
 
@@ -12,17 +12,14 @@ import GetList from "./getList"
 
 let room;
 let user;
-
-// catch connection test event from server and display on console
-// socket.on("connection test", msg => {
-//   // console.log(msg);
-// });
+let loggedIn;
 
 
 class userStatus extends Component {
   state = {
     status: [],
-    apiResult: ""
+    apiResult: "",
+    displayList: "hideList"
   }
 
   componentDidMount() {
@@ -41,10 +38,12 @@ class userStatus extends Component {
       // console.log(res.data.username + "im here");
       // this.setState({user: res.data.username});
       user = res.data.username;
+      loggedIn = res.data.loggedIn;
 
       let userInfo = {
         room: room,
-        username: user
+        username: user,
+        loggedIn: loggedIn
       }
 
       socket.emit("joinRoom", userInfo);
@@ -66,10 +65,21 @@ class userStatus extends Component {
     // catch selected event from server and update state 
     socket.on("selected", async rooms => {
       // console.log(rooms);
+      let selectedIcon = 0;
+      let roomArray = this.convertToArray(rooms[room]);
       this.setState({
-        status: this.convertToArray(rooms[room])
+        status: roomArray
       }, () => {
-        // console.log(this.state.status);
+        roomArray.forEach(e => {
+          if(e.status === "Selected!"){
+            selectedIcon++;
+          }
+        });
+        if(selectedIcon === 2){
+          this.setState({
+            displayList: "displayList"
+          });
+        }
       });
 
       // const retrievedList =  GetList(this.state.status);
@@ -92,7 +102,6 @@ class userStatus extends Component {
     });
   }
 
-
   convertToArray(obj) {
     let array = [];
     for (var p in obj) {
@@ -102,15 +111,13 @@ class userStatus extends Component {
     }
     return array;
   }
+
+
   render() {
     return (
       <>
-        <Box component="div" id="userStatus">
-          {this.state.status.map(el => (
-            <h3 key={el.userId}>{el.userName}<span id={el.userId}> - {el.status}</span></h3>
-          ))}
-        </Box>
-        <ListLocations data={this.state.apiResult} />
+        <DisplayBox status={this.state.status} />
+        <ListLocations data={this.state.apiResult} displayClass={this.state.displayList}/>
       </>
     )
   }

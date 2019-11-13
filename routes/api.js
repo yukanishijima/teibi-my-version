@@ -76,19 +76,30 @@ router.get("/mp/:lat1/:long1", function(req, res) {
   let nlat1 = req.params.lat1;
   let nlon1 = req.params.long1;
 
-  client
-    .search({
-      latitude: nlat1,
-      longitude: nlon1,
-      radius: 222
-    })
-    .then(response => {
-      res.json(response.jsonBody);
-      // console.log(response.jsonBody);
-    })
-    .catch(e => {
-      console.log(e);
-    });
+  let radius = 25;
+
+  function getLocations() {
+    client
+      .search({
+        latitude: nlat1,
+        longitude: nlon1,
+        radius: radius
+      })
+      .then(response => {
+        let dataResult = response.jsonBody;
+        // console.log("Radius: " + radius + " Total: " + dataResult.total);
+        if (dataResult.total > 0) {
+          res.json(dataResult);
+        } else {
+          radius += 30;
+          getLocations();
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+  getLocations();
 });
 
 router.get("/show", function(req, res) {
@@ -118,10 +129,10 @@ router.get("/user_data", function(req, res) {
     //   // res.json({});
     // });
 
-    let randomIndex = Math.floor(Math.random() * animalNames.length) + 1;
+    let randomIndex = Math.floor(Math.random() * animalNames.length);
 
     res.json({
-      username: `(a) ${animalNames[randomIndex].name}`,
+      username: `${animalNames[randomIndex].name}`,
       loggedIn: false
     });
   } else {

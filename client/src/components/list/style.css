@@ -2,7 +2,18 @@
     position: absolute;
     z-index: 1000;
     list-style: none;
+    top: 0;
+    left: 0;
 }
+
+.displayList {
+    display: block;
+}
+
+.hideList {
+    display: none;
+}
+
 
 #locationList > li {
     background-color:  white;
