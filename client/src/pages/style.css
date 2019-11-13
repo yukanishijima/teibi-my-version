@@ -1,0 +1,54 @@
+.page-container {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+#logo,#helpIcon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    min-width: 45px;
+    width: 45px;
+    min-height: 45px;
+}
+
+#helpIcon:hover {
+    content: url('/images/help.png');
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    min-width: 45px;
+    width: 45px;
+    min-height: 45px;
+}
+
+.errorImage {
+    background-image: url("/images/broken.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-width: 50vw;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.gradient {
+    min-width: 100vw;
+    min-height: 100vh;
+    background: #5f2c82;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #89bdbbbe 70%, #602c82);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #89bdbbbe 70%, #602c82);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.title {
+    position: absolute;
+    top: 10vh;
+    min-width: 100vw;
+    text-align: center;
+    font-size: 20vw;
+    margin: 0;
+}

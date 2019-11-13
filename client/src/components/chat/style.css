@@ -1,0 +1,136 @@
+.chatApp {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    width:50vw
+  }
+  
+  .userName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .chatBox {
+    position: absolute;
+    bottom: 5vh;
+    width: 50vw;
+    height: 45vh;
+    border: 1px solid #005f56;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffffb9;
+  }
+
+  .CloseBtn{
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    float:right;
+    position: sticky;
+    padding:2px 5px;
+    background:#005f56;
+  }
+  .CloseBtn:hover {
+    float:right;
+    padding:2px 5px;
+    background:#ccc;
+    color:#fff;
+}
+  .textInputBox{
+    position: fixed;
+    bottom:0;
+    left: 0;
+    background:#fff;
+    justify-content: center;
+    height:5vh;
+    width: 50vw; 
+    border: 1px solid #005f56;
+  }
+  .chat{
+    list-style-type: none;
+    position:relative;
+    width: 30vw;
+    align-items: center;
+    justify-content: flex-start;
+    display:flex;
+    float: left;
+    padding:5px;
+    margin:5px;  
+    color:#fff;
+    background:rgba(50, 52, 165, 0.945); 
+    border-radius:10px; 
+    max-height: 45vh;
+  } 
+  .chat-other{
+    list-style-type: none;
+    position:relative;
+    width: 30vw;
+    align-items: center;
+    justify-content: flex-start;
+    display:flex;
+    float: right;
+    padding:5px;
+    margin:5px;
+    color:#fff;
+    background:#005f56;
+    border-radius:10px; 
+    max-height: 45vh;
+  } 
+  .msg {
+    display: flex ;
+    flex:1;
+    flex-wrap: wrap;  
+    justify-content: flex-end;
+    margin-left: 10px;  
+  }
+  .msgBox{
+    width: 45vw;
+  }
+ 
+  .MuiSvgIcon-root{
+    display: flex;
+    float: right;
+    align-content: center;
+  }
+
+  .MuiInputBase-input {
+    width: 40vw;
+  }
+  
+  .fa-copy {
+    font-size: 1.4em;
+  }
+  #chatB{
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+    border-radius: 50%;
+    min-width: 45px;
+    width: 45px;
+    min-height: 45px;
+  }
+  #send{
+    position: absolute;
+    bottom: 0;
+    left: 42vw;
+    border-radius: 50%;
+    min-width: 40px;
+    width: 35px;
+    min-height: 35px;
+  }
+
+  .chatScroll{
+    position: absolute;
+    bottom: 0;
+   /* Check how to Keep "overflow div" scrolled to bottom unless user scrolls up */
+    overflow: auto;
+    max-height: 45vh;
+  }
+
+  /* media queries here */
+  

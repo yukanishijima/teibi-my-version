@@ -1,9 +1,44 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
+import Dialog from '@material-ui/core/Dialog';
+import TogglePanel from "./togglePanel";
+import { myTheme } from "../../utils/myTheme";
+import './style.css';
 
-function infobutton(){
-    return(
-        <></>
-    )
+
+const useStyles = makeStyles(theme => ({
+  fab: {
+    margin: theme.spacing(1),
+  },
+  extendedIcon: {
+    marginRight: theme.spacing(1),
+  },
+}));
+
+
+export default function InfoButton() {
+
+  const classes = useStyles();
+
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+
+  return (
+    <>
+      <Fab color="primary" aria-label="add" className={classes.fab} onClick={handleClickOpen} id="menu">
+        <i className="fas fa-door-open" style={{ color: myTheme.palette.secondary.secondary }}></i>
+      </Fab>
+
+      <Dialog open={open} onClose={handleClose} className="dialog">
+        <TogglePanel />
+      </Dialog>
+    </>
+  );
 }
-
-export default infobutton;

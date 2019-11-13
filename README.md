@@ -1,65 +1,146 @@
-# Teibi: ```See you there.```
+# 🔗[Teibi](https://teibi.ca): <q>```See you there.```</q><sub>(latin)</sub>
 
-## Description:
+We want to help people find a meeting point where they can:
 
+- 🏖 hang out
+- 🤣 laugh
+- 😭 cry
+- 💖 love each other
+- 💔 break up
+- 🏫 learn
+- 🤞 try new things
+
+**Teibi** will calculate a midpoint between users and present a list of locations to meet.
+
+- [Instructions](#Instructions)
+- [Development](#Development)
+- [Wireframe](#Wireframe)
+- [Technology](#Technology)
+- [Staff](#Staff)
+
+## Instructions:
+
+- Go to https://teibi.ca/ 🔗
+    - A new ID will be provided (XXXX-XXXX)
+- Copy the URL 🔗
+    - Use the share link
+    - Use the share functionality on your browser
+    - Copy / paste the url
+- Share link
+- Select your starting point
+    - Wait for the other user
+- Once second user selects their location a mid point will be calculated
+- A list of places will be presented
+- Pick one
+    - A chat sections  is provided so you do not need to switch
+- See you there
+- See you next time
+
+----
+## Development
+----
 
 ## Make it work:
 
-```npm run build```
+You can acces the website or install your own instance
+
+```clone```
+
+- create a .env with the following:
+
+```
+db=xxx
+host=xxxx
+user=xxxxxx
+password=xxxxxx
+apikey=xxxx
+```
 
 ```npm i```
 
-```npm run install```
+```npm start```
 
 ## WireFrame:
 
-Landing Page
-![Teibi](./static/landing.png)
+<p align="center">
+    <b>Landing Page</b>
+    <br>
+    <img src="./static/landing.png" alt="Landing Page" width="350px">
+</p>
 
-<hr >
+---
 
-Main App
+<p align="center">
+    <b>Main App</b>
+    <br>
+    <img src="./static/app.png" alt="Main App"  width="350px">
+</p>
 
-![Teibi](./static/app.png)
+---
 
-<hr>
+<p align="center">
+    <b>Login</b>
+    <br>
+    <img src="./static/login.png" alt="Login"  width="350px">
+</p>
 
-Login
+---
 
-![Teibi](./static/login.png)
+<p align="center">
+    <b>Signup</b>
+    <br>
+    <img src="./static/login.png" alt="Signup"  width="350px">
+</p>
 
-<hr>
+---
 
-Signup
+<p align="center">
+    <b>List</b>
+    <br>
+    <img src="./static/list.png" alt="List"  width="350px">
+</p>
 
-![Teibi](./static/signup.png)
-
-<hr>
-
-List
-
-![Teibi](./static/list.png)
-
+---
 ### Technology:
 
-MERN
+### MERN
 
 Dependencies:
-- [axios](https://github.com/axios/axios): ^0.19.0
-- [cookie-parser](https://github.com/expressjs/cookie-parser): ~1.4.4
-- [debug](https://github.com/visionmedia/debug): ~2.6.9
-- [dotenv](https://github.com/motdotla/dotenv): ^8.2.0
-- [express](https://expressjs.com): ~4.16.1
-- [if-env](https://github.com/ericclemmons/if-env): ^1.0.4
-- [materialize-css](https://materializecss.com): ^1.0.0-rc.2
-- [mongoose](https://mongoosejs.com): ^5.7.7
-- [morgan](https://github.com/expressjs/morgan): ~1.9.1
-- [react-router-dom](https://github.com/ReactTraining/react-router): ^5.1.2
-- [socket.io](https://socket.io/): ^2.3.0
+
+Name | Version
+-----|-------
+[@material-ui/core](https://github.com/mui-org/material-ui)|![@material-ui/core](https://img.shields.io/npm/v/@material-ui/core?style=plastic)
+[@material-ui/icons](https://github.com/mui-org/material-ui)|![@material-ui/icons](https://img.shields.io/npm/v/@material-ui/icons?style=plastic)
+[axios](https://github.com/axios/axios)|![axios](https://img.shields.io/npm/v/axios?style=plastic)
+[bcryptjs](https://github.com/dcodeIO/bcrypt.js)|![bcryptjs](https://img.shields.io/npm/v/bcryptjs?style=plastic)
+[cookie-parser](https://github.com/expressjs/cookie-parser)|![cookie-parser](https://img.shields.io/npm/v/cookie-parser?style=plastic)
+[debug](https://github.com/visionmedia/debug)|![debug](https://img.shields.io/npm/v/debug?style=plastic)
+[dotenv](https://github.com/motdotla/dotenv)|![dotenv](https://img.shields.io/npm/v/dotenv?style=plastic)
+[express](https://expressjs.com)|![express](https://img.shields.io/npm/v/express?style=plastic)
+[express-session](https://github.com/expressjs/session)|![express-session](https://img.shields.io/npm/v/express-session?style=plastic)
+[if-env](https://github.com/ericclemmons/if-env)|![if-env](https://img.shields.io/npm/v/if-env?style=plastic)
+[leaflet.locatecontrol](https://github.com/domoritz/leaflet-locatecontrol)|![leaflet.locatecontrol](https://img.shields.io/npm/v/leaflet.locatecontrol?style=plastic)
+[mongoose](https://mongoosejs.com)|![mongoose](https://img.shields.io/npm/v/mongoose?style=plastic)
+[morgan](https://github.com/expressjs/morgan)|![morgan](https://img.shields.io/npm/v/morgan?style=plastic)
+[normalize.css](https://github.com/necolas/normalize.css)|![normalize.css](https://img.shields.io/npm/v/normalize.css?style=plastic)
+[passport](https://github.com/jaredhanson/passport)|![passport](https://img.shields.io/npm/v/passport?style=plastic)
+[passport-local](https://github.com/jaredhanson/passport-local)|![passport-local](https://img.shields.io/npm/v/passport-local?style=plastic)
+[react-router-dom](https://github.com/ReactTraining/react-router)|![react-router-dom](https://img.shields.io/npm/v/react-router-dom?style=plastic)
+[react-toastify](https://github.com/fkhadra/react-toastify)|![react-toastify](https://img.shields.io/npm/v/react-toastify?style=plastic)
+[react-use](https://github.com/streamich/react-use)|![react-use](https://img.shields.io/npm/v/react-use?style=plastic)
+[socket.io](https://socket.io/)|![socket.io](https://img.shields.io/npm/v/socket.io?style=plastic)
+[yelp-fusion](https://github.com/tonybadguy/yelp-fusion)|![yelp-fusion](https://img.shields.io/npm/v/yelp-fusion?style=plastic)
 
 devDependencies:
-- [concurrently](https://github.com/kimmobrunfeldt/concurrently): ^5.0.0
-- [nodemon](https://github.com/remy/nodemon): ^1.19.4"
+
+Name | Version
+-----|-------
+[concurrently](https://github.com/kimmobrunfeldt/concurrently)|![concurrently](https://img.shields.io/npm/v/concurrently?style=plastic)
+[eslint](https://github.com/eslint/eslint)|![eslint](https://img.shields.io/npm/v/eslint?style=plastic)
+[eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)|![eslint-config-prettier](https://img.shields.io/npm/v/eslint-config-prettier?style=plastic)
+[eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)|![eslint-plugin-prettier](https://img.shields.io/npm/v/eslint-plugin-prettier?style=plastic)
+[nodemon](https://github.com/remy/nodemon)|![nodemon](https://img.shields.io/npm/v/nodemon?style=plastic)
+[prettier](https://github.com/prettier/prettier)|![prettier](https://img.shields.io/npm/v/prettier?style=plastic)
 
 
 ### Staff:

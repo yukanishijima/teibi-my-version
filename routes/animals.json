@@ -1,0 +1,83 @@
+[
+    {
+        "id": 0,
+        "name": "Wallaby"
+    },
+    {
+        "id": 1,
+        "name": "Bird"
+    },
+    {
+        "id": 2,
+        "name": "Turtle"
+    },
+    {
+        "id": 3,
+        "name": "Otter"
+    },
+    {
+        "id": 4,
+        "name": "Chameleon"
+    },
+    {
+        "id": 5,
+        "name": "Owl"
+    },
+    {
+        "id": 6,
+        "name": "Bear"
+    },
+    {
+        "id": 7,
+        "name": "Kangaroo"
+    },
+    {
+        "id": 8,
+        "name": "Giraffe"
+    },
+    {
+        "id": 9,
+        "name": "Cat"
+    },
+    {
+        "id": 10,
+        "name": "Koala"
+    },
+    {
+        "id": 11,
+        "name": "Hamster"
+    },
+    {
+        "id": 12,
+        "name": "Rabbit"
+    },
+    {
+        "id": 13,
+        "name": "Horse"
+    },
+    {
+        "id": 14,
+        "name": "Fish"
+    },
+    {
+        "id": 15,
+        "name": "Wolf"
+    },
+    {
+        "id": 16,
+        "name": "Eagle"
+    },
+    {
+        "id": 17,
+        "name": "Goat"
+    },
+    {
+        "id": 18,
+        "name": "Gorilla"
+    },
+    {
+        "id": 19,
+        "name": "Panda"
+    }
+    
+]
