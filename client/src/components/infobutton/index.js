@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Tooltip from "@material-ui/core/Tooltip";
 import Fab from '@material-ui/core/Fab';
 import Dialog from '@material-ui/core/Dialog';
 import TogglePanel from "./togglePanel";
@@ -33,7 +34,9 @@ export default function InfoButton() {
   return (
     <>
       <Fab color="primary" aria-label="add" className={classes.fab} onClick={handleClickOpen} id="menu">
-        <i className="fas fa-door-open" style={{ color: myTheme.palette.secondary.secondary }}></i>
+        <Tooltip title={"User"} placement="top">
+          <i className="fas fa-door-open" style={{ color: myTheme.palette.secondary.secondary }}></i>
+        </Tooltip>
       </Fab>
 
       <Dialog open={open} onClose={handleClose} className="dialog">

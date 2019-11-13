@@ -3,6 +3,7 @@ import { useCopyToClipboard } from "react-use";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { makeStyles } from '@material-ui/core/styles';
+import Tooltip from "@material-ui/core/Tooltip";
 import Fab from '@material-ui/core/Fab';
 import { myTheme } from "../../utils/myTheme";
 import './style.css';
@@ -40,7 +41,9 @@ const CopyLink = (props) => {
       <ToastContainer />
 
       <Fab color="primary" aria-label="add" className={classes.fab} onClick={() => { copyToClipboard(props.text); notify() }} id="copyButton">
-        <i className="fas fa-copy" style={{ color: myTheme.palette.secondary.secondary }}></i>
+        <Tooltip title={"Copy Url"} placement="top">
+          <i className="fas fa-copy" style={{ color: myTheme.palette.secondary.secondary }}></i>
+        </Tooltip>
       </Fab>
     </div>
   )
