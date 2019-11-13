@@ -64,7 +64,7 @@ class SignUp extends Component {
       if (res.data.loggedIn) {
         API.logoutUser().then(res => {
           alert("You have successfully logged out.");
-          window.location.replace("/");
+          window.top.location.replace("/");
         });
       } else {
         alert("You're not logged in.");
@@ -75,9 +75,9 @@ class SignUp extends Component {
   render() {
     return (
       <>
-        <p>{this.state.username}</p>
+        {/* <p>{this.state.username}</p>
         <p>{this.state.email}</p>
-        <p>{this.state.password}</p>
+        <p>{this.state.password}</p> */}
 
         <form>
           <input

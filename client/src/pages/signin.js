@@ -45,7 +45,7 @@ class SignIn extends Component {
       if (res.data.loggedIn) {
         API.logoutUser().then(res => {
           alert("You have successfully logged out.");
-          window.location.replace("/");
+          window.top.location.replace("/");
         });
       } else {
         alert("You're not logged in.");
