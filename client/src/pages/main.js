@@ -3,6 +3,7 @@ import Map from '../components/map';
 import InfoButton from '../components/infobutton';
 import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
+import Help from '../pages/help';
 import UserStatus from '../components/userStatus';
 
 // import SignIn from "../components/sign/in"
@@ -24,6 +25,7 @@ class Main extends Component {
         return (
             <>
                 <Map />
+                <Help />
                 <UserStatus />
                 <InfoButton />
                 <CopyUrl text={window.location.href} />

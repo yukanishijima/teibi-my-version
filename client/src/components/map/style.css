@@ -11,3 +11,10 @@ position: absolute;
 top:0;
 z-index: 0;
 }
+.leaflet-control-locate{
+  bottom:108px;
+}
+/* Just check if we can hide this tag and do the copyright thing in help */
+/* .leaflet-control-attribution{
+  display: none;
+} */
