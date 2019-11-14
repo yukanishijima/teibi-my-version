@@ -9,7 +9,7 @@ function NoMatch() {
       
       <p className="title">
         404 <br />
-      <Link to="/"><img src="/images/Logo.png" width="50" height="50" z-index="100"/></Link>
+      <Link to="/"><img alt="logo" src="/images/Logo.png" width="50" height="50" z-index="100"/></Link>
       </p>
       <div className="errorImage">
         <div className="gradient">
