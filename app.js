@@ -16,7 +16,16 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static("client/build"));
+
 app.use("/api", apiRouter);
+app.use(express.static("client/build"));
+
+app.get("/*", function(req, res) {
+  res.sendFile(path.join(__dirname, "client/build/index.html"), function(err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
 
 module.exports = app;
