@@ -7,7 +7,16 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import './style.css';
+import API from "../../utils/API";
+
+let loggedIn;
+
+API.checkLogin().then(res => {
+  loggedIn = res.data.loggedIn;
+
+});
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,49 +73,61 @@ export default function FloatingActionButtonZoom() {
     setValue(index);
   };
 
-
   let urlClean = window.location.pathname.split('/')[2]
   let finalUrlSignIn = "/signin/?" + urlClean;
   let finalUrlSignUp = "/signup/?" + urlClean;
+
+  const handleLogOut = () => {
+    API.logoutUser().then(res => {
+      alert("You have successfully logged out.");
+      window.top.location.replace("/");
+    });
+
+  };
 
 
   return (
     <div className={classes.root}>
 
-      <AppBar position="static" color="default">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="fullWidth"
-          aria-label="action tabs example"
+      {loggedIn ? (
+        <Button onClick={() => handleLogOut()}>Log Out</Button>
+      ) : (
+      <>
+        <AppBar position="static" color="default">
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+            variant="fullWidth"
+            aria-label="action tabs example"
+          >
+            <Tab label="Sign In" {...a11yProps(0)} />
+            <Tab label="Sign Up" {...a11yProps(1)} />
+          </Tabs>
+        </AppBar>
+
+        <SwipeableViews
+          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          index={value}
+          onChangeIndex={handleChangeIndex}
         >
-          <Tab label="Sign In" {...a11yProps(0)} />
-          <Tab label="Sign Up" {...a11yProps(1)} />
-        </Tabs>
-      </AppBar>
 
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
+          <TabPanel value={value} index={0} dir={theme.direction}>
+            <Typography id="msg" variant="h5" align="center" color="primary">Hello, again!</Typography>
+            <iframe id="signIn" className="signIn" title="Sign In" frameBorder="0" src={finalUrlSignIn}>
+            </iframe>
+          </TabPanel>
 
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          <Typography id="msg" variant="h5" align="center" color="primary">Hello, again!</Typography>
-          <iframe id="signIn" className="signIn" title="Sign In" frameBorder="0" src={finalUrlSignIn}>
-          </iframe>
-        </TabPanel>
+          <TabPanel value={value} index={1} dir={theme.direction}>
+            <Typography id="msg" variant="h5" align="center" color="primary">Welcome to Teibi!</Typography>
+            <iframe id="signUp" className="signUp" title="Sign Up" frameBorder="0" src={finalUrlSignUp}>
+            </iframe>
+          </TabPanel>
 
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          <Typography id="msg" variant="h5" align="center" color="primary">Welcome to Teibi!</Typography>
-          <iframe id="signUp" className="signUp" title="Sign Up" frameBorder="0" src={finalUrlSignUp}>
-          </iframe>
-        </TabPanel>
-
-      </SwipeableViews>
-
+        </SwipeableViews>
+      </>
+      )}
     </div >
   );
 }
