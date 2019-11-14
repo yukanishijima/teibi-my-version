@@ -1,8 +1,5 @@
-var bcrypt = require("bcryptjs");
-// var passport = require("../config/passport");
-
+const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -12,8 +9,9 @@ const userSchema = new Schema({
   date: { type: Date, default: Date.now }
 });
 
-var User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
+//Hashing the password
 User.prototype.validPassword = function(password) {
   return bcrypt.compareSync(password, this.password);
 };

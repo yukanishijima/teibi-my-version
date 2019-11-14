@@ -12,13 +12,12 @@ const CopyLink = (props) => {
   const [setText] = React.useState('');
   // eslint-disable-next-line
   const [state, copyToClipboard] = useCopyToClipboard();
-  // console.log(props);
 
   function notify() {
-    toast.warn("Your Link is copied. Share it!", {
-      position: "bottom-center",
+    toast.info("Your Link is copied. Share it!", {
+      position: "bottom-right",
       autoClose: 2000,
-      pauseOnFocusLoss: false
+      pauseOnFocusLoss: true
     },
     )
   };
