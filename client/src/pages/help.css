@@ -7,6 +7,15 @@
     cursor: pointer;   
 }
 
+#logo,#helpIcon {
+  position: relative;
+  top: 2px;
+  left: -1px;
+  min-width: 45px;
+  width: 45px;
+  min-height: 45px;
+}
+
 /* info button
 ----------------------------- */
 #help {
