@@ -76,12 +76,9 @@ class Chat extends Component {
     // scrollChat;
     this.messagesEnd.scrollIntoView({ behavior: "smooth" });
   };
-  
+
   //displaying the chat history
   renderChat() {
-  
-
- 
     const { chat } = this.state;
     return chat.map(({ username, msg }, i) => (
       <li className={username === chat[0].username ? 'chat' : 'chat-other'} key={i}>
