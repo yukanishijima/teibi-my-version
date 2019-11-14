@@ -39,7 +39,7 @@ class Map extends Component {
     });
 
     // add layer to map
-    
+
     // option - 1
     var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
       maxZoom: 19,
