@@ -19,8 +19,7 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.background.paper,
         position: 'relative',
         overflow: 'auto',
-        maxHeight: '50vh',
-        minHeight: '50vh'
+        maxHeight: '50vh'
     },
     inline: {
         display: 'inline',
@@ -32,7 +31,6 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         maxWidth: '50vw',
         minWidth: '50vw',
-        minHeight: '50vh',
         backgroundColor:  "rgba(255, 255, 255, 0.473)"
       },
 }));
