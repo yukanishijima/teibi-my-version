@@ -92,7 +92,9 @@ router.get("/mp/:lat1/:long1", function(req, res) {
           res.json(dataResult);
         } else {
           radius += 30;
-          getLocations();
+          setTimeout(function() {
+            getLocations();
+          }, 500);
         }
       })
       .catch(e => {
