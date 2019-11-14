@@ -33,7 +33,7 @@ let rooms = {};
 let room = '';
 
 io.on('connection', (socket) => {
-  console.log('user connected');
+  // console.log('user connected');
   // once connected, emit test event to client
   socket.emit('connection test', 'user connected');
 
@@ -61,15 +61,15 @@ io.on('connection', (socket) => {
     // send rooms object to client
     io.nsps['/'].to('room ' + room).emit('joinRoom', rooms);
 
-    console.log(rooms);
-    console.log(`${io.nsps['/'].adapter.rooms['room ' + room].length} clients are inside room ${userInfo.room}`);
+    // console.log(rooms);
+    // console.log(`${io.nsps['/'].adapter.rooms['room ' + room].length} clients are inside room ${userInfo.room}`);
 
     io.nsps['/'].to('room ' + room).emit('username', rooms[room][socket.id].userName);
     io.nsps['/'].to('room ' + room).emit('room', userInfo.room);
   });
 
   socket.on('selected', (updatedUserInfo) => {
-    console.log(updatedUserInfo);
+    // console.log(updatedUserInfo);
     rooms[room][socket.id].lat = updatedUserInfo.lat;
     rooms[room][socket.id].lon = updatedUserInfo.lon;
     rooms[room][socket.id].status = updatedUserInfo.status;
@@ -86,11 +86,11 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnecting', () => {
-    console.log('disconnecting');
+    // console.log('disconnecting');
   });
 
   socket.on('disconnect', () => {
-    console.log('disconnected');
+    // console.log('disconnected');
     if (typeof rooms[room] !== "undefined") {
       delete rooms[room][socket.id];
       // insert if countis 0 erase room
