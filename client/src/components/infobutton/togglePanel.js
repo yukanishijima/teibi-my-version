@@ -7,7 +7,16 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import { myTheme } from '../../utils/myTheme';
 import './style.css';
+import API from "../../utils/API";
+
+let loggedIn;
+
+API.checkLogin().then(res => {
+  loggedIn = res.data.loggedIn;
+});
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -45,7 +54,15 @@ const useStyles = makeStyles(myTheme => ({
     minWidth: 256,
     width: "60vw",
     maxWidth: 500,
-    height: 490,
+    height: 410,
+    position: 'relative',
+  },
+  rootLogOut: {
+    backgroundColor: myTheme.palette.primary.secondary,
+    minWidth: 256,
+    width: "60vw",
+    maxWidth: 500,
+    height: 300,
     position: 'relative',
   },
 }));
@@ -70,43 +87,63 @@ export default function FloatingActionButtonZoom() {
   let finalUrlSignUp = "/signup/?" + urlClean;
 
 
+  const handleLogOut = () => {
+    API.logoutUser().then(res => {
+      alert("You have successfully logged out.");
+      window.top.location.replace("/");
+    });
+  };
+
+
   return (
-    <div className={classes.root}>
+    <>
+      {loggedIn ? (
+        <div className={classes.rootLogOut}>
+          <div className="logout-container">
+            <Typography id="msg" variant="h4" align="center" color="primary">See you soon!</Typography>
+            <Button variant="outlined" style={myTheme.palette.buttonTwo} onClick={() => handleLogOut()} id="logout">Log Out</Button>
+          </div>
+        </div>
 
-      <AppBar position="static" color="default">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="fullWidth"
-          aria-label="action tabs example"
-        >
-          <Tab label="Sign In" {...a11yProps(0)} />
-          <Tab label="Sign Up" {...a11yProps(1)} />
-        </Tabs>
-      </AppBar>
+      ) : (
+          <div className={classes.root}>
 
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
+            <AppBar position="static" color="default">
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                indicatorColor="primary"
+                textColor="primary"
+                variant="fullWidth"
+                aria-label="action tabs example"
+              >
+                <Tab label="Sign In" {...a11yProps(0)} />
+                <Tab label="Sign Up" {...a11yProps(1)} />
+              </Tabs>
+            </AppBar>
 
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          <Typography id="msg" variant="h5" align="center" color="primary">Hello, again!</Typography>
-          <iframe id="signIn" className="signIn" title="Sign In" frameBorder="0" src={finalUrlSignIn}>
-          </iframe>
-        </TabPanel>
+            <SwipeableViews
+              axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+              index={value}
+              onChangeIndex={handleChangeIndex}
+            >
 
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          <Typography id="msg" variant="h5" align="center" color="primary">Welcome to Teibi!</Typography>
-          <iframe id="signUp" className="signUp" title="Sign Up" frameBorder="0" src={finalUrlSignUp}>
-          </iframe>
-        </TabPanel>
+              <TabPanel value={value} index={0} dir={theme.direction}>
+                <Typography id="msg" variant="h4" align="center" color="primary">Hello, again!</Typography>
+                <iframe id="signIn" className="signIn" title="Sign In" frameBorder="0" src={finalUrlSignIn}>
+                </iframe>
+              </TabPanel>
 
-      </SwipeableViews>
+              <TabPanel value={value} index={1} dir={theme.direction}>
+                <Typography id="msg" variant="h4" align="center" color="primary">Welcome to Teibi!</Typography>
+                <iframe id="signUp" className="signUp" title="Sign Up" frameBorder="0" src={finalUrlSignUp}>
+                </iframe>
+              </TabPanel>
 
-    </div >
+            </SwipeableViews>
+
+          </div>
+        )}
+    </>
   );
 }

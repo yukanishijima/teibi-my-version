@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const apiRouter = require("./routes/api");
 const app = express();
+const path = require("path");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -16,7 +17,16 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static("client/build"));
+
 app.use("/api", apiRouter);
+app.use(express.static("client/build"));
+
+app.get("/*", function(req, res) {
+  res.sendFile(path.join(__dirname, "client/build/index.html"), function(err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
 
 module.exports = app;

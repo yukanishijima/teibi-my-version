@@ -4,18 +4,18 @@ import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Tooltip from "@material-ui/core/Tooltip";
-// import IconButton from '@material-ui/core/IconButton';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import { myTheme } from '../../utils/myTheme';
 import './style.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(1.2, 2.5),
+    padding: theme.spacing(1, 2.5),
     marginBottom: theme.spacing(0.6),
     background: myTheme.palette.secondary.main,
     borderRadius: 50,
     display: "flex",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
   }
 }));
 
@@ -37,9 +37,12 @@ export default function PaperSheet(props) {
             <Typography variant="body1" display="inline" color="primary">
               &nbsp;{el.userName}&nbsp;
             </Typography>
-            <Typography variant="body1" display="inline" color="primary">
-              <i className={el.status === "Selecting..." ? "fas fa-ellipsis-h" : "fas fa-check"}></i>
-            </Typography>
+
+            <div id="progress-container">
+              {el.status === "Selecting..." ?
+                <LinearProgress color="primary" className="progress" /> :
+                <i className="fas fa-check" style={{ color: myTheme.palette.primary.main }}></i>}
+            </div>
 
           </Paper>
         )}

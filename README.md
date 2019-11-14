@@ -10,7 +10,7 @@ We want to help people find a meeting point where they can:
 - 🏫 learn
 - 🤞 try new things
 
-**Teibi** will calculate a midpoint between users and present a list of locations to meet.
+**Teibi** will find a happy "meet me half way" ⚖ 🔀 place from the users and present a list of locations to choose 🚂 from.
 
 - [Instructions](#Instructions)
 - [Development](#Development)
@@ -20,7 +20,7 @@ We want to help people find a meeting point where they can:
 
 ## Instructions:
 
-- Go to https://teibi.ca/ 🔗
+- Go to https://teibi.ca/ 🔗 or https//www.teibi.ca/ 🔗
     - A new ID will be provided (XXXX-XXXX)
 - Copy the URL 🔗
     - Use the share link
@@ -35,6 +35,9 @@ We want to help people find a meeting point where they can:
     - A chat sections  is provided so you do not need to switch
 - See you there
 - See you next time
+
+We can be reached @ 
+# ✉ [info@teibi.ca](mailto:info@teibi.ca)
 
 ----
 ## Development
@@ -145,6 +148,6 @@ Name | Version
 
 ### Staff:
 
-|Neha|Yuka|Stanley|Héctor|
+|[neha@teibi.ca](mailto:neha@teibi.ca)|[yuka@teibi.ca](mailto:yuka@teibi.ca)|[stanley@teibi.ca](mailto:stanley@teibi.ca)|[hector@teibi.ca](mailto:hector@teibi.ca)|
 |---|---|---|---|
 |![Neha](https://avatars1.githubusercontent.com/u/50129533?s=1000&v=4)|![Yuka](https://avatars1.githubusercontent.com/u/48897211?s=1000&v=4)|![Stanley](https://avatars1.githubusercontent.com/u/48934307?s=1000&v=4)|![Héctor](https://avatars1.githubusercontent.com/u/36649256?s=1000&v=4)|
