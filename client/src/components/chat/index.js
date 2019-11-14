@@ -71,17 +71,17 @@ class Chat extends Component {
     return <div className='avatar'>{res.toUpperCase()}</div>
   }
 
-  //displaying the chat history
-  renderChat() {
-  
-	onMessageSubmit = () => {
+  onMessageSubmit = () => {
     socket.emit('chat message', this.state.msg);
     // scrollChat;
     this.messagesEnd.scrollIntoView({ behavior: "smooth" });
   };
+  
+  //displaying the chat history
+  renderChat() {
+  
+
  
-	//displaying the chat history
-	renderChat() {
     const { chat } = this.state;
     return chat.map(({ username, msg }, i) => (
       <li className={username === chat[0].username ? 'chat' : 'chat-other'} key={i}>
