@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import UserStatus from '../userStatus';
 import L from 'leaflet';
 import Locate from "leaflet.locatecontrol";
-// import Paper from '@material-ui/core/Paper';
 import './style.css'
 
 // initialize socket
@@ -28,13 +27,6 @@ class Map extends Component {
     map = L.map('map', {
       center: this.state.center,
       zoom: 13,
-      // layers: layer,
-      // layers: [
-      //   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      //     attribution:
-      //       '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      //   }),
-      // ],
       zoomControl: false
     });
 
@@ -67,7 +59,12 @@ class Map extends Component {
     //set zoom controller to bottom right
     L.control.zoom({ position: "bottomright" }).addTo(map);
     // add marker
-    marker = L.marker(this.state.center).addTo(map);
+    var icon = L.icon({
+      iconUrl: "/images/marker-icon-green.png",
+      iconSize: [35, 35],
+      iconAnchor: [35, 35],
+    });
+    marker = L.marker(this.state.center, { icon: icon }).addTo(map);
     this.updateMarker();
     this.getCenter();
   }
