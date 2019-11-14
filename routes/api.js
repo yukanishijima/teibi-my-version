@@ -72,6 +72,8 @@ router.get("/mid/:lat1/:long1/:lat2/:long2", function(req, res) {
   router.handle(req, res);
 });
 
+// Uses YELP api to get a list of buisnesses depending on lat/lon within a radius
+// The radius will increase if nothing is found until something comes back with a timeout to prevent use from reaching the max YELP api
 router.get("/mp/:lat1/:long1", function(req, res) {
   let nlat1 = req.params.lat1;
   let nlon1 = req.params.long1;
@@ -119,18 +121,6 @@ router.post("/signin", passport.authenticate("local"), function(req, res) {
 
 router.get("/user_data", function(req, res) {
   if (!req.user) {
-    // axios.get("https://dog.ceo/api/breeds/list").then(breeds => {
-    //   let breedsList = breeds.data.message;
-    //   let randomIndex = Math.floor(Math.random() * breedsList.length);
-
-    //   res.json({
-    //     // username: "randomAnimal"
-    //     username: `(a) ${breedsList[randomIndex]}`,
-    //     loggedIn: false
-    //   });
-    //   // res.json({});
-    // });
-
     let randomIndex = Math.floor(Math.random() * animalNames.length);
 
     res.json({
@@ -141,7 +131,6 @@ router.get("/user_data", function(req, res) {
     res.json({
       username: req.user.username,
       loggedIn: true
-      // id: req.user.id
     });
   }
 });
