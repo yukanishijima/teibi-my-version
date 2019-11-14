@@ -14,7 +14,7 @@ const CopyLink = (props) => {
   const [state, copyToClipboard] = useCopyToClipboard();
 
   function notify() {
-    toast.info("Your Link is copied. Share it!", {
+    toast.warning("Your Link is copied. Share it!", {
       position: "bottom-right",
       autoClose: 2000,
       pauseOnFocusLoss: true
