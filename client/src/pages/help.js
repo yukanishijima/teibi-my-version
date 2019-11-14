@@ -6,7 +6,7 @@ class Help extends Component {
   render() {
     return (
       <>
-        <Button><img id="helpIcon" src="/images/LogoPadded.png" alt="logo"/></Button>
+        <Button><img id="helpIcon" src="/images/teibiLogo.png" alt="logo"/></Button>
       </>
     )
   }

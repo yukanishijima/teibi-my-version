@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
 import Button from '@material-ui/core/Button';
-// import Typography from '@material-ui/core/Typography';
 import { myTheme } from '../utils/myTheme';
-
 
 class SignIn extends Component {
   state = {
@@ -29,8 +27,6 @@ class SignIn extends Component {
         console.log("successful login");
         console.log(res.data);
         window.top.location.replace("/main/" + this.props.location.search.replace("?", ""));
-        // console.log(res.data.username);
-
       })
       .catch(err => {
         console.log(err)
@@ -53,15 +49,12 @@ class SignIn extends Component {
     });
   };
 
-
   render() {
-
     return (
       <>
         <form>
           <input
             type="text"
-            // id="username-input"
             name="username"
             onChange={this.handleInputChange}
             autoComplete="false"
@@ -69,10 +62,8 @@ class SignIn extends Component {
             className="userName"
             style={myTheme.palette.input}
           />
-
           <input
             type="password"
-            // id="password-input"
             name="password"
             onChange={this.handleInputChange}
             autoComplete="false"
@@ -80,13 +71,8 @@ class SignIn extends Component {
             className="password"
             style={myTheme.palette.input}
           />
-
           <Button style={myTheme.palette.buttonThree} type="submit" id="submit" onClick={this.handleFormSubmit}>SIGN IN</Button>
-
-          {/* <Typography color="primary" variant="body2" component="p" align="center" style={{ margin: "-15px auto 15px" }}>forgot password</Typography> */}
-
           <Button variant="outlined" style={myTheme.palette.buttonTwo} onClick={this.handleLogOut} id="logout">Log Out</Button>
-
         </form>
       </>
     )

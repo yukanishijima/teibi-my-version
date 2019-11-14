@@ -4,6 +4,7 @@
 }
 
 #logo,#helpIcon {
+    display: block;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -12,20 +13,21 @@
     width: 45px;
     min-height: 45px;
 }
-
+/* Hover doesnt work with resize */
 #helpIcon:hover {
-    content: url('/images/help.png');
+    display: block;
+    content: url('/images/question-mark.png') !important;
     position: absolute;
     top: 0px;
     left: 0px;
     border-radius: 50%;
-    min-width: 45px;
     width: 45px;
-    min-height: 45px;
+    height: 40px;
+    max-height: 45px;
 }
 
 .errorImage {
-    background-image: url("/images/broken.gif");
+    background-image: url("/images/question-mark.png");
     background-size: contain;
     background-repeat: no-repeat;
     min-width: 50vw;

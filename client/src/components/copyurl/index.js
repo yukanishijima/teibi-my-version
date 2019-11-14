@@ -7,7 +7,6 @@ import Fab from '@material-ui/core/Fab';
 import { myTheme } from "../../utils/myTheme";
 import './style.css';
 
-
 const CopyLink = (props) => {
   const [setText] = React.useState('');
   // eslint-disable-next-line

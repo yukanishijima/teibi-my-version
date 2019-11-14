@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-// eslint-disable-next-line
 import { Input, Button } from '@material-ui/core';
 import './style.css';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { socket } from '../socket'; // initialize socket
-// import $ from 'jquery';
+// import { myTheme } from '../utils/myTheme';
 
 // set up default primary color
 const theme = createMuiTheme({
@@ -19,12 +18,6 @@ const theme = createMuiTheme({
   },
 });
 
-//scroll feature but make messages recent stay low
-// const scrollChat = () =>{
-//  $(".chatScroll").animate({ scrollTop: $('.chatScroll')[0].scrollHeight}, 1000);
-//   console.log("scroll")
-// }
-
 class Chat extends Component {
 	state = {
 		username: '',
@@ -32,7 +25,9 @@ class Chat extends Component {
 		msg: '',
     chat: []
   };
-  
+
+  messagesEndRef = React.createRef();
+
 	componentDidMount() {
 		//catch username from server
 		socket.on('username', (data) => {
@@ -67,16 +62,11 @@ class Chat extends Component {
   };
   
 	onMessageSubmit = () => {
-    socket.emit('chat message', this.state.msg);	
-    // scrollChat();
+    socket.emit('chat message', this.state.msg);
+    // scrollChat;
+    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
   };
-
-  userNameInitials() {
-    let name = this.state.username; 
-    let res = name.slice(3, 6);
-    return <div className='avatar'>{res.toUpperCase()}</div>
-  }
-  
+ 
 	//displaying the chat history
 	renderChat() {
     const { chat } = this.state;
@@ -97,20 +87,25 @@ class Chat extends Component {
 
 	render() {
 		return (
-			<div className="chatApp">
         <ThemeProvider theme={theme}>
-        <Button
+        {/* WIDTH IS NOT GETTING OVERIDDEN */}
+        <div
 					onClick={this.startChatting}
           color="primary"
           variant="contained" 
-          id="chatB"
+          // id="chatB"
 					style={{ display: this.state.chatting ? 'none' : 'block' }}
-				>
-         <i className="far fa-comment-alt"></i>
-        </Button>				
+				><img src="/images/chat-icon.png" className="chat-icon" alt="logo"/>
+        </div>				
 				<div className="chatBox" style={{ display: this.state.chatting ? 'block' : 'none' }}>
 					<span className="CloseBtn" onClick={()=> this.setState({chatting:false})}>X</span>
-          <div className="chatScroll" >{this.renderChat()}</div>
+          <div className="chatScroll" >
+            {this.renderChat()}
+            {/*scrolls messages down to the most recent one*/}
+            <div style={{ float:"left", clear: "both" }}
+              ref={(el) => { this.messagesEnd = el; }}>
+            </div>
+          </div>
 					<div className="textInputBox">
             <Input
               className="msgBox"
@@ -126,12 +121,11 @@ class Chat extends Component {
               variant="contained"
               id="send"
             >
-              <i class="fa fa-paper-plane"></i>
+              <i className="fa fa-paper-plane" style={{color: "#efeed3"}}></i>
             </Button>
 					</div>
 				</div>
         </ThemeProvider>
-		  </div>
 		);
 	}
 }

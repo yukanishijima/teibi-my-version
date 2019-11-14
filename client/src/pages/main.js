@@ -5,9 +5,6 @@ import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
 import Help from '../pages/help';
 import UserStatus from '../components/userStatus';
-
-// import SignIn from "../components/sign/in"
-
 import 'normalize.css';
 
 class Main extends Component {
@@ -29,7 +26,6 @@ class Main extends Component {
                 <UserStatus />
                 <InfoButton />
                 <CopyUrl text={window.location.href} />
-                {/* <SignIn url={window.location.pathname} /> */}
                 <Chat />
             </>
         )
