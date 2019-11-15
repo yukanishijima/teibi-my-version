@@ -3,29 +3,8 @@
     min-height: 100vh;
 }
 
-#logo,#helpIcon {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border-radius: 50%;
-    min-width: 45px;
-    width: 45px;
-    min-height: 45px;
-}
-
-#helpIcon:hover {
-    content: url('/images/help.png');
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    border-radius: 50%;
-    min-width: 45px;
-    width: 45px;
-    min-height: 45px;
-}
-
 .errorImage {
-    background-image: url("/images/broken.gif");
+    background-image: url("/images/question-mark.png");
     background-size: contain;
     background-repeat: no-repeat;
     min-width: 50vw;

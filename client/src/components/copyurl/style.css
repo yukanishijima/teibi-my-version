@@ -6,3 +6,7 @@ right: 65px;
 .fa-copy {
   font-size: 1.5em;
 }
+.Toastify__toast--warning
+{ background-color:  #d5ded4;
+  color: #005f56
+}

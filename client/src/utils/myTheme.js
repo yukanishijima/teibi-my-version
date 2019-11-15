@@ -7,7 +7,6 @@ const secondary = "#f7f5bb";   //yellow
 const secondaryLight = '#efeed3';   //light yellow
 // const secondaryGrey = "#ababa0"; //grey yellow
 
-
 // set up default primary color
 export const myTheme = createMuiTheme({
 
@@ -42,4 +41,3 @@ export const myTheme = createMuiTheme({
     },
   },
 });
-
