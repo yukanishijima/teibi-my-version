@@ -72,7 +72,8 @@ class SignIn extends Component {
             style={myTheme.palette.input}
           />
           <Button style={myTheme.palette.buttonThree} type="submit" id="submit" onClick={this.handleFormSubmit}>SIGN IN</Button>
-          <Button variant="outlined" style={myTheme.palette.buttonTwo} onClick={this.handleLogOut} id="logout">Log Out</Button>
+          {/* <Button variant="outlined" style={myTheme.palette.buttonTwo} onClick={this.handleLogOut} id="logout">Log Out</Button> */}
+          
         </form>
       </>
     )
