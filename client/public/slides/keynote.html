@@ -30,12 +30,27 @@
     <main role="main">
       <article id="webslides">
         <!-- H - Quick app demon intro and inspiration -->
-        <section class="bg-apple aligncenter">
-          <h1 class="fadeInUp">Teibi</h1>
-        </section>
+        <section class="bg-apple">
+            <!--.wrap = container (width: 90%) -->
+            <div class="wrap aligncenter fadeInUp ">
+              <h1>Welcome</h1>
+            </div>
+            <!-- .end .wrap -->
+          </section>
+        <section class="fullscreen bg-black aligncenter">
+            <div class="embed dark">
+              <video autoplay loop muted>
+               <source src="./V.mp4" type="video/mp4">
+              </video>
+             </div><!-- .embed -->
+             <!-- .wrap = container (width: 90%) -->
+             <div class="wrap size-50">
+               <h2>Teibi</h2>
+             </div>
+           </section>
         <section class="bg-apple">
           <!--.wrap = container (width: 90%) -->
-          <div class="wrap size-50 fadeInUp ">
+          <div class="wrap aligncenter fadeInUp ">
             <h1>Te ibi (te/ˈi.biː/)</h1>
             <h2><i>See you there.</i> (latin)</h2>
           </div>
@@ -61,7 +76,13 @@
           </div>
           <!-- .end .wrap -->
         </section>
-
+        <section class="bg-apple aligncenter">
+          <div class="wrap">
+            <h1>Quick Demo...</h1>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+       
         <!-- H - Quick app demo intro and inspiration END -->
 
         <!-- N -  high level -->
@@ -94,8 +115,57 @@
         <!-- Y - api map / leaflet END -->
         
         <!-- H - yelp api -->
-        
-        
+        <section class="bg-apple aligncenter">
+            <div class="wrap">
+              <h1>API / Options</h1>
+            </div>
+            <!-- .end .wrap -->
+          </section>
+        <section class="bg-apple">
+          <div class="wrap size-50">
+              <h1>Yelp API</h1>
+              <p>Get a list of location based on a location with a radius</p>
+              <pre>
+                if (dataResult.total > 0) {
+                  res.json(dataResult);
+                } else {
+                  radius += 30;
+                  setTimeout(function() {
+                    getLocations();
+                  }, 500);
+                }</pre>
+          </div>
+          
+          <!-- .end .wrap -->
+        </section>
+        <section class="bg-apple">
+            <!--.wrap = container (width: 90%) -->
+            <div class="wrap size-50">
+                <h1>Other Options</h1>
+                <ul class="flexblock features">
+                    <li>
+                      <div>
+                        <h2>
+                          <span>🏙</span>
+                          Open Data sets
+                        </h2>
+                        City specific locations (🌳, 🪑)
+                      </div>
+                    </li>
+                    <li>
+                        <div>
+                          <h2>
+                            <span>✏</span>
+                            Preferences
+                          </h2>
+                          User options, prefered places
+                        </div>
+                      </li>
+                  </ul>
+                </div>
+            
+            <!-- .end .wrap -->
+          </section>
         <!-- H - yelp api END -->
         
         <!-- N - finish items in list -->
