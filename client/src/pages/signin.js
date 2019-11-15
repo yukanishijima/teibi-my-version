@@ -34,20 +34,6 @@ class SignIn extends Component {
       });
   };
 
-  // handleLogOut = () => {
-  //   API.checkLogin().then(res => {
-  //     console.log(res.data.loggedIn);
-
-  //     if (res.data.loggedIn) {
-  //       API.logoutUser().then(res => {
-  //         alert("You have successfully logged out.");
-  //         window.top.location.replace("/");
-  //       });
-  //     } else {
-  //       alert("You're not logged in.");
-  //     };
-  //   });
-  // };
 
   render() {
     return (
@@ -72,8 +58,6 @@ class SignIn extends Component {
             style={myTheme.palette.input}
           />
           <Button style={myTheme.palette.buttonThree} type="submit" id="submit" onClick={this.handleFormSubmit}>SIGN IN</Button>
-          {/* <Button variant="outlined" style={myTheme.palette.buttonTwo} onClick={this.handleLogOut} id="logout">Log Out</Button> */}
-          
         </form>
       </>
     )

@@ -31,12 +31,14 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         maxWidth: '50vw',
         minWidth: '50vw',
-        backgroundColor:  "rgba(255, 255, 255, 0.473)"
-      },
+        minHeight: '50vh',
+        backgroundColor: "rgba(255, 255, 255, 0.473)"
+    },
 }));
 
 function ListLocations({ data, displayClass }) {
     const classes = useStyles();
+
     return data.length > 0 ? (
         <div id="locationList">
             <List className={classes.root}>
@@ -49,8 +51,8 @@ function ListLocations({ data, displayClass }) {
                                 </ListItemAvatar>
                                 <ListItemText
                                     primary={<>
-                                        {e.name + " | "}
-                                        <a href={"tel:" + e.phone}>{e.phone}</a>
+                                        <p id="placeName">{e.name}</p>
+                                        <a href={"tel:" + e.phone} id="placePhone">{e.phone}</a>
                                     </>}
                                     secondary={
                                         <React.Fragment>
@@ -60,6 +62,7 @@ function ListLocations({ data, displayClass }) {
                                                     variant="body2"
                                                     className={classes.inline}
                                                     color="textPrimary"
+                                                    id="placeAddress"
                                                 >
                                                     {e.location.address1}
                                                 </Typography>
