@@ -54,7 +54,7 @@ const useStyles = makeStyles(myTheme => ({
     minWidth: 256,
     width: "60vw",
     maxWidth: 500,
-    height: 410,
+    height: "100%",
     position: 'relative',
   },
   rootLogOut: {
@@ -62,7 +62,7 @@ const useStyles = makeStyles(myTheme => ({
     minWidth: 256,
     width: "60vw",
     maxWidth: 500,
-    height: 300,
+    // height: 300,
     position: 'relative',
   },
 }));

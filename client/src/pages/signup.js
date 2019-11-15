@@ -5,7 +5,6 @@ import { myTheme } from '../utils/myTheme';
 
 var bcrypt = require("bcryptjs");
 
-
 class SignUp extends Component {
   state = {
     username: "",
@@ -35,8 +34,6 @@ class SignUp extends Component {
     API.saveUser(userData)
       .then(res => {
         console.log("user saved");
-        // window.location.replace("/signin");
-        // window.top.location.replace("/main/" + this.props.location.search.replace("?", ""));
         alert("Successful sign up!");
 
         API.loginUser(loginData)
@@ -60,27 +57,10 @@ class SignUp extends Component {
       });
   };
 
-  // handleLogOut = () => {
-  //   API.checkLogin().then(res => {
-  //     console.log(res.data.loggedIn);
-
-  //     if (res.data.loggedIn) {
-  //       API.logoutUser().then(res => {
-  //         alert("You have successfully logged out.");
-  //         window.top.location.replace("/");
-  //       });
-  //     } else {
-  //       alert("You're not logged in.");
-  //     };
-  //   });
-  // };
 
   render() {
     return (
       <>
-        {/* <p>{this.state.username}</p>
-        <p>{this.state.email}</p>
-        <p>{this.state.password}</p> */}
 
         <form>
           <input
@@ -117,9 +97,6 @@ class SignUp extends Component {
           />
 
           <Button style={myTheme.palette.buttonThree} type="submit" id="submit" onClick={this.handleFormSubmit}>SUBMIT</Button>
-
-          {/* <Button variant="outlined" style={myTheme.palette.buttonTwo} onClick={this.handleLogOut} id="logout">Log Out</Button> */}
-
         </form>
       </>
     )
