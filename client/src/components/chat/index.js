@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Input, Button } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import './style.css';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { socket } from '../socket'; // initialize socket
@@ -60,11 +61,7 @@ class Chat extends Component {
   onTextChange = (e) => {
     this.setState({ msg: e.target.value });
   };
-
-  onMessageSubmit = () => {
-    socket.emit('chat message', this.state.msg);
-  };
-
+  
   userNameInitials() {
     let name = this.state.username;
     let res = name.slice(3, 6);
@@ -109,13 +106,13 @@ class Chat extends Component {
         </div>				
 				<div className="chatBox" style={{ display: this.state.chatting ? 'block' : 'none' }}>
 					<span className="CloseBtn" onClick={()=> this.setState({chatting:false})}>X</span>
-          <div className="chatScroll" >
+          <Typography className="chatScroll" >
             {this.renderChat()}
             {/*scrolls messages down to the most recent one*/}
             <div style={{ float:"left", clear: "both" }}
               ref={(el) => { this.messagesEnd = el; }}>
             </div>
-          </div>
+          </Typography>
 					<div className="textInputBox">
             <Input
               className="msgBox"

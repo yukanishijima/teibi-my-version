@@ -62,7 +62,7 @@ class Map extends Component {
     var icon = L.icon({
       iconUrl: "/images/marker-icon-green.png",
       iconSize: [35, 35],
-      iconAnchor: [35, 35],
+      iconAnchor: [15, 35],
     });
     marker = L.marker(this.state.center, { icon: icon }).addTo(map);
     this.updateMarker();

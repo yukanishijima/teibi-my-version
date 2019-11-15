@@ -20,3 +20,12 @@
     float:left;
     margin: 2px;
 }
+
+@media screen and (max-width: 500px) {
+
+  #placeName, #placePhone, #placeAddress {
+    margin: 0;
+    font-size: 0.7em;
+    line-height: 1em;
+  }
+}

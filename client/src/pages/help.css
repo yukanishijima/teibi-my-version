@@ -1,5 +1,5 @@
 #helpIcon:hover {
-    content: url('/images/help.png');
+    content: url('/images/question-mark-w.png');
     border-radius: 50%;
     min-width: 45px;
     width: 45px;
@@ -43,8 +43,24 @@
   @import url(https://fonts.googleapis.com/css?family=Lobster|Playfair+Display:400,700i&display=swap);
   
   #helplist {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.3em;
+    /* font-family: 'Playfair Display', serif; */
+    font-size: 1em;
+    
+  }
+  #disclosure{
+    font-size: 1em;
+    font-style: italic;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: circle;
+    margin-top: 20px;
+
+  }
+  #helpBox{
+    display:flex;
+    justify-items: center;
+    align-items: center;
+    list-style-type: disc;
   }
   
