@@ -62,7 +62,7 @@ const useStyles = makeStyles(myTheme => ({
     minWidth: 256,
     width: "60vw",
     maxWidth: 500,
-    // height: 300,
+    minHeight: 230,
     position: 'relative',
   },
 }));
