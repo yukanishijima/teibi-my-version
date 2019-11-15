@@ -50,7 +50,12 @@ const useStyles = makeStyles(myTheme => ({
         width: "60vw",
         maxWidth: 500,
         height: 490,
-        position: 'relative',
+				position: 'relative',
+				display: 'flex',
+    		flexDirection: 'column',
+				justifyContent: 'center',
+				listStyleType:'disc',
+    		paddingRight: 20
     },
 }));
 
@@ -59,41 +64,27 @@ export default function FloatingActionButtonZoom() {
     const classes = useStyles();
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
-
     const handleChangeIndex = index => {
         setValue(index);
     };
-
     return (
-        <div className={classes.root}>
-
-            
+        <div className={classes.root}>   
                     <>
-
-
                         <SwipeableViews
                             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                             index={value}
                             onChangeIndex={handleChangeIndex}
                         >
-                            <ol id="helplist">
-                                <li>Go to https://teibi.ca/<br />or https//www.teibi.ca/
-                                     <br />
-                                     A new ID will be provided (XXXX-XXXX)
-                                </li>
-                                <li>Copy the URL
-                                    <br />
-                                    - Use the share link<br />
-                                    - Use the share functionality on your browser</li>
-                                <li>Share link</li>
-                                <li>Select your starting point</li>
-                                <li>Wait for the other user</li>
-                                <li>A list of places will be presented</li>
-                                <li>Pick one</li>
-                                <li>See you there</li>
-                                <li>See you next time</li>
-                            </ol>
-
+												<Typography id="helpBox">
+                            <ul id="helplist">
+                                <li>Share link with your buddy you wanna meet!</li>
+                                <li>Drag the map to choose the location and click the marker to lock it.</li>
+                                <li>Wait for the other user to select his/her location.</li>
+                                <li>Teibi will populate a list of happy "meet me half way" locations 🏢 to choose 🚂 from  ⚖ 🔀.</li>
+                                <li>Voila! See you there!</li>
+																<li id="disclosure">PS: Locate yourself, chat with your buddy. We never store any of this information! We Promise! </li>
+                            </ul>			
+												</Typography>
                         </SwipeableViews>
                     </>
              
