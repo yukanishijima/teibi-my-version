@@ -18,7 +18,8 @@
 
     <!-- Optional - CSS SVG Icons (Font Awesome) -->
     <link rel="stylesheet" type="text/css" media="all" href="./css/svg-icons.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://kit.fontawesome.com/908226b5f8.js" crossorigin="anonymous"></script>
 
     <!-- Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -94,8 +95,124 @@
         <!-- N -  high level END -->
         
         <!-- S  - users -->
-        
-        
+
+        <section class="bg-apple">
+          <div class="wrap">
+            <div class="grid vertical-align">
+              <div class="column">
+                <h2>
+                  <svg class="fa-apple">
+                    <use xlink:href="#fa-apple"></use>
+                  </svg>
+                  Free to use
+                </h2>
+                <p class="text-intro">- publicly accessible app, no registration neccessary</p>
+                <p class="text-intro">--> provided random alias as a guest <i class="fas fa-user"></i></p>
+                
+              </div>
+              <!-- end .column-->
+              <div class="column">
+                <h2>
+                  <svg class="fa-apple">
+                    <use xlink:href="#fa-apple"></use>
+                  </svg>
+                  Registration
+                </h2>
+                <p class="text-intro">- allows for verification/personalization:</p>
+                <p class="text-intro">- signed in users have verified icons <i class="fas fa-user-check"></i></p>
+                <p class="text-intro">--> future dev considerations: preselection/quick select, history, personal colour scheme, etc.</p>
+                <!-- <figure>
+                  <img src="../static/images/iphone.png" alt="iPhone">
+                </figure> -->
+              </div>
+              <!-- end figure-->
+            </div>
+            <!-- end .grid-->
+          </div>
+          <!-- end .wrap-->
+        </section>
+
+        <section class="bg-apple">
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap size-50">
+            <h1>Database</h1>
+            <p class="text-intro">- user database utilizing noSQL MongoDB with the help of Mongoose ODM (object data modeling library)</p>
+            <p class="text-intro">- authentication user model using passport.js</p>
+            <p class="text-intro">--> bcryptjs used to hash passwords</p>
+            <!-- <p><code>.bg-apple</code></p> -->
+            <figure>
+              <img src="../images/user_document_example.png" alt="user document example">
+            </figure>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section class="bg-apple">
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap size-50">
+            <h1>Passport.js</h1>
+            <p class="text-intro">- authentication middleware for node.js programs</p>
+            <p class="text-intro">- purpose of authenticating user requests while using app</p>
+            <p class="text-intro">- passport will maintain persistent login sessions</p>
+            <p class="text-intro">- local strategy: traditional username + password</p>
+            <!-- <p><code>.bg-apple</code></p> -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section class="bg-apple">
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap size-50">
+            <h1>Multi-User App Using Socket.IO</h1>
+            <p class="text-intro">- Socket.IO is a javascript library for realtime web applications</p>
+            <p class="text-intro">- enables realtime, bi-directional communication between web clients (users) and servers</p>
+            <p class="text-intro">--> two parts: a client-side library that runs in the browser, and a server-side library for Node.js</p>
+            
+            <!-- <p><code>.bg-apple</code></p> -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section class="bg-apple">
+          <div class="wrap">
+            <div class="grid vertical-align">
+              <div class="column">
+                <h2>
+                  <svg class="fa-apple">
+                    <use xlink:href="#fa-apple"></use>
+                  </svg>
+                  Multi-User App
+                </h2>
+                <p class="text-intro">- user alias/username and status transmitted through Socket.IO server</p>
+                <p class="text-intro">- user and their status authenticated on the client-side and emitted to the Socket server</p>
+                <p class="text-intro">--> Socket server holds the data and emits back to all existing associated users/clients</p>
+                
+              </div>
+
+              <div class="column">
+                <figure>
+                  <img src="../images/socket_example.png" alt="socket.io example">
+                </figure>
+              </div>
+              <!-- end figure-->
+            </div>
+            <!-- end .grid-->
+          </div>
+          <!-- end .wrap-->
+        </section>
+
+        <section class="bg-apple">
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap size-50">
+            <h1>Log Out</h1>
+            <p class="text-intro">- log out option is only available for user who are signed in (authenticated request)</p>
+            <p class="text-intro">--> end user session --> refreshes the app and generates anonymous alias and creates new room</p>
+            
+            <!-- <p><code>.bg-apple</code></p> -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
         <!-- S  - users END -->
         
         <!-- Y - api map / leaflet -->
