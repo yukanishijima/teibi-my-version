@@ -358,44 +358,35 @@
       </section>
       <section class="bg-apple">
         <div class="wrap">
-          <h2>Socket-IO Chat</h2>
-          <ul class="flexblock features">
-            <li>
-              <div>
-                <h2>
-                  <span>&rarr;</span>
-                  Server-side
-                  <ul>
-                    <li> emit() </li>
-                    <li>Takes the event you want called and what you want to send with it, like a username and
-                      message.
-                    </li>
-                    <li>on()</li>
-                    <li>When we get the `chat message` event, we emit new event to client to render the new
-                      message
-                      along with the username. So, while only one client called the event, both users on the
-                      server will
-                      get the message.
-                    </li>
-                  </ul>
-                </h2>
+              <h2>Socket-IO Chat</h2>
+                <ul class="flexblock features">
+                  <li>
+                    <div>
+                      <h2>Server-Side</h2>
+                      <h3>
+                        emit()
+                      </h3>
+                      Takes the event you want called and what you want to send with it, like a username and message.
+                    </div>
+                    <div>
+                      <h3>
+                        on()
+                      </h3>
+                      When we get the `chat message` event, we emit new event to client to render the new message along with the username. So, while only one client called the event, both users on the server will get the message.
+                    </div>
+                  </li>
+                  <li>
+                      <div>
+                        <h2>
+                          Client-Side
+                        </h2>
+                        Once the chat form is submitted.
+                        We send the object containing message to server.
+                        This is object is then sent back to clients on `chat message` event i.e emit.</li>
+                      </div>
+                    </Once>
+                </ul>
               </div>
-            </li>
-            <li>
-              <div>
-                <h2>
-                  <span>&rarr;</span>
-                  Client-side
-                  <ul>
-                    <li>Once the chat form is submitted.</li>
-                    <li>We send the object containing message to server.</li>
-                    <li>This is object is then sent back to clients on `chat message` event i.e emit.</li>
-                  </ul>
-                </h2>
-              </div>
-            </li>
-          </ul>
-        </div>
       </section>
 
       <!-- N - finish items in list END -->
