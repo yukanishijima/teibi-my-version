@@ -22,7 +22,7 @@
   .chatScroll{
     position: absolute;
     bottom: 0;
-    overflow: scroll;
+    overflow: auto;
     max-height: 45vh; 
     max-width: 45vw; 
     background: #d7dfd6af;  
