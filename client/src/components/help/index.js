@@ -80,7 +80,7 @@ export default function FloatingActionButtonZoom() {
                                 <li>Share link with your buddy you wanna meet!</li>
                                 <li>Drag the map to choose the location and click the marker to lock it.</li>
                                 <li>Wait for the other user to select his/her location.</li>
-                                <li>Teibi will populate a list of happy "meet me half way" locations 🏢 to choose 🚂 from  ⚖ 🔀.</li>
+                                <li>Teibi will populate a list of happy "meet me half way" locations <span>🏢</span> to choose <span>🚂</span> from  <span>⚖ 🔀</span>.</li>
                                 <li>Voila! See you there!</li>
 																<li id="disclosure">PS: Locate yourself, chat with your buddy. We never store any of this information! We Promise! </li>
                             </ul>			
