@@ -2,8 +2,8 @@
 ----------------------------- */
 #menu {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 10px;
+  right: 40px;
 }
 
 .fa-door-open {
@@ -12,11 +12,8 @@
 
 /* panel 
 ------------------------------ */
-
-
 .dialog {
   opacity: 0.9;
-  
 }
 
 /* sign in & sign up iframe 
@@ -28,18 +25,22 @@
   font-weight: 700;
   font-style: italic;
 }
+
 .signIn {
   width: 100%;
   min-height: 230px;
   padding: 45px 0 0;
 }
+
 .signUp {
   width: 100%;
   min-height: 230px;
   padding: 20px 0 0;
 }
 
-.userName, .password, .email {
+.userName,
+.password,
+.email {
   display: flex;
   text-align: center;
   margin: 5px auto;
@@ -49,10 +50,16 @@
 
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
-.userName::placeholder, .password::placeholder, .email::placeholder {
+
+.userName::placeholder,
+.password::placeholder,
+.email::placeholder {
   color: rgba(18, 56, 6, 0.6);
 }
-.userName:focus::placeholder, .password:focus::placeholder, .email:focus::placeholder {
+
+.userName:focus::placeholder,
+.password:focus::placeholder,
+.email:focus::placeholder {
   color: transparent;
 }
 
@@ -82,5 +89,4 @@
   display: flex;
   width: 100%;
   margin: 40px auto;
-} 
-
+}
