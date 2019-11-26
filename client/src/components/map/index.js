@@ -39,19 +39,6 @@ class Map extends Component {
     });
     map.addLayer(OpenStreetMap_HOT);
 
-    // option - 2
-    // var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-    //   attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
-    // });
-    // map.addLayer(Esri_WorldTopoMap);
-
-    // option - 3
-    // var Esri_NatGeoWorldMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
-    //   attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
-    //   maxZoom: 16
-    // });
-    // map.addLayer(Esri_NatGeoWorldMap);
-
     //Reference: https://medium.com/@annaian/adding-leaflet-and-leaflet-locatecontrol-to-react-component-c864262811e8
     //find user location and update based on that
     const lc = new Locate({ position: 'bottomright', keepCurrentZoomLevel: true, flyTo: 'setView' });
@@ -68,7 +55,6 @@ class Map extends Component {
     this.updateMarker();
     this.getCenter();
   }
-
 
   updateMarker() {
     // fix marker position to center for drag event
@@ -98,23 +84,16 @@ class Map extends Component {
       center: map.getCenter()
     });
     marker.on("click", (e) => {
-      // console.log("selected");
-      // console.log(this.state.center)
-      // this.setState({
-      //   center: map.getCenter()
-      // });
       let updatedUserInfo = {
         userId: socket.id,
         lat: this.state.center.lat,
         lon: this.state.center.lng,
         status: "Selected!"
       }
-      // console.log(updatedUserInfo)
       // send updated info to server
       socket.emit("selected", updatedUserInfo);
     });
   }
-
 
   render() {
     return (
