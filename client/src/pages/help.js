@@ -35,7 +35,7 @@ export default function Help() {
     <>
       <Fab color="primary" aria-label="add" className={classes.fab} onClick={handleClickOpen} id="help">
         <Tooltip title={"User"} placement="top">
-        <img id="helpIcon" src="/images/Logo2.png" alt="logo"/>
+        <span id="helpIcon" alt="logo"></span>
         </Tooltip>
       </Fab>
 

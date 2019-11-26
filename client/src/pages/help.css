@@ -1,66 +1,62 @@
 #helpIcon:hover {
-    content: url('/images/question-mark-w.png');
-    border-radius: 50%;
-    min-width: 45px;
-    width: 45px;
-    min-height: 45px;
-    cursor: pointer;   
+  content: url('/images/question-mark.png');
 }
 
-#logo,#helpIcon {
+#helpIcon {
+  content: url('/images/Logo2.png');
+}
+
+#logo,
+#helpIcon {
   position: relative;
-  top: 2px;
-  left: -1px;
-  min-width: 45px;
-  width: 45px;
-  min-height: 45px;
+  top: 3px;
+  max-width: 45px;
+  max-height: 45px;
 }
 
 /* info button
 ----------------------------- */
 #help {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-  }
-  
-  .fa-door-open {
-    font-size: 1.5em;
-  }
-  
-  /* panel 
-  ------------------------------ */
-  .MuiBox-root {
-    height: 394px;
-  }
-  
-  .dialog {
-    opacity: 0.9;
-  }
-  
-  /* sign in & sign up iframe 
-  ----------------------------------*/
-  @import url(https://fonts.googleapis.com/css?family=Lobster|Playfair+Display:400,700i&display=swap);
-  
-  #helplist {
-    /* font-family: 'Playfair Display', serif; */
-    font-size: 1em;
-    
-  }
-  #disclosure{
-    font-size: 1em;
-    font-style: italic;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    list-style-type: circle;
-    margin-top: 20px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
 
-  }
-  #helpBox{
-    display:flex;
-    justify-items: center;
-    align-items: center;
-    list-style-type: disc;
-  }
-  
+.fa-door-open {
+  font-size: 1.5em;
+}
+
+/* panel 
+  ------------------------------ */
+.MuiBox-root {
+  height: 394px;
+}
+
+.dialog {
+  opacity: 0.9;
+}
+
+/* sign in & sign up iframe 
+  ----------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Lobster|Playfair+Display:400,700i&display=swap);
+
+#helplist {
+  font-size: 1em;
+}
+
+#disclosure {
+  font-size: 1em;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: circle;
+  margin-top: 20px;
+}
+
+#helpBox {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  list-style-type: disc;
+}
