@@ -9,8 +9,6 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import CircularProgress from '@material-ui/core/CircularProgress';
-// import { myTheme } from "../../utils/myTheme";
-// import { Link } from "react-router-dom"
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -21,7 +19,6 @@ const useStyles = makeStyles(theme => ({
         position: 'relative',
         overflow: 'auto',
         maxHeight: '50vh',
-        backgroundColor: "#D5DED4"
     },
     inline: {
         display: 'inline',
@@ -34,7 +31,7 @@ const useStyles = makeStyles(theme => ({
         maxWidth: '50vw',
         minWidth: '50vw',
         minHeight: '50vh',
-        backgroundColor: "rgba(255, 255, 255, 0.473)"
+        backgroundColor: theme.palette.background.paper
     },
 }));
 
