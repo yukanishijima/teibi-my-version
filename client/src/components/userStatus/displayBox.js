@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 50,
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "center",
+    height: "7vw",
+    maxHeight: 30,
   }
 }));
 

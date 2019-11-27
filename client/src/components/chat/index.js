@@ -29,12 +29,12 @@ class Chat extends Component {
 
   messagesEndRef = React.createRef();
 
-	componentDidMount() {
-		//catch username from server
-		socket.on('username', (data) => {
-			this.setState({
-				username: data,
-			})
+  componentDidMount() {
+    //catch username from server
+    socket.on('username', (data) => {
+      this.setState({
+        username: data,
+      })
     });
 
     socket.on('rooms', (data) => {
@@ -61,7 +61,7 @@ class Chat extends Component {
   onTextChange = (e) => {
     this.setState({ msg: e.target.value });
   };
-  
+
   userNameInitials() {
     let name = this.state.username;
     let res = name.slice(3, 6);
@@ -92,32 +92,36 @@ class Chat extends Component {
     }
   }
 
-	render() {
-		return (
-        <ThemeProvider theme={theme}>
+  render() {
+    return (
+      <ThemeProvider theme={theme}>
         {/* WIDTH IS NOT GETTING OVERIDDEN */}
-        <div
-					onClick={this.startChatting}
+        < div
+          onClick={this.startChatting}
           color="primary"
-          variant="contained" 
+          variant="contained"
           // id="chatB"
-					style={{ display: this.state.chatting ? 'none' : 'block' }}
-				><img src="/images/chat-icon.png" className="chat-icon" alt="logo"/>
-        </div>				
-				<div className="chatBox" style={{ display: this.state.chatting ? 'block' : 'none' }}>
-					<span className="CloseBtn" onClick={()=> this.setState({chatting:false})}>X</span>
+          style={{ display: this.state.chatting ? 'none' : 'block' }
+          }
+        > <img src="/images/chat-icon.png" className="chat-icon" alt="logo" />
+        </div >
+
+        <div className="chatBox" style={{ display: this.state.chatting ? 'block' : 'none' }}>
+
+          <span className="CloseBtn" onClick={() => this.setState({ chatting: false })}>X</span>
           <Typography className="chatScroll" >
             {this.renderChat()}
             {/*scrolls messages down to the most recent one*/}
-            <div style={{ float:"left", clear: "both" }}
+            <div style={{ float: "left", clear: "both" }}
               ref={(el) => { this.messagesEnd = el; }}>
             </div>
           </Typography>
-					<div className="textInputBox">
+
+          <div className="textInputBox">
             <Input
               className="msgBox"
-              placeholder="Say Hey!!!" 
-              name="msg" 
+              placeholder="Say Hey!!!"
+              name="msg"
               onChange={(e) => this.onTextChange(e)}
               value={this.state.msg}
               onKeyDown={this.handleKeyPress}
@@ -128,13 +132,14 @@ class Chat extends Component {
               variant="contained"
               id="send"
             >
-              <i className="fa fa-paper-plane" style={{color: "#efeed3"}}></i>
+              <i className="fa fa-paper-plane" style={{ color: "#efeed3" }}></i>
             </Button>
-					</div>
-				</div>
-        </ThemeProvider>
-		);
-	}
+          </div>
+
+        </div>
+      </ThemeProvider>
+    );
+  }
 }
 
 export default Chat;

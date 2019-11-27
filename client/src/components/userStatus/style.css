@@ -4,6 +4,8 @@
   right: 4px;
   z-index: 1;
 
+  width: 50vw;
+  max-width: 220px;
   height: 100px;
 }
 
