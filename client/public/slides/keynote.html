@@ -89,15 +89,7 @@
         </div>
         <!-- .end .wrap -->
       </section>
-      <section class="bg-apple aligncenter">
-        <div class="wrap">
-          <h1>Quick Demo...</h1>
-        </div>
-        <!-- .end .wrap -->
-      </section>
-
-      <!-- H - Quick app demo intro and inspiration END -->
-
+      
       <!-- N -  high level -->
       <section class="bg-apple slide-bottom">
         <!-- Overlay/Opacity: [class*="bg-"] > .background.dark or .light -->
@@ -116,7 +108,7 @@
           <div class="wrap">
             <p>
               <span class="aligncenter">
-                MERN Full Stack App
+                Technologies
               </span>
               <span class="alignright">
                 <a href="https://teibi.ca" title="teibi.ca">teibi.ca</a>
@@ -127,6 +119,13 @@
         <!-- .end .wrap -->
       </section>
       <!-- N -  high level END -->
+
+      <section class="bg-apple aligncenter">
+          <div class="wrap">
+            <h1>Quick Demo...</h1>
+          </div>
+          <!-- .end .wrap -->
+        </section>
 
       <!-- S  - users -->
 
@@ -211,49 +210,94 @@
       </section>
 
       <section class="bg-apple">
-        <!--.wrap = container (width: 90%) -->
-        <div class="wrap size-50">
-          <h1>Multi-User App Using Socket.IO</h1>
-          <p class="text-intro">- Socket.IO is a javascript library for realtime web applications</p>
-          <p class="text-intro">- enables realtime, bi-directional communication between web clients (users) and servers
-          </p>
-          <p class="text-intro">--> two parts: a client-side library that runs in the browser, and a server-side library
-            for Node.js</p>
-
-          <!-- <p><code>.bg-apple</code></p> -->
-        </div>
-        <!-- .end .wrap -->
-      </section>
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap size-50">
+            <h1>Multi-User App Using Socket.IO</h1>
+            <p class="text-intro">- Socket.IO is a javascript library for realtime web applications</p>
+            <p class="text-intro">- enables realtime, bi-directional communication between web clients (users) and servers
+            </p>
+            <p class="text-intro">--> two parts: a client-side library that runs in the browser, and a server-side library
+              for Node.js</p>
+  
+            <!-- <p><code>.bg-apple</code></p> -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
 
       <section class="bg-apple">
-        <div class="wrap">
-          <div class="grid vertical-align">
-            <div class="column">
-              <h2>
-                <svg class="fa-apple">
-                  <use xlink:href="#fa-apple"></use>
-                </svg>
-                Multi-User App
-              </h2>
-              <p class="text-intro">- user alias/username and status transmitted through Socket.IO server</p>
-              <p class="text-intro">- user and their status authenticated on the client-side and emitted to the Socket
-                server</p>
-              <p class="text-intro">--> Socket server holds the data and emits back to all existing associated
-                users/clients</p>
-
+          <div class="wrap">
+            <div class="grid vertical-align">
+              <div class="column">
+                <h2>
+                  <svg class="fa-apple">
+                    <use xlink:href="#fa-apple"></use>
+                  </svg>
+                  Multi-User App
+                </h2>
+                <p class="text-intro">- user alias/username and status transmitted through Socket.IO server</p>
+                <p class="text-intro">- user and their status authenticated on the client-side and emitted to the Socket
+                  server</p>
+                <p class="text-intro">--> Socket server holds the data and emits back to all existing associated
+                  users/clients</p>
+  
+              </div>
+  
+              <div class="column">
+                <figure>
+                  <img src="../images/socket_example.png" alt="socket.io example">
+                </figure>
+              </div>
+              <!-- end figure-->
             </div>
-
-            <div class="column">
-              <figure>
-                <img src="../images/socket_example.png" alt="socket.io example">
-              </figure>
-            </div>
-            <!-- end figure-->
+            <!-- end .grid-->
           </div>
-          <!-- end .grid-->
+          <!-- end .wrap-->
+        </section>
+        
+      <section class="bg-apple">
+        <div class="wrap size-50">
+          <h2>Socket-IO Chat</h2>
+          <p class="text-intro">Once connection has been established, socket instance is utilized to listen/emit event messages. The
+            messages are instantly rendered on both.
+          </p>
+          <p class="text-intro">We don't store any user data, so there is no backend storage for the messages.Previously sent
+            messages just won’t be visible to any new pages.</p>
         </div>
-        <!-- end .wrap-->
       </section>
+      <section class="bg-apple">
+        <div class="wrap">
+              <h2>Socket-IO Chat</h2>
+                <ul class="flexblock features">
+                  <li>
+                    <div>
+                      <h2>Server-Side</h2>
+                      <h3>
+                        emit()
+                      </h3>
+                      Takes the event called and what data needs to be sent with it, like a username and message in this app.
+                    </div>
+                    <div>
+                      <h3>
+                        on()
+                      </h3>
+                      When we get the `chat message` event, we emit new event to client to render the new message along with the username. So, while only one client called the event, both users on the server will get the message.
+                    </div>
+                  </li>
+                  <li>
+                      <div>
+                        <h2>
+                          Client-Side
+                        </h2>
+                        Once the chat form is submitted.
+                        We send the object containing message to server.
+                        This is object is then sent back to clients on `chat message` event i.e emit.</li>
+                      </div>
+                    </Once>
+                </ul>
+              </div>
+      </section>
+
+      
 
       <!-- S  - users END -->
 
@@ -345,59 +389,16 @@
       <!-- H - yelp api END -->
 
       <!-- N - finish items in list -->
-      <section class="bg-apple">
-        <div class="wrap">
-          <h2>Socket-IO Chat</h2>
-          <h4>Once connection has been established, socket instance is utilized to listen/emit event messages. The
-            messages are instantly rendered on both.
-            We don't want to store any user data, so there is no backend storage for the messages.Previously sent
-            messages just won’t be visible to any new pages.
-          </h4>
-          <ul class="flexblock features">
-            <li>
-              <div>
-                <h2>
-                  <span>&rarr;</span>
-                  Server-side
-                  <ul>
-                    <li> emit() </li>
-                    <li>Takes the event you want called and what you want to send with it, like a username and
-                      message.
-                    </li>
-                    <li>on()</li>
-                    <li>When we get the `chat message` event, we emit new event to client to render the new
-                      message
-                      along with the username. So, while only one client called the event, both users on the
-                      server will
-                      get the message.
-                    </li>
-                  </ul>
-                </h2>
-              </div>
-            </li>
-            <li>
-              <div>
-                <h2>
-                  <span>&rarr;</span>
-                  Client-side
-                  <ul>
-                    <li>Once the chat form is submitted.</li>
-                    <li>We send the object containing message to server.</li>
-                    <li>This is object is then sent back to clients on `chat message` event i.e emit.</li>
-                  </ul>
-                </h2>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
+      
+  
+        
 
       <!-- N - finish items in list END -->
 
 
       <section class="bg-apple">
         <div class="wrap">
-          <h2>Material-ui</h2>
+          <h2>Material-UI</h2>
           <ul class="flexblock features">
             <li>
               <div>

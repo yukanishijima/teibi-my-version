@@ -80,7 +80,7 @@ class Chat extends Component {
     return chat.map(({ username, msg }, i) => (
       <li className={username === chat[0].username ? 'chat' : 'chat-other'} key={i}>
         <span style={{ color: 'white' }}>{username}: </span>
-        <div className="msg">{msg}</div>
+        <span className="msg">{msg}</span>
       </li>
     ));
   }
@@ -112,9 +112,10 @@ class Chat extends Component {
           <Typography className="chatScroll" >
             {this.renderChat()}
             {/*scrolls messages down to the most recent one*/}
-            <div style={{ float: "left", clear: "both" }}
+            {/* <div style={{ float: "left", clear: "both" }} */}
+            <span style={{ float: "left", clear: "both" }}
               ref={(el) => { this.messagesEnd = el; }}>
-            </div>
+            </span>
           </Typography>
 
           <div className="textInputBox">
