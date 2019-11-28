@@ -11,13 +11,13 @@ import './style.css';
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(1, 2.5),
-    marginBottom: theme.spacing(0.6),
+    marginBottom: theme.spacing(0.2),
     background: myTheme.palette.secondary.main,
     borderRadius: 50,
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    height: "7vw",
+    height: "5vw",
     maxHeight: 30,
   }
 }));
