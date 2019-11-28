@@ -13,13 +13,14 @@
 }
 
 .gradient {
+    color: red;
     min-width: 100vw;
     min-height: 100vh;
-    background: #5f2c82;
+    background: #827f2c;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #89bdbbbe 70%, #602c82);
+    background: -webkit-linear-gradient(to right, #ab2121be 70%, #827f2c);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #89bdbbbe 70%, #602c82);
+    background: linear-gradient(to right, #ab2121be 70%, #827f2c);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
