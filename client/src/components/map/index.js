@@ -98,7 +98,7 @@ class Map extends Component {
   render() {
     return (
       <>
-        <UserStatus elevation={4} />
+        <UserStatus />
         <div id="map"></div>
       </>
     )

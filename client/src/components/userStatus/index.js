@@ -71,11 +71,11 @@ class userStatus extends Component {
         status: roomArray
       }, () => {
         roomArray.forEach(e => {
-          if(e.status === "Selected!"){
+          if (e.status === "Selected!") {
             selectedIcon++;
           }
         });
-        if(selectedIcon === 2){
+        if (selectedIcon === 2) {
           this.setState({
             displayList: "displayList"
           });
@@ -117,7 +117,7 @@ class userStatus extends Component {
     return (
       <>
         <DisplayBox status={this.state.status} />
-        <ListLocations data={this.state.apiResult} displayClass={this.state.displayList}/>
+        <ListLocations data={this.state.apiResult} displayClass={this.state.displayList} />
       </>
     )
   }

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from "@material-ui/core/Tooltip";
 import Fab from '@material-ui/core/Fab';
 import Dialog from '@material-ui/core/Dialog';
-import TogglePanel from "../components/help";
+import HelpBox from "../components/help";
 // import { myTheme } from "../utils/myTheme";
 import '../components/infobutton/style.css';
 
@@ -35,12 +35,12 @@ export default function Help() {
     <>
       <Fab color="primary" aria-label="add" className={classes.fab} onClick={handleClickOpen} id="help">
         <Tooltip title="Help / Info" placement="top">
-        <span id="helpIcon" alt="logo"></span>
+          <span id="helpIcon" alt="logo"></span>
         </Tooltip>
       </Fab>
 
       <Dialog open={open} onClose={handleClose} className="dialog">
-        <TogglePanel />
+        <HelpBox />
       </Dialog>
     </>
   );
