@@ -4,7 +4,6 @@ import InfoButton from '../components/infobutton';
 import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
 import Help from '../pages/help';
-import UserStatus from '../components/userStatus';
 import 'normalize.css';
 
 class Main extends Component {
@@ -23,7 +22,6 @@ class Main extends Component {
             <>
                 <Map />
                 <Help />
-                <UserStatus />
                 <InfoButton />
                 <CopyUrl text={window.location.href} />
                 <Chat />
