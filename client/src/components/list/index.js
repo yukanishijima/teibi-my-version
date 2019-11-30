@@ -16,6 +16,7 @@ class ListLocations extends Component {
   state = {
     savedYelp: [],
     showList: true,
+    showButton: false,
   }
 
   handleToggle = (e) => {
@@ -42,12 +43,19 @@ class ListLocations extends Component {
     }
   }
 
+  changeShowButton = () => {
+    this.setState({
+      showButton: true,
+    })
+  }
+
   handleHideList = (e) => {
     e.preventDefault();
     if (this.state.showList === true) {
       this.setState({
         showList: false,
       })
+      setTimeout(this.changeShowButton, 600);
     }
   }
 
@@ -56,6 +64,7 @@ class ListLocations extends Component {
     if (this.state.showList === false) {
       this.setState({
         showList: true,
+        showButton: false,
       })
     }
   }
@@ -66,7 +75,7 @@ class ListLocations extends Component {
 
     return data.length > 0 ? (
       <>
-        <button className="show-btn" onClick={this.handleShowList}><i className="fas fa-angle-double-down"></i></button>
+        <button className={this.state.showButton ? "show-btn" : "show-btn hide"} onClick={this.handleShowList}><i className="fas fa-angle-double-down"></i></button>
 
         <div id="locationList" className={this.state.showList === false ? "hide-list" : "show-list"}>
           <List id="list" style={{ backgroundColor: myTheme.palette.secondary.main }}>
@@ -104,7 +113,7 @@ class ListLocations extends Component {
 
     ) :
       <>
-        <button className={`show-btn ${displayClass}`} onClick={this.handleShowList}><i className="fas fa-angle-double-down"></i></button>
+        <button className={this.state.showButton ? "show-btn" : "show-btn hide"} onClick={this.handleShowList}><i className="fas fa-angle-double-down"></i></button>
         <div id="locationList" className={this.state.showList === false ? `hide-list ${displayClass}` : `show-list ${displayClass}`}>
 
           <List id="progress" style={{ backgroundColor: myTheme.palette.secondary.main }}>

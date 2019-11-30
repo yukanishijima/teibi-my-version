@@ -19,7 +19,7 @@ class userStatus extends Component {
   state = {
     status: [],
     apiResult: "",
-    displayList: "hideList"
+    displayList: "hide"
   }
 
   componentDidMount() {
