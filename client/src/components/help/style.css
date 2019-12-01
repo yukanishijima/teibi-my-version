@@ -1,5 +1,36 @@
 @import url(https://fonts.googleapis.com/css?family=Lobster|Playfair+Display:400,700i&display=swap);
 
+/* help button
+----------------------------- */
+#helpIcon:hover {
+  content: url('/images/question-mark.png');
+}
+#helpIcon {
+  content: url('/images/Logo2.png');
+}
+#logo,
+#helpIcon {
+  position: relative;
+  top: 3px;
+  max-width: 45px;
+  max-height: 45px;
+}
+#help {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+
+/* Dialog 
+  ------------------------------ */
+.dialog {
+  opacity: 0.9;
+}
+
+
+/* help content
+  ------------------------------ */
 #helpContainer {
   max-width: 450px;
   height: 520px;

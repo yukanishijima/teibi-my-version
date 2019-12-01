@@ -3,31 +3,32 @@ import Map from '../components/map';
 import InfoButton from '../components/infobutton';
 import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
-import Help from '../pages/help';
+import Help from '../components/help';
 import 'normalize.css';
 
 class Main extends Component {
-    state = {
-        id: ""
-    }
+  state = {
+    id: ""
+  }
 
-    componentDidMount() {
-        this.setState({
-            id: this.props.match.params.id,
-        })
-    }
+  componentDidMount() {
+    this.setState({
+      id: this.props.match.params.id,
+    })
+  }
 
-    render() {
-        return (
-            <>
-                <Map />
-                <Help />
-                <InfoButton />
-                <CopyUrl text={window.location.href} />
-                <Chat />
-            </>
-        )
-    }
+  render() {
+    return (
+      <>
+        <Map />
+
+        <Chat />
+        <CopyUrl text={window.location.href} />
+        <InfoButton />
+        <Help />
+      </>
+    )
+  }
 }
 
 export default Main;
