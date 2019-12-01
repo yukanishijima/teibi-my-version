@@ -1,11 +1,11 @@
+/* help button
+----------------------------- */
 #helpIcon:hover {
   content: url('/images/question-mark.png');
 }
-
 #helpIcon {
   content: url('/images/Logo2.png');
 }
-
 #logo,
 #helpIcon {
   position: relative;
@@ -13,54 +13,18 @@
   max-width: 45px;
   max-height: 45px;
 }
-
-/* info button
------------------------------ */
 #help {
   position: absolute;
   bottom: 10px;
   right: 10px;
 }
 
-.fa-door-open {
-  font-size: 1.5em;
-}
 
-/* panel 
+/* Dialog 
   ------------------------------ */
 .MuiBox-root {
   height: 394px;
 }
-
 .dialog {
   opacity: 0.9;
-}
-
-/* sign in & sign up iframe 
-  ----------------------------------*/
-@import url(https://fonts.googleapis.com/css?family=Lobster|Playfair+Display:400,700i&display=swap);
-
-#helplist {
-  font-size: 1em;
-}
-
-#disclosure {
-  font-size: 1em;
-  font-style: italic;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style-type: circle;
-  margin-top: 20px;
-}
-
-#helpBox {
-  padding: 0 0 0 1.5rem;
-}
-
-a:hover,
-a:visited,
-a:link,
-a:active {
-  text-decoration: none;
 }

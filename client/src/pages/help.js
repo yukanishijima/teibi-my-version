@@ -4,8 +4,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import Fab from '@material-ui/core/Fab';
 import Dialog from '@material-ui/core/Dialog';
 import HelpBox from "../components/help";
-// import { myTheme } from "../utils/myTheme";
-import '../components/infobutton/style.css';
+import './help.css';
 
 
 const useStyles = makeStyles(theme => ({
