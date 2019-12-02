@@ -4,7 +4,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { myTheme } from '../../utils/myTheme';
 import './style.css';
@@ -124,7 +123,7 @@ class ListLocations extends Component {
                 )
                 }
               </List>
-              <Button size="medium" id="hide-btn" onClick={this.handleHideList}><i className="fas fa-angle-double-up"></i></Button>
+              <button className="hide-btn" onClick={this.handleHideList}><i className="fas fa-angle-double-up"></i></button>
             </div>
           </>) : (
             <>

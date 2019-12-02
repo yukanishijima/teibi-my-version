@@ -102,7 +102,7 @@ class Chat extends Component {
 
           <button className="CloseBtn" onClick={() => this.setState({ chatting: false })}>
             {/* <i className="fas fa-times"></i> */}
-            <i class="fas fa-angle-double-down"></i>
+            <i className="fas fa-angle-double-down"></i>
           </button>
 
           <div className="chatBox">
