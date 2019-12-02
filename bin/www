@@ -85,6 +85,16 @@ io.on('connection', (socket) => {
     });
   });
 
+  // send resulting list to room
+  socket.on('roomList', updatedUserInfo => {
+    io.nsps['/'].to('room ' + room).emit('roomList', updatedUserInfo);
+  });
+
+  socket.on('listRequested', idRequested => {
+    io.nsps['/'].to('room ' + room).emit('listRequested', idRequested);
+  });
+
+
   socket.on('disconnecting', () => {
     // console.log('disconnecting');
   });

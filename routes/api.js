@@ -90,7 +90,7 @@ router.get("/mp/:lat1/:long1", function(req, res) {
       .then(response => {
         let dataResult = response.jsonBody;
         // console.log("Radius: " + radius + " Total: " + dataResult.total);
-        if (dataResult.total > 0) {
+        if (dataResult.total > 5) {
           res.json(dataResult);
         } else {
           radius += 30;
