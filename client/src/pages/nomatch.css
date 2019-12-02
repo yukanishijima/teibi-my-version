@@ -2,7 +2,6 @@
     min-width: 100vw;
     min-height: 100vh;
 }
-
 .errorImage {
     background-image: url("/images/question-mark.png");
     background-size: contain;
@@ -11,7 +10,6 @@
     height: 100vh;
     margin: 0 auto;
 }
-
 .gradient {
     color: red;
     min-width: 100vw;

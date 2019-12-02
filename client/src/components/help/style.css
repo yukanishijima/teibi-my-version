@@ -1,0 +1,104 @@
+@import url(https://fonts.googleapis.com/css?family=Lobster|Playfair+Display:400,700i&display=swap);
+
+/* help button
+----------------------------- */
+#helpIcon:hover {
+  content: url('/images/question-mark.png');
+}
+#helpIcon {
+  content: url('/images/Logo2.png');
+}
+#logo,
+#helpIcon {
+  position: relative;
+  top: 3px;
+  max-width: 45px;
+  max-height: 45px;
+}
+#help {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+
+/* Dialog 
+  ------------------------------ */
+.dialog {
+  opacity: 0.9;
+}
+
+
+/* help content
+  ------------------------------ */
+#helpContainer {
+  max-width: 450px;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#helpContent {
+  padding: 0 5vw;
+}
+
+
+#helplist {
+  padding-inline-start: 25px;
+}
+#helpContent > h1 {
+  font-size: 1.8em;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  margin: 0.3em 0;
+}
+#helplist > p {
+  font-size: 0.9em;
+  margin-bottom: 0.4em;
+  line-height: 1.3;
+  opacity: 0.8;
+}
+#disclosure {
+  font-size: 0.85em;
+  font-style: italic;
+  margin: 10px 15px;
+  line-height: 1.3;
+  opacity: 0.8;
+}
+#team {
+  margin-bottom: 1em;
+}
+#team > a {
+  display: inline-block;
+  margin: 0 2px;
+}
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 430px) {
+  #helpContent {
+    padding: 0 10vw;
+  }
+}
+@media screen and (min-width: 534px) {
+  #helpContainer {
+    height: 480px;
+  }
+  #helpContent {
+    padding: 0 40px;
+  }
+  #helpContent > h1 {
+    font-size: 2em;
+    margin: 0.5em 0;
+  }
+  #helplist > p {
+    font-size: 1em;
+  }
+  #disclosure {
+    font-size: 0.9em;
+  }
+}
