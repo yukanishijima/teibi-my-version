@@ -35,7 +35,8 @@ export default function InfoButton() {
     <>
       <Fab color="primary" aria-label="add" className={classes.fab} onClick={handleClickOpen} id="menu">
         <Tooltip title={"User"} placement="top">
-          <i className="fas fa-door-open" style={{ color: myTheme.palette.secondary.secondary }}></i>
+          {/* <i className="fas fa-door-open" style={{ color: myTheme.palette.secondary.secondary }}></i> */}
+          <i className="far fa-user info-user" style={{ color: myTheme.palette.secondary.secondary }}></i>
         </Tooltip>
       </Fab>
 

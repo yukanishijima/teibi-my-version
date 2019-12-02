@@ -5,6 +5,8 @@ import CopyUrl from '../components/copyurl';
 import Chat from '../components/chat';
 import Help from '../components/help';
 import 'normalize.css';
+import './main.css';
+import { myTheme } from '../utils/myTheme';
 
 class Main extends Component {
   state = {
@@ -21,11 +23,12 @@ class Main extends Component {
     return (
       <>
         <Map />
-
-        <Chat />
-        <CopyUrl text={window.location.href} />
-        <InfoButton />
-        <Help />
+        <div id="menu-btn" style={{ background: myTheme.palette.primary.main }}>
+          <Help />
+          <Chat />
+          <CopyUrl text={window.location.href} />
+          <InfoButton />
+        </div>
       </>
     )
   }

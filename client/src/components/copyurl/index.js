@@ -35,13 +35,13 @@ const CopyLink = (props) => {
 
 
   return (
-    <div>
+    <div className="copyContainer">
       <input type="hidden" value={props.text} onChange={e => setText(e.target.value)} />
       <ToastContainer />
 
       <Fab color="primary" aria-label="add" className={classes.fab} onClick={() => { copyToClipboard(props.text); notify() }} id="copyButton">
         <Tooltip title={"Copy Url"} placement="top">
-          <i className="fas fa-copy" style={{ color: myTheme.palette.secondary.secondary }}></i>
+          <i className="far fa-copy" style={{ color: myTheme.palette.secondary.secondary }}></i>
         </Tooltip>
       </Fab>
     </div>

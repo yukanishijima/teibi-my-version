@@ -2,23 +2,28 @@
 
 /* help button
 ----------------------------- */
-#helpIcon:hover {
+#logo:hover {
   content: url('/images/question-mark.png');
 }
-#helpIcon {
-  content: url('/images/Logo2.png');
+#logo {
+  /* content: url('/images/Logo2.png'); */
+  content: url('/images/TeibeLogocream.png');
+
 }
-#logo,
-#helpIcon {
-  position: relative;
-  top: 3px;
-  max-width: 45px;
-  max-height: 45px;
+#logo {
+  height: 36px;
+  width: 46px;
 }
 #help {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+  height: 11vw;
+  min-height: 30px;
+  max-height: 36px;
+  box-shadow: none;
+  color: #fcfdcb;
+  width: 11vw;
+  min-width: 30px;
+  max-width: 36px;
+  margin: 6px;
 }
 
 

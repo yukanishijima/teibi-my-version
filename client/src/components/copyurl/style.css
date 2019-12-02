@@ -1,11 +1,19 @@
 #copyButton {
-  position: absolute;
-  bottom: 10px;
-  right: 140px;
+  height: 11vw;
+  min-height: 30px;
+  max-height: 36px;
+  box-shadow: none;
+  width: 11vw;
+  min-width: 30px;
+  max-width: 36px;
+  margin: 6px;
 }
 
+.copyContainer {
+  display: inline-block;
+}
 .fa-copy {
-  font-size: 1.5em;
+  font-size: 1.9em;
 }
 
 .Toastify__toast--warning {

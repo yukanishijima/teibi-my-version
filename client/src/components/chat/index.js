@@ -1,23 +1,11 @@
 import React, { Component } from 'react';
 import { Input, Button } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import ChatButton from './chatButton';
+import { socket } from '../socket';
 import './style.css';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { socket } from '../socket'; // initialize socket
-// import { myTheme } from '../utils/myTheme';
 
-// set up default primary color
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#005f56",
-      secondary: "#00897b",
-    },
-    secondary: {
-      main: '#ffe57f',
-    },
-  },
-});
+
 
 class Chat extends Component {
   state = {
@@ -94,17 +82,22 @@ class Chat extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <>
         {/* WIDTH IS NOT GETTING OVERIDDEN */}
-        < div
+        {/* < div
           onClick={this.startChatting}
           color="primary"
           variant="contained"
           // id="chatB"
           style={{ display: this.state.chatting ? 'none' : 'block' }
           }
-        > <img src="/images/chat-icon.png" className="chat-icon" alt="logo" />
-        </div >
+          className="chat-icon"
+        >
+          <img src="/images/chat-icon.png" alt="logo" />
+        </div> */}
+
+        <ChatButton startChatting={this.startChatting} chatting={this.state.chatting} />
+
 
         <div className="chatBox" style={{ display: this.state.chatting ? 'block' : 'none' }}>
 
@@ -138,7 +131,7 @@ class Chat extends Component {
           </div>
 
         </div>
-      </ThemeProvider>
+      </>
     );
   }
 }

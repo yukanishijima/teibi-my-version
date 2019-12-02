@@ -1,122 +1,123 @@
-  .chat-icon{
-    position: absolute;
-    bottom: 1vh;
-    left: 1vw;
-    width: 56px;
-    height: 56px;
-    cursor: pointer;
-  }
+#chat-icon{
+  height: 11vw;
+  min-height: 30px;
+  max-height: 36px;
+  box-shadow: none;
+  color: #fcfdcb;
+  width: 11vw;
+  min-width: 30px;
+  max-width: 36px;
+  margin: 6px;
+}
+.fa-comments {
+  font-size: 1.9em;
+}
 
-  .chatBox {
-    position: absolute;
-    bottom: 5vh;
-    width: 45vw;
-    height: 45vh;
-    justify-content: center;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background: #d7dfd6af;   
-    border: 1px solid #d7dfd6af;
-  }
+.chatBox {
+  position: absolute;
+  bottom: 5vh;
+  width: 45vw;
+  height: 45vh;
+  justify-content: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background: #d7dfd6af;   
+  border: 1px solid #d7dfd6af;
+}
 
-  .chatScroll{
-    position: absolute;
-    bottom: 0;
-    overflow: auto;
-    max-height: 45vh; 
-    max-width: 45vw; 
-    background: #d7dfd6af;  
-  }  
+.chatScroll{
+  position: absolute;
+  bottom: 0;
+  overflow: auto;
+  max-height: 45vh; 
+  max-width: 45vw; 
+  background: #d7dfd6af;  
+}  
 
-  .CloseBtn{
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    top: 0;
-    float:right;
-    position: sticky;
-    padding:2px 5px;
-    color:#ffffffb9;
-    background: #005f56;
-    z-index: 15;
-    border-radius: 50%;
-  }
+.CloseBtn{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  float:right;
+  position: sticky;
+  padding:2px 5px;
+  color:#ffffffb9;
+  background: #005f56;
+  z-index: 15;
+  border-radius: 50%;
+}
 
-  .CloseBtn:hover {
-    float:right;
-    padding:2px 5px;
-    color:#005f56;
-    background:#ffffffb9;
-    border-radius: 50%;
-  }
+.CloseBtn:hover {
+  float:right;
+  padding:2px 5px;
+  color:#005f56;
+  background:#ffffffb9;
+  border-radius: 50%;
+}
 
-  .textInputBox{
-    position: fixed;
-    bottom:0;
-    left: 0;
-    background:#fff;
-    justify-content: center;
-    height:5vh;
-    width: 45vw; 
-    border: 1px solid #d7dfd6af; 
-    background: #d7dfd6af;   
-  }
-  
-  .chat{  
-    list-style-type: none;
-    position:relative;
-    width: 30vw;
-    align-items: center;
-    justify-content: flex-start;
-    display:flex;
-    float: left;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 5px;
-    margin-top: 10px;
-    color:#fff;
-    background:#819284; 
-    border-radius:10px; 
-    max-height: 45vh;
-  } 
-  .chat-other{
-    list-style-type: none;
-    position:relative;
-    width: 30vw;
-    align-items: center;
-    justify-content: flex-start;
-    display:flex;
-    float: right;
-    padding:5px;
-    margin-top:10px;
-    color:#fff;
-    background:#005f56;
-    border-radius:10px; 
-    max-height: 45vh;
-  } 
-  .msg {
-    display: flex ;
-    flex:1;
-    flex-wrap: wrap;  
-    justify-content: flex-end;
-    margin-left: 10px;  
-  }
-  .msgBox{
-    overflow: auto;
-    width: 85%;
-    left:5px;
-  }
-  
-  .fa-copy {
-    font-size: 1.4em;
-  }
+.textInputBox{
+  position: fixed;
+  bottom:0;
+  left: 0;
+  background:#fff;
+  justify-content: center;
+  height:5vh;
+  width: 45vw; 
+  border: 1px solid #d7dfd6af; 
+  background: #d7dfd6af;   
+}
 
-  #send{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border-radius: 50%;
-    min-width: 40px;
-    width: 10%;
-    height: 5vh;
-  }
-  
+.chat{  
+  list-style-type: none;
+  position:relative;
+  width: 30vw;
+  align-items: center;
+  justify-content: flex-start;
+  display:flex;
+  float: left;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+  color:#fff;
+  background:#819284; 
+  border-radius:10px; 
+  max-height: 45vh;
+} 
+.chat-other{
+  list-style-type: none;
+  position:relative;
+  width: 30vw;
+  align-items: center;
+  justify-content: flex-start;
+  display:flex;
+  float: right;
+  padding:5px;
+  margin-top:10px;
+  color:#fff;
+  background:#005f56;
+  border-radius:10px; 
+  max-height: 45vh;
+} 
+.msg {
+  display: flex ;
+  flex:1;
+  flex-wrap: wrap;  
+  justify-content: flex-end;
+  margin-left: 10px;  
+}
+.msgBox{
+  overflow: auto;
+  width: 85%;
+  left:5px;
+}
+
+#send{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  min-width: 40px;
+  width: 10%;
+  height: 5vh;
+}
