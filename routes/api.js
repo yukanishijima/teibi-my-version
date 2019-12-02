@@ -100,7 +100,8 @@ router.get("/mp/:lat1/:long1", function(req, res) {
         }
       })
       .catch(e => {
-        console.log(e);
+        // console.log(e);
+        res.json(JSON.parse(e.response.body));
       });
   }
   getLocations();

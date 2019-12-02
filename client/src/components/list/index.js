@@ -4,7 +4,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { myTheme } from '../../utils/myTheme';
 import './style.css';
@@ -70,60 +70,80 @@ class ListLocations extends Component {
   }
 
   render() {
-
     const { data, displayClass } = this.props;
 
-    return data.length > 0 ? (
-      <>
-        <button className={this.state.showButton ? "show-btn" : "show-btn hide"} onClick={this.handleShowList}><i className="fas fa-angle-double-down"></i></button>
+    if (typeof (data.error) !== "undefined") {
+      return (
+        <>
+          <button className={this.state.showButton ? "show-btn" : "show-btn hide"} onClick={this.handleShowList}><i className="fas fa-angle-double-down"></i></button>
+          <div id="locationList" className={this.state.showList === false ? `hide-list ${displayClass}` : `show-list ${displayClass}`}>
 
-        <div id="locationList" className={this.state.showList === false ? "hide-list" : "show-list"}>
-          <List id="list" style={{ backgroundColor: myTheme.palette.secondary.main }}>
+            <List id="progress" style={{ backgroundColor: myTheme.palette.secondary.main }}>
+              <p>
+                {data.error.code}
+              </p>
+            </List>
+            <button className="hide-btn" onClick={this.handleHideList}><i className="fas fa-angle-double-up"></i></button>
+          </div>
+        </>
+      )
+    }
+    else {
+      if (typeof (data.businesses) !== "undefined") {
+        return data.businesses.length > 0 ? (
+          <>
+            <button className={this.state.showButton ? "show-btn" : "show-btn hide"} onClick={this.handleShowList}><i className="fas fa-angle-double-down"></i></button>
+            <div id="locationList" className={this.state.showList === false ? "hide-list" : "show-list"}>
+              <List id="list" style={{ backgroundColor: myTheme.palette.secondary.main }}>
 
-            {data.map((e, k) => {
-              return (
+                {data.businesses.map((e, k) => {
+                  return (
 
-                <ListItem key={e.name} alignItems="center" id="list-item">
+                    <ListItem key={e.name} alignItems="center" id="list-item">
 
-                  <ListItemAvatar id="avater">
-                    <Avatar alt={e.name} src={e.image_url} />
-                  </ListItemAvatar>
+                      <ListItemAvatar id="avater">
+                        <Avatar alt={e.name} src={e.image_url} />
+                      </ListItemAvatar>
 
-                  <ListItemText id="content"
-                    primary={<>
-                      <span id="placeName" style={{ color: myTheme.palette.primary.main }}>{e.name}</span>
-                    </>}
-                    secondary={<>
-                      <a href={"tel:" + e.phone} id="placePhone" style={{ color: myTheme.palette.primary.grey }}>{e.phone}</a>
-                      <span id="placeAddress">{e.location.address1}</span>
-                    </>}
-                  />
+                      <ListItemText id="content"
+                        primary={<>
+                          <span id="placeName" style={{ color: myTheme.palette.primary.main }}>{e.name}</span>
+                        </>}
+                        secondary={<>
+                          <a href={"tel:" + e.phone} id="placePhone" style={{ color: myTheme.palette.primary.grey }}>{e.phone}</a>
+                          <span id="placeAddress">{e.location.address1}</span>
+                        </>}
+                      />
 
-                  <i className="fas fa-heart" onClick={this.handleToggle} id="fav-btn" data-yelp={e.id}></i>
+                      <i className="fas fa-heart" onClick={this.handleToggle} id="fav-btn" data-yelp={e.id}></i>
 
-                </ListItem>
+                    </ListItem>
 
-              )
-            })}
-          </List>
+                  )
+                }
+                )
+                }
+              </List>
+              <Button size="medium" id="hide-btn" onClick={this.handleHideList}><i className="fas fa-angle-double-up"></i></Button>
+            </div>
+          </>) : (
+            <>
+              <button className={this.state.showButton ? "show-btn" : "show-btn hide"} onClick={this.handleShowList}><i className="fas fa-angle-double-down"></i></button>
+              <div id="locationList" className={this.state.showList === false ? `hide-list ${displayClass}` : `show-list ${displayClass}`}>
 
-          <button className="hide-btn" onClick={this.handleHideList}><i className="fas fa-angle-double-up"></i></button>
-        </div>
-      </>
-
-    ) :
-      <>
-        <button className={this.state.showButton ? "show-btn" : "show-btn hide"} onClick={this.handleShowList}><i className="fas fa-angle-double-down"></i></button>
-        <div id="locationList" className={this.state.showList === false ? `hide-list ${displayClass}` : `show-list ${displayClass}`}>
-
-          <List id="progress" style={{ backgroundColor: myTheme.palette.secondary.main }}>
-            <CircularProgress />
-          </List>
-          <button className="hide-btn" onClick={this.handleHideList}><i className="fas fa-angle-double-up"></i></button>
-
-        </div>;
-    </>
+                <List id="progress" style={{ backgroundColor: myTheme.palette.secondary.main }}>
+                  <CircularProgress />
+                </List>
+                <button className="hide-btn" onClick={this.handleHideList}><i className="fas fa-angle-double-up"></i></button>
+              </div>
+            </>
+          )
+      } else {
+        return (<></>);
+      }
+    }
   }
+
 }
 
 export default ListLocations;
