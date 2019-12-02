@@ -20,7 +20,8 @@ class userStatus extends Component {
     status: [],
     apiResult: "",
     displayList: "hide",
-    firstInLine: ""
+    firstInLine: "",
+    userOK: []
   }
 
   componentDidMount() {
@@ -35,9 +36,6 @@ class userStatus extends Component {
     room = room.substring(room.lastIndexOf("/") + 1);
 
     API.checkLogin().then(res => {
-      // console.log(res.data);
-      // console.log(res.data.username + "im here");
-      // this.setState({user: res.data.username});
       user = res.data.username;
       loggedIn = res.data.loggedIn;
 
@@ -55,11 +53,18 @@ class userStatus extends Component {
     // catch joinRoom event from server and update state
     socket.on("joinRoom", rooms => {
       // console.log(socket.id);
-
       this.setState({
         status: this.convertToArray(rooms[room])
       }, () => {
-        // console.log(this.state.status);
+        const unique = []
+        let i = 1;
+        this.state.status.forEach(e => {
+          unique[e.userId] = i++;
+        })
+        if(unique[socket.id] === 3){
+          socket.emit("disconnecting",);
+          window.location.href = "/";
+        }
       });
     });
 
