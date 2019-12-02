@@ -95,7 +95,6 @@
   #list, #progress {
     width: 360px;
   }
-
 }
 
 .hide-btn {
@@ -104,6 +103,8 @@
   font-size: 0.8em;
   padding: 6px 24px;
   border: none;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .fa-angle-double-up, .fa-angle-double-down {

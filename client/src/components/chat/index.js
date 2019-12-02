@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Button } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import ChatButton from './chatButton';
 import { socket } from '../socket';
@@ -98,28 +98,37 @@ class Chat extends Component {
 
         <ChatButton startChatting={this.startChatting} chatting={this.state.chatting} />
 
+        <div className="chatContainer" style={{ display: this.state.chatting ? 'block' : 'none' }}>
 
-        <div className="chatBox" style={{ display: this.state.chatting ? 'block' : 'none' }}>
+          <button className="CloseBtn" onClick={() => this.setState({ chatting: false })}>
+            {/* <i className="fas fa-times"></i> */}
+            <i class="fas fa-angle-double-down"></i>
+          </button>
 
-          <span className="CloseBtn" onClick={() => this.setState({ chatting: false })}>X</span>
-          <Typography className="chatScroll" >
-            {this.renderChat()}
-            {/*scrolls messages down to the most recent one*/}
-            {/* <div style={{ float: "left", clear: "both" }} */}
-            <span style={{ float: "left", clear: "both" }}
-              ref={(el) => { this.messagesEnd = el; }}>
-            </span>
-          </Typography>
+          <div className="chatBox">
+
+            <Typography className="chatScroll" >
+              {this.renderChat()}
+              {/*scrolls messages down to the most recent one*/}
+              {/* <div style={{ float: "left", clear: "both" }} */}
+              <span style={{ float: "left", clear: "both" }}
+                ref={(el) => { this.messagesEnd = el; }}>
+              </span>
+            </Typography>
+
+          </div>
 
           <div className="textInputBox">
-            <Input
-              className="msgBox"
-              placeholder="Say Hey!!!"
-              name="msg"
-              onChange={(e) => this.onTextChange(e)}
-              value={this.state.msg}
-              onKeyDown={this.handleKeyPress}
-            />
+            <Typography>
+              <input
+                className="msgBox"
+                placeholder="Say Hey!!!"
+                name="msg"
+                onChange={(e) => this.onTextChange(e)}
+                value={this.state.msg}
+                onKeyDown={this.handleKeyPress}
+              ></input>
+            </Typography>
             <Button
               onClick={this.onMessageSubmit}
               color="primary"
