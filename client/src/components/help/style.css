@@ -2,28 +2,26 @@
 
 /* help button
 ----------------------------- */
-#logo:hover {
-  content: url('/images/question-mark.png');
-}
-#logo {
-  /* content: url('/images/Logo2.png'); */
-  content: url('/images/TeibeLogocream.png');
-
-}
-#logo {
-  height: 36px;
-  width: 46px;
-}
 #help {
   height: 11vw;
-  min-height: 30px;
-  max-height: 36px;
+  /* min-height: 30px; */
+  max-height: 40px;
   box-shadow: none;
   color: #fcfdcb;
-  width: 11vw;
-  min-width: 30px;
-  max-width: 36px;
-  margin: 6px;
+  width: 12vw;
+  /* min-width: 30px; */
+  max-width: 40px;
+  margin: 3px;
+}
+#logo {
+  height: 35px;
+  width: 36px;
+}
+#logo {
+  content: url('/images/TeibiLightWideFinal.png');
+}
+#logo:hover {
+  content: url('/images/question-mark.png');
 }
 
 

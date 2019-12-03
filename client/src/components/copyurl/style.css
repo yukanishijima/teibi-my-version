@@ -1,12 +1,12 @@
 #copyButton {
   height: 11vw;
-  min-height: 30px;
-  max-height: 36px;
+  /* min-height: 30px; */
+  max-height: 40px;
   box-shadow: none;
   width: 11vw;
-  min-width: 30px;
-  max-width: 36px;
-  margin: 6px;
+  /* min-width: 30px; */
+  max-width: 40px;
+  margin: 3px;
 }
 
 .copyContainer {
