@@ -28,8 +28,9 @@
   width: 100vw;
   position: relative;
   overflow: auto;
-  max-height: 36vh;
+  max-height: 42vh;
   padding-bottom: 0;
+  opacity: 0.96;
 }
 #locationList > li {
   float:left;
@@ -104,7 +105,7 @@
   padding: 6px 24px;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 0 0 4px 4px;
 }
 
 .fa-angle-double-up, .fa-angle-double-down {

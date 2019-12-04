@@ -2,12 +2,10 @@
 ----------------------------- */
 #menu {
   height: 11vw;
-  /* min-height: 30px; */
   max-height: 40px;
   box-shadow: none;
   color: #fcfdcb;
   width: 11vw;
-  /* min-width: 30px; */
   max-width: 40px;
   margin: 3px;
 }
