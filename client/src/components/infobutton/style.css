@@ -22,12 +22,13 @@
 
 /* sign in & sign up iframe 
 ----------------------------------*/
-@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400i,700i&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Hind:500,600|Noto+Sans+TC:400,500,700|Playfair+Display:400,700i&display=swap);
 
 #msg {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-style: italic;
+  font-family: 'Hind', sans-serif;
+  font-weight: 500;
+  /* font-style: italic; */
+  letter-spacing: -0.02em;
 }
 
 .signIn {

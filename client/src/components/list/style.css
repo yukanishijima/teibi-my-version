@@ -22,6 +22,7 @@
   width: 100%;
   width: 100vw;
   min-height: 36vh;
+  opacity: 0.96;
 }
 
 #list {
@@ -100,7 +101,7 @@
 
 .hide-btn {
   float: left;
-  background: #e2e09d;
+  background: rgba(245, 244, 211, 0.96);
   font-size: 0.8em;
   padding: 6px 24px;
   border: none;
@@ -118,7 +119,7 @@
   left: 4px;
   z-index: 1;
 
-  background: #e2e09d;
+  background: rgba(245, 244, 211, 0.96);
   font-size: 0.8em;
   padding: 6px 24px;
   border: none;

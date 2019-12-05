@@ -43,8 +43,8 @@
   position: absolute;
   top: -26px;
   right: 0;
-  padding:2px 5px;
-  background: #b7c5b9;
+  padding: 2px 5px;
+  background: rgba(213, 222, 212, 0.9);
   z-index: 1100;
 
   padding: 6px 24px;
