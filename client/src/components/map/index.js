@@ -32,7 +32,6 @@ class Map extends Component {
 
     // add layer to map
 
-    // option - 1
     var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
@@ -95,10 +94,65 @@ class Map extends Component {
     });
   }
 
+  // show marker of result locations on map
+  addNewMarker(dataFromYelp) {
+    console.log(dataFromYelp);
+
+    // prepare marker icon
+    const myIcon = L.icon({
+      iconUrl: '/images/marker-icon-cream.png',
+      iconSize: [35, 35],
+      iconAnchor: [15, 35],
+      popupAnchor: [-3, -76],
+    });
+
+    for (let i = 0; i < dataFromYelp.total; i++) {
+
+      // get lat and lng for each location
+      let latlng = dataFromYelp.businesses[i].coordinates; // {latitude: XXX, longitude:XXX}
+      latlng = L.latLng(latlng.latitude, latlng.longitude);
+      console.log(latlng);
+
+      // add marker to map
+      let marker = L.marker(latlng, { icon: myIcon }).addTo(map);
+
+      // when marker is clicked, popup will be shown
+      marker.addEventListener("click", function (e) {
+        let markerClicked = this;
+        let content = "hi";
+
+
+        // need to test here
+
+
+        dataFromYelp.businesses.map((e, k) => {
+          console.log(e.name);
+          // define content
+          content =
+            `<img src=${e.image_url} alt=${e.name}>
+            <div>${e.name}</div>
+            <div>${e.phone}</div>
+            <div>${e.location.address1}</div>`;
+        })
+
+        // define popup window
+        let popup = L.popup({
+          offset: [4, -24], //adjust the distance from the marker
+          maxWidth: 500,
+          maxHeight: 280
+        })
+          .setLatLng(markerClicked.getLatLng())
+          .setContent(content)
+          .openOn(map);
+      });
+    }
+  }
+
+
   render() {
     return (
       <>
-        <UserStatus />
+        <UserStatus addNewMarker={this.addNewMarker} />
         <div id="map"></div>
       </>
     )
