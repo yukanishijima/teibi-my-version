@@ -14,7 +14,6 @@ let room;
 let user;
 let loggedIn;
 
-
 class userStatus extends Component {
   state = {
     status: [],
@@ -34,9 +33,6 @@ class userStatus extends Component {
     room = room.substring(room.lastIndexOf("/") + 1);
 
     API.checkLogin().then(res => {
-      // console.log(res.data);
-      // console.log(res.data.username + "im here");
-      // this.setState({user: res.data.username});
       user = res.data.username;
       loggedIn = res.data.loggedIn;
 
@@ -53,7 +49,6 @@ class userStatus extends Component {
   initSocket() {
     // catch joinRoom event from server and update state
     socket.on("joinRoom", rooms => {
-      // console.log(socket.id);
 
       this.setState({
         status: this.convertToArray(rooms[room])
@@ -64,7 +59,6 @@ class userStatus extends Component {
 
     // catch selected event from server and update state 
     socket.on("selected", async rooms => {
-      // console.log(rooms);
       let selectedIcon = 0;
       let roomArray = this.convertToArray(rooms[room]);
       this.setState({
@@ -89,6 +83,10 @@ class userStatus extends Component {
       // console.log(retrievedList);
       this.setState({
         apiResult: retrievedList
+      }, () => {
+
+        // sending data to map component
+        this.props.addNewMarker(this.state.apiResult);
       });
     });
 
