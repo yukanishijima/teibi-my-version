@@ -22,13 +22,12 @@
 
 /* sign in & sign up iframe 
 ----------------------------------*/
-@import url(https://fonts.googleapis.com/css?family=Hind:500,600|Noto+Sans+TC:400,500,700|Playfair+Display:400,700i&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Quicksand:500,600,700i&display=swap);
 
 #msg {
-  font-family: 'Hind', sans-serif;
-  font-weight: 500;
-  /* font-style: italic; */
-  letter-spacing: -0.02em;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  /* letter-spacing: -0.02em; */
 }
 
 .signIn {

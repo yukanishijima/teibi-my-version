@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Hind:500,600|Noto+Sans+TC:400,500,700|Playfair+Display:400,700i&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Quicksand:500,600,700&display=swap);
 
 
 /* help button
@@ -50,10 +50,9 @@
 }
 #helpContent > h1 {
   font-size: 1.7em;
-  font-family: 'Hind', sans-serif;
-  font-weight: 300;
-  letter-spacing: -0.03em;
-  /* font-style: italic; */
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  /* letter-spacing: -0.03em; */
   margin: 0.3em 0;
 }
 #helplist > p {
