@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import UserStatus from '../userStatus';
 import L from 'leaflet';
 import Locate from "leaflet.locatecontrol";
+import { myTheme } from '../../utils/myTheme';
 import './style.css'
 
 // initialize socket
@@ -97,10 +98,11 @@ class Map extends Component {
   // show marker of result locations on map
   addNewMarker(dataFromYelp) {
     console.log(dataFromYelp);
+    let newMarker = "";
 
     // prepare marker icon
     const myIcon = L.icon({
-      iconUrl: '/images/marker-icon-cream.png',
+      iconUrl: '/images/marker-icon-cream-edge.png',
       iconSize: [35, 35],
       iconAnchor: [15, 35],
       popupAnchor: [-3, -76],
@@ -114,29 +116,34 @@ class Map extends Component {
       console.log(latlng);
 
       // add marker to map
-      let marker = L.marker(latlng, { icon: myIcon }).addTo(map);
+      newMarker = L.marker(latlng, { icon: myIcon }).addTo(map);
 
       // when marker is clicked, popup will be shown
-      marker.addEventListener("click", function (e) {
+      newMarker.addEventListener("click", function (e) {
         let markerClicked = this;
-        let content = "hi";
-
-
-        // need to test here
-
+        let content = "";
 
         dataFromYelp.businesses.map((e, k) => {
           console.log(e.name);
           // define content
           content =
-            `<img src=${e.image_url} alt=${e.name}>
-            <div>${e.name}</div>
-            <div>${e.phone}</div>
-            <div>${e.location.address1}</div>`;
+            `<div key=${e.name}  id="lo-list-item">
+
+                <div id="lo-img">
+                  <img alt=${e.name} src=${e.image_url} />
+                </div>
+
+                <div id="lo-content"> 
+                    <p id="lo-placeName" style={{ color: ${myTheme.palette.primary.main} }}>${e.name}</p>
+                    <p><a href={"tel:" + ${e.phone}} id="lo-placePhone" style={{ color: ${myTheme.palette.primary.grey} }}>${e.phone}</a></p>
+                    <p id="lo-placeAddress">${e.location.address1}</p>        
+                </div>
+                
+            </div>`;
         })
 
         // define popup window
-        let popup = L.popup({
+        L.popup({
           offset: [4, -24], //adjust the distance from the marker
           maxWidth: 500,
           maxHeight: 280
@@ -145,7 +152,14 @@ class Map extends Component {
           .setContent(content)
           .openOn(map);
       });
+
+      // when the green marker is clicked, remove location markers
+      marker.addEventListener("click", function () {
+        map.removeLayer(newMarker);
+      });
+
     }
+
   }
 
 
