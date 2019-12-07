@@ -97,6 +97,10 @@ class userStatus extends Component {
       this.setState({
         apiResult: retrievedList,
         displayList: "displayList"
+      }, () => {
+
+        // sending data to map component
+        this.props.addNewMarker(this.state.apiResult);
       });
     });
 
