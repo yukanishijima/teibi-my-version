@@ -103,7 +103,7 @@ class userStatus extends Component {
     // set main id in both sides
     socket.on("listRequested", data => {
       this.setState({
-        apiResult: data
+        firstInLine: data
       }, () => {
 
         // sending data to map component
