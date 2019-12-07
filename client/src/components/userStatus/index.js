@@ -14,7 +14,6 @@ let room;
 let user;
 let loggedIn;
 
-
 class userStatus extends Component {
   state = {
     status: [],
@@ -52,7 +51,6 @@ class userStatus extends Component {
   initSocket() {
     // catch joinRoom event from server and update state
     socket.on("joinRoom", rooms => {
-      // console.log(socket.id);
       this.setState({
         status: this.convertToArray(rooms[room])
       }, () => {
@@ -69,8 +67,7 @@ class userStatus extends Component {
     });
 
     // catch selected event from server and update state 
-    socket.on("selected", rooms => {
-      // console.log(rooms);
+    socket.on("selected", async rooms => {
       let selectedIcon = 0;
       let roomArray = this.convertToArray(rooms[room]);
       this.setState({
@@ -106,7 +103,11 @@ class userStatus extends Component {
     // set main id in both sides
     socket.on("listRequested", data => {
       this.setState({
-        firstInLine: data
+        apiResult: data
+      }, () => {
+
+        // sending data to map component
+        this.props.addNewMarker(this.state.apiResult);
       });
     });
 

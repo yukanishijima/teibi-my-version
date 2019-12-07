@@ -92,9 +92,9 @@ class ListLocations extends Component {
         return data.businesses.length > 0 ? (
           <>
             <button className={this.state.showButton ? "show-btn" : "show-btn hide"} onClick={this.handleShowList}><i className="fas fa-angle-double-down"></i></button>
+
             <div id="locationList" className={this.state.showList === false ? "hide-list" : "show-list"}>
               <List id="list" style={{ backgroundColor: myTheme.palette.secondary.main }}>
-
                 {data.businesses.map((e, k) => {
                   return (
 
@@ -117,15 +117,15 @@ class ListLocations extends Component {
                       <i className="fas fa-heart" onClick={this.handleToggle} id="fav-btn" data-yelp={e.id}></i>
 
                     </ListItem>
-
                   )
-                }
-                )
-                }
+                })}
               </List>
+
               <button className="hide-btn" onClick={this.handleHideList}><i className="fas fa-angle-double-up"></i></button>
+
             </div>
-          </>) : (
+          </>
+        ) : (
             <>
               <button className={this.state.showButton ? "show-btn" : "show-btn hide"} onClick={this.handleShowList}><i className="fas fa-angle-double-down"></i></button>
               <div id="locationList" className={this.state.showList === false ? `hide-list ${displayClass}` : `show-list ${displayClass}`}>

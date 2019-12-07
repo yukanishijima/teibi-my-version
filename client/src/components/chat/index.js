@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Button } from '@material-ui/core';
+// import { Button } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import ChatButton from './chatButton';
 import { socket } from '../socket';
+import { myTheme } from "../../utils/myTheme";
 import './style.css';
 
 
@@ -41,7 +42,11 @@ class Chat extends Component {
 
   startChatting = () => {
     if (this.state.username) {
-      this.setState({ chatting: true });
+      if (this.state.chatting !== true) {
+        this.setState({ chatting: true });
+      } else {
+        this.setState({ chatting: false });
+      }
     }
   };
 
@@ -57,9 +62,11 @@ class Chat extends Component {
   }
 
   onMessageSubmit = () => {
-    socket.emit('chat message', this.state.msg);
-    // scrollChat;
-    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+    if (this.state.msg !== "") {
+      socket.emit('chat message', this.state.msg);
+      // scrollChat;
+      this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   //displaying the chat history
@@ -84,24 +91,13 @@ class Chat extends Component {
     return (
       <>
         {/* WIDTH IS NOT GETTING OVERIDDEN */}
-        {/* < div
-          onClick={this.startChatting}
-          color="primary"
-          variant="contained"
-          // id="chatB"
-          style={{ display: this.state.chatting ? 'none' : 'block' }
-          }
-          className="chat-icon"
-        >
-          <img src="/images/chat-icon.png" alt="logo" />
-        </div> */}
 
         <ChatButton startChatting={this.startChatting} chatting={this.state.chatting} />
 
-        <div className="chatContainer" style={{ display: this.state.chatting ? 'block' : 'none' }}>
+        {/* <div className="chatContainer" style={{ display: this.state.chatting ? 'block' : 'none' }}> */}
+        <div className={this.state.chatting ? `show-chat chatContainer` : `hide-chat chatContainer`}>
 
           <button className="CloseBtn" onClick={() => this.setState({ chatting: false })}>
-            {/* <i className="fas fa-times"></i> */}
             <i className="fas fa-angle-double-down"></i>
           </button>
 
@@ -110,7 +106,6 @@ class Chat extends Component {
             <Typography className="chatScroll" >
               {this.renderChat()}
               {/*scrolls messages down to the most recent one*/}
-              {/* <div style={{ float: "left", clear: "both" }} */}
               <span style={{ float: "left", clear: "both" }}
                 ref={(el) => { this.messagesEnd = el; }}>
               </span>
@@ -122,21 +117,17 @@ class Chat extends Component {
             <Typography>
               <input
                 className="msgBox"
-                placeholder="Say Hey!!!"
+                placeholder="Say hey!"
                 name="msg"
                 onChange={(e) => this.onTextChange(e)}
                 value={this.state.msg}
                 onKeyDown={this.handleKeyPress}
               ></input>
             </Typography>
-            <Button
-              onClick={this.onMessageSubmit}
-              color="primary"
-              variant="contained"
-              id="send"
-            >
-              <i className="fa fa-paper-plane" style={{ color: "#efeed3" }}></i>
-            </Button>
+
+            <button onClick={this.onMessageSubmit} style={{ background: myTheme.palette.primary.main }} id="send">
+              <i className="fa fa-paper-plane" style={{ color: myTheme.palette.secondary.secondary }}></i>
+            </button>
           </div>
 
         </div>

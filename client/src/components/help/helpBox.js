@@ -26,10 +26,10 @@ export default function HelpBox() {
         <h1 style={{ color: myTheme.palette.primary.main }}>Team Teibi</h1>
         <div id="team">
           <a href="mailto:info@teibi.ca" title="Teibi"><Avatar >T</Avatar></a>
-          <a href="mailto:neha@teibi.ca" title="Neha"><Avatar>N</Avatar></a>
-          <a href="mailto:yuka@teibi.ca" title="Yuka"><Avatar>Y</Avatar></a>
-          <a href="mailto:stanley@teibi.ca" title="Stanley"><Avatar>S</Avatar></a>
-          <a href="mailto:hector@teibi.ca" title="Héctor"><Avatar>H</Avatar></a>
+          <a href="mailto:neha@teibi.ca" title="Neha"><Avatar>NG</Avatar></a>
+          <a href="mailto:yuka@teibi.ca" title="Yuka"><Avatar>YN</Avatar></a>
+          <a href="mailto:stanley@teibi.ca" title="Stanley"><Avatar>SC</Avatar></a>
+          <a href="mailto:hector@teibi.ca" title="Héctor"><Avatar>HM</Avatar></a>
         </div>
 
       </div>
