@@ -95,10 +95,10 @@ class Map extends Component {
     });
   }
 
+
   // show marker of result locations on map
   addNewMarker(dataFromYelp) {
     console.log(dataFromYelp);
-    let newMarker = "";
 
     // prepare marker icon
     const myIcon = L.icon({
@@ -113,34 +113,38 @@ class Map extends Component {
       // get lat and lng for each location
       let latlng = dataFromYelp.businesses[i].coordinates; // {latitude: XXX, longitude:XXX}
       latlng = L.latLng(latlng.latitude, latlng.longitude);
-      console.log(latlng);
 
       // add marker to map
-      newMarker = L.marker(latlng, { icon: myIcon }).addTo(map);
+      let newMarker = L.marker(latlng, { icon: myIcon }).addTo(map);
+
+      // when the green marker is clicked, remove location markers
+      marker.addEventListener("click", function () {
+        console.log("hi");
+        newMarker.remove();
+      });
+
+      // get other informatin for each location
+      let name = dataFromYelp.businesses[i].name;
+      let image = dataFromYelp.businesses[i].image_url;
+      let phone = dataFromYelp.businesses[i].phone;
+      let location = dataFromYelp.businesses[i].location;
 
       // when marker is clicked, popup will be shown
       newMarker.addEventListener("click", function (e) {
         let markerClicked = this;
-        let content = "";
 
-        dataFromYelp.businesses.map((e, k) => {
-          console.log(e.name);
-          // define content
-          content =
-            `<div key=${e.name}  id="lo-list-item">
-
-                <div id="lo-img">
-                  <img alt=${e.name} src=${e.image_url} />
-                </div>
-
-                <div id="lo-content"> 
-                    <p id="lo-placeName" style={{ color: ${myTheme.palette.primary.main} }}>${e.name}</p>
-                    <p><a href={"tel:" + ${e.phone}} id="lo-placePhone" style={{ color: ${myTheme.palette.primary.grey} }}>${e.phone}</a></p>
-                    <p id="lo-placeAddress">${e.location.address1}</p>        
-                </div>
-                
+        // define content
+        let content =
+          `<div key=${name}  id="lo-list-item">
+              <div id="lo-img">
+                <img alt=${name} src=${image} />
+              </div>
+              <div id="lo-content"> 
+                  <p id="lo-placeName" style={{ color: ${myTheme.palette.primary.main} }}>${name}</p>
+                  <p><a href={"tel:" + ${phone}} id="lo-placePhone" style={{ color: ${myTheme.palette.primary.grey} }}>${phone}</a></p>
+                  <p id="lo-placeAddress">${location.address1}</p>        
+              </div>
             </div>`;
-        })
 
         // define popup window
         L.popup({
@@ -153,13 +157,7 @@ class Map extends Component {
           .openOn(map);
       });
 
-      // when the green marker is clicked, remove location markers
-      marker.addEventListener("click", function () {
-        map.removeLayer(newMarker);
-      });
-
     }
-
   }
 
 
