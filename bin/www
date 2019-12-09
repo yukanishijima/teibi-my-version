@@ -53,15 +53,15 @@ io.on('connection', (socket) => {
         // userName: 'randomNameFunc' + Date.now(),
         userName: userInfo.username,
         loggedIn: userInfo.loggedIn,
-        lat: 0,
-        lon: 0,
+        lat: 43.6534399, 
+        lon: -79.3840901,
         status: 'Selecting...'
       };
     }
     // send rooms object to client
     io.nsps['/'].to('room ' + room).emit('joinRoom', rooms);
 
-    // console.log(rooms);
+    // console.log(rooms[room]);
     // console.log(`${io.nsps['/'].adapter.rooms['room ' + room].length} clients are inside room ${userInfo.room}`);
 
     io.nsps['/'].to('room ' + room).emit('username', rooms[room][socket.id].userName);
@@ -79,11 +79,21 @@ io.on('connection', (socket) => {
   socket.on('chat message', function (data) {
     // console.log('msg', data);
     // console.log(`${rooms[room][socket.id].userName}`);
-    io.emit('chat message', {
+    io.nsps['/'].to('room ' + room).emit('chat message', {
       username: rooms[room][socket.id].userName,
       msg: data
     });
   });
+
+  // send resulting list to room
+  socket.on('roomList', updatedUserInfo => {
+    io.nsps['/'].to('room ' + room).emit('roomList', updatedUserInfo);
+  });
+
+  socket.on('listRequested', idRequested => {
+    io.nsps['/'].to('room ' + room).emit('listRequested', idRequested);
+  });
+
 
   socket.on('disconnecting', () => {
     // console.log('disconnecting');
@@ -110,8 +120,9 @@ io.on('connection', (socket) => {
   reconnectionAttempts: Infinity,
   reconnection: true,
   reconnectionDelay: 0,
-  timeout: 10000,
-  autoConnect: true
+  timeout: 60000,
+  autoConnect: true,
+  wsEngine: 'ws'
 });
 // },{transports:['websocket'], upgrade: true}, {'force new connection': false});
 // ^ https://mashhurs.wordpress.com/2016/09/30/polling-vs-websocket-transport/

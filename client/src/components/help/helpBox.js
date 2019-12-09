@@ -28,7 +28,7 @@ export default function HelpBox() {
           <a href="mailto:info@teibi.ca" title="Teibi"><Avatar >T</Avatar></a>
           <a href="mailto:neha@teibi.ca" title="Neha"><Avatar>NG</Avatar></a>
           <a href="mailto:yuka@teibi.ca" title="Yuka"><Avatar>YN</Avatar></a>
-          <a href="mailto:stanley@teibi.ca" title="Stanley"><Avatar>SC</Avatar></a>
+          <a href="mailto:stanley@teibi.ca" title="Stanley"><Avatar>SZ</Avatar></a>
           <a href="mailto:hector@teibi.ca" title="Héctor"><Avatar>HM</Avatar></a>
         </div>
 

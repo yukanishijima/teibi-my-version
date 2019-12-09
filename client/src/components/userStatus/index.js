@@ -18,7 +18,9 @@ class userStatus extends Component {
   state = {
     status: [],
     apiResult: "",
-    displayList: "hide"
+    displayList: "hide",
+    firstInLine: "",
+    userOK: []
   }
 
   componentDidMount() {
@@ -49,11 +51,18 @@ class userStatus extends Component {
   initSocket() {
     // catch joinRoom event from server and update state
     socket.on("joinRoom", rooms => {
-
       this.setState({
         status: this.convertToArray(rooms[room])
       }, () => {
-        // console.log(this.state.status);
+        const unique = []
+        let i = 1;
+        this.state.status.forEach(e => {
+          unique[e.userId] = i++;
+        })
+        if(unique[socket.id] === 3){
+          socket.emit("disconnecting",);
+          window.location.href = "/";
+        }
       });
     });
 
@@ -63,26 +72,42 @@ class userStatus extends Component {
       let roomArray = this.convertToArray(rooms[room]);
       this.setState({
         status: roomArray
-      }, () => {
+      }, async () => {
         roomArray.forEach(e => {
           if (e.status === "Selected!") {
             selectedIcon++;
           }
         });
+
+        socket.emit("listRequested", socket.id)
+
+        // make sure both sides are selected
         if (selectedIcon === 2) {
-          this.setState({
-            displayList: "displayList"
-          });
+          if (this.state.firstInLine === socket.id) {
+            const retrievedList = await GetList(this.state.status);
+            // share results with other connections
+            socket.emit("roomList", retrievedList);
+          }
         }
       });
+    });
 
-      // const retrievedList =  GetList(this.state.status);
-      // console.log("retrievedList")
-      // console.log(GetList(this.state.status))
-      const retrievedList = await GetList(this.state.status);
-      // console.log(retrievedList);
+    // get list
+    socket.on("roomList", retrievedList => {
       this.setState({
-        apiResult: retrievedList
+        apiResult: retrievedList,
+        displayList: "displayList"
+      }, () => {
+
+        // sending data to map component
+        this.props.addNewMarker(this.state.apiResult);
+      });
+    });
+
+    // set main id in both sides
+    socket.on("listRequested", data => {
+      this.setState({
+        firstInLine: data
       }, () => {
 
         // sending data to map component
