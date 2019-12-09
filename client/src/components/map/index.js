@@ -102,7 +102,7 @@ class Map extends Component {
 
     // prepare marker icon
     const myIcon = L.icon({
-      iconUrl: '/images/marker-icon-cream-edge.png',
+      iconUrl: '/images/marker-icon-greenish2.png',
       iconSize: [35, 35],
       iconAnchor: [15, 35],
       popupAnchor: [-3, -76],
